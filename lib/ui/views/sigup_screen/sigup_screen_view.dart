@@ -29,8 +29,27 @@ class SigupScreenView extends StackedView<SigupScreenViewModel> {
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
-            Container(
-              padding: const EdgeInsets.only(left: 35, top: 30),
+            // Container(
+            //   padding: const EdgeInsets.only(left: 35, top: 30),
+            //   child: const Text(
+            //     'Create\nAccount',
+            //     style: TextStyle(
+            //         color: Colors.white,
+            //         fontSize: 33,
+            //         fontWeight: FontWeight.w600),
+            //   ),
+            // ),
+            SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  top: 18,
+                  left: 35,
+                  right: 35,
+                ),
+                child: Column(
+                  children: [
+                    Container(
+              padding: const EdgeInsets.only(left: 35, top: 18),
               child: const Text(
                 'Create\nAccount',
                 style: TextStyle(
@@ -39,15 +58,7 @@ class SigupScreenView extends StackedView<SigupScreenViewModel> {
                     fontWeight: FontWeight.w600),
               ),
             ),
-            SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.25,
-                  left: 35,
-                  right: 35,
-                ),
-                child: Column(
-                  children: [
+            SizedBox(height: 18,),
                     reusableTextFeild("Enter UserName", Icons.person_outline,
                         false, viewModel.userNameCtrl),
 
@@ -83,21 +94,21 @@ class SigupScreenView extends StackedView<SigupScreenViewModel> {
                             },
                             child: const Text("Sign Up")),
                             
-                    const Text('Or create account using social media'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.facebook_outlined)),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.mail_outline_outlined)),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.facebook_outlined)),
-                      ],
-                    ),
+                    // const Text('Or create account using social media'),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: [
+                    //     IconButton(
+                    //         onPressed: () {},
+                    //         icon: const Icon(Icons.facebook_outlined)),
+                    //     IconButton(
+                    //         onPressed: () {},
+                    //         icon: const Icon(Icons.mail_outline_outlined)),
+                    //     IconButton(
+                    //         onPressed: () {},
+                    //         icon: const Icon(Icons.facebook_outlined)),
+                    //   ],
+                    // ),
                     // Row(
                     //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     //   children: [

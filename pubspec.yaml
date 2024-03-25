@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
+  curved_labeled_navigation_bar: ^2.0.2
   flutter:
     sdk: flutter
   stacked: ^3.4.0
