@@ -25,25 +25,45 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
       bottomNavigationBar: CurvedNavigationBar(
         key: viewModel.bottomNavigationKey,
         index: 0,
+      //   const Icon(
+      //   Icons.home,
+      //   size: 30,
+      // ),
+      // const Icon(
+      //   Icons.chat_outlined,
+      //   size: 30,
+      // ),
+      // const Icon(
+      //   Icons.add_circle_outlined,
+      //   size: 30,
+      // ),
+      // const Icon(
+      //   Icons.star_border,
+      //   size: 30,
+      // ),
+      // const Icon(
+      //   Icons.settings,
+      //   size: 30,
+      // ),
         items: [
           const CurvedNavigationBarItem(
-            child: Icon(Icons.home_outlined),
+            child: Icon(Icons.home),
             label: 'Home',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.search),
-            label: 'Search',
-          ),
-          const CurvedNavigationBarItem(
-            child: Icon(Icons.chat_bubble_outline),
+            child: Icon(Icons.chat_outlined),
             label: 'Chat',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.newspaper),
+            child: Icon(Icons.circle_outlined),
+            label: 'Circle',
+          ),
+          const CurvedNavigationBarItem(
+            child: Icon(Icons.star_border),
             label: 'Feed',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.perm_identity),
+            child: Icon(Icons.settings),
             label: 'Personal',
           ),
         ],
