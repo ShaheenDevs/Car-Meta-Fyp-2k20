@@ -35,4 +35,3 @@ class CategoriesCards extends StatelessWidget {
     );
   }
 }
-

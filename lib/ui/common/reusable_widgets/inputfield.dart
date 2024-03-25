@@ -14,8 +14,7 @@ Widget customInputField({
     width: width * 0.8,
     height: height * 0.05,
     padding: EdgeInsets.symmetric(horizontal: 7),
-    decoration: BoxDecoration(
-    ),
+    decoration: BoxDecoration(),
     child: TextFormField(
       controller: controller,
       style: TextStyle(color: Colors.black),

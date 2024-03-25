@@ -15,19 +15,16 @@ class _InputFieldState extends State<Input_Field> {
     return TextField(
       controller: _controller,
       keyboardType: TextInputType.text, // Specify numeric keyboard
-      
+
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          
-        ),
+        border: OutlineInputBorder(),
         isDense: true,
       ),
-      
+
       onChanged: (value) {
         // Handle the input value (it will be a String)
         print(value);
       },
-      
     );
   }
 }

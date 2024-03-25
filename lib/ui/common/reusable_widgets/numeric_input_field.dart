@@ -29,17 +29,14 @@ class _InputFieldState extends State<InputField> {
         FilteringTextInputFormatter.digitsOnly // Allow only digits
       ],
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          
-        ),
+        border: OutlineInputBorder(),
         isDense: true,
       ),
-      
+
       onChanged: (value) {
         // Handle the input value (it will be a String)
         print(value);
       },
-      
     );
   }
 }

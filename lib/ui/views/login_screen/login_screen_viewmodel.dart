@@ -5,14 +5,15 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class LoginScreenViewModel extends BaseViewModel {
-
   final _navigationService = locator<NavigationService>();
-  navigateToSignup(){
+  navigateToSignup() {
     _navigationService.navigateToSigupScreenView();
   }
-  navigateToLandingScreen(){
+
+  navigateToLandingScreen() {
     _navigationService.navigateToLandingScreenView();
   }
+
   TextEditingController userNameCtrl = TextEditingController();
   TextEditingController passwordCtrl = TextEditingController();
 }

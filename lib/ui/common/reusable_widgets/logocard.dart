@@ -12,7 +12,6 @@ class LogoCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(15, 0, 10, 0),
-      
       width: 55,
       decoration:
           BoxDecoration(color: colr, borderRadius: BorderRadius.circular(15)),
@@ -24,7 +23,6 @@ class LogoCards extends StatelessWidget {
             imagePath,
             height: 40,
           ),
-          
         ],
       ),
     );

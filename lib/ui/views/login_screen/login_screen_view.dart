@@ -142,27 +142,29 @@ class LoginScreenView extends StackedView<LoginScreenViewModel> {
               ),
             ),
             Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          "Don't have an account?",
-          style: TextStyle(color: Colors.white70),
-        ),
-        GestureDetector(
-          onTap: () {
-            viewModel.navigateToSignup();
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: (context) => MyRegister()));
-          },
-          child: const Text(
-            "Sign Up",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    ),
-    SizedBox(height: 50,),
-  
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Don't have an account?",
+                  style: TextStyle(color: Colors.white70),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    viewModel.navigateToSignup();
+                    // Navigator.push(
+                    //     context, MaterialPageRoute(builder: (context) => MyRegister()));
+                  },
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ),

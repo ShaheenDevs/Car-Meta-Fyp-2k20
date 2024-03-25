@@ -44,4 +44,3 @@ class _MyImageSliderState extends State<MyImageSlider> {
     );
   }
 }
-

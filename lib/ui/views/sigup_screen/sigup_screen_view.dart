@@ -49,16 +49,18 @@ class SigupScreenView extends StackedView<SigupScreenViewModel> {
                 child: Column(
                   children: [
                     Container(
-              padding: const EdgeInsets.only(left: 35, top: 18),
-              child: const Text(
-                'Create\nAccount',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 33,
-                    fontWeight: FontWeight.w600),
-              ),
-            ),
-            SizedBox(height: 18,),
+                      padding: const EdgeInsets.only(left: 35, top: 18),
+                      child: const Text(
+                        'Create\nAccount',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 33,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 18,
+                    ),
                     reusableTextFeild("Enter UserName", Icons.person_outline,
                         false, viewModel.userNameCtrl),
 
@@ -85,15 +87,15 @@ class SigupScreenView extends StackedView<SigupScreenViewModel> {
                     ),
                     // Obx(() => loginController.isLoading.value
                     //     ? const CircularProgressIndicator()
-                    //     : 
-                        ElevatedButton(
-                            onPressed: () async {
-                              // if (await loginController.creatAndUploadUser()) {
-                              //   Get.back();
-                              // }
-                            },
-                            child: const Text("Sign Up")),
-                            
+                    //     :
+                    ElevatedButton(
+                        onPressed: () async {
+                          // if (await loginController.creatAndUploadUser()) {
+                          //   Get.back();
+                          // }
+                        },
+                        child: const Text("Sign Up")),
+
                     // const Text('Or create account using social media'),
                     // Row(
                     //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
