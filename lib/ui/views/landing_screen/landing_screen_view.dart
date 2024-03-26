@@ -2,7 +2,6 @@
 
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -21,50 +20,141 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
       appBar: AppBar(
         title: const Text("Car Meta"),
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+               
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal:10.0),
+                child: Text('My Account',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+              ),
+              SizedBox(height: 15,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                CircleAvatar(radius: 28,backgroundColor: Colors.amber,),
+                SizedBox(width: 15,),
+                Column(children: [
+                   Text('Talha Mehm',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+              Text('View And Edit',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400),),
+             
+                ],)
+              ],),
+       
+              
+              ],)
+            ),
+            
+            ListTile(
+              leading: const Icon(Icons.newspaper),
+              title: const Text('Order Details',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              onTap: () {
+                // Handle onTap
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.date_range),
+              title: const Text('Appointment Details',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              onTap: () {
+                // Handle onTap
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.help),
+              title: const Text('Help & Support',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              onTap: () {
+                // Handle onTap
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Are you sure?'),
+                      content: const Text('Do you want to logout from the app'),
+                      actions: [
+                        TextButton(
+                          onPressed: () async {
+                            // await FirebaseAuth.instance.signOut().then((value) {
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => const MyLogin(),
+                            //     ),
+                            //   );
+                            // });
+                          },
+                          child: const Text('Yes'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('No'),
+                        )
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      // drawer: const Drawer(
+
+      // ),
       bottomNavigationBar: CurvedNavigationBar(
         key: viewModel.bottomNavigationKey,
-        index: 0,
-      //   const Icon(
-      //   Icons.home,
-      //   size: 30,
-      // ),
-      // const Icon(
-      //   Icons.chat_outlined,
-      //   size: 30,
-      // ),
-      // const Icon(
-      //   Icons.add_circle_outlined,
-      //   size: 30,
-      // ),
-      // const Icon(
-      //   Icons.star_border,
-      //   size: 30,
-      // ),
-      // const Icon(
-      //   Icons.settings,
-      //   size: 30,
-      // ),
+        index: 2,
         items: [
           const CurvedNavigationBarItem(
-            child: Icon(Icons.home),
-            label: 'Home',
+            child: Icon(
+              Icons.home,
+              size: 34,
+            ),
+            // label: 'Home',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.chat_outlined),
-            label: 'Chat',
+            child: Icon(
+              Icons.chat_outlined,
+              size: 34,
+            ),
+            // label: 'Chat',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.circle_outlined),
-            label: 'Circle',
+            child: Icon(
+              Icons.add_circle,
+              size: 34,
+            ),
+            // label: 'Circle',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.star_border),
-            label: 'Feed',
+            child: Icon(
+              Icons.star_border,
+              size: 34,
+            ),
+            // label: 'Feed',
           ),
           const CurvedNavigationBarItem(
-            child: Icon(Icons.settings),
-            label: 'Personal',
+            child: Icon(
+              Icons.settings,
+              size: 34,
+            ),
+            // label: 'Personal',
           ),
         ],
         color: Colors.white,
