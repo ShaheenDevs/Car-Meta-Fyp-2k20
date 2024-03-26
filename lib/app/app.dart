@@ -11,6 +11,14 @@ import 'package:car_meta/ui/views/nav_bar_a/nav_bar_a_view.dart';
 import 'package:car_meta/ui/views/nav_bar_b/nav_bar_b_view.dart';
 import 'package:car_meta/ui/views/nav_bar_c/nav_bar_c_view.dart';
 import 'package:car_meta/ui/views/nav_bar_d/nav_bar_d_view.dart';
+import 'package:car_meta/ui/views/setting/setting_view.dart';
+import 'package:car_meta/ui/views/favourit/favourit_view.dart';
+import 'package:car_meta/ui/views/chat/chat_view.dart';
+import 'package:car_meta/ui/views/star/star_view.dart';
+import 'package:car_meta/ui/views/help_support/help_support_view.dart';
+import 'package:car_meta/ui/views/appointment_detail/appointment_detail_view.dart';
+import 'package:car_meta/ui/views/order_detail/order_detail_view.dart';
+import 'package:car_meta/ui/views/profile/profile_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -24,6 +32,14 @@ import 'package:car_meta/ui/views/nav_bar_d/nav_bar_d_view.dart';
     MaterialRoute(page: NavBarBView),
     MaterialRoute(page: NavBarCView),
     MaterialRoute(page: NavBarDView),
+    MaterialRoute(page: SettingView),
+    MaterialRoute(page: FavouritView),
+    MaterialRoute(page: ChatView),
+    MaterialRoute(page: StarView),
+    MaterialRoute(page: HelpSupportView),
+    MaterialRoute(page: AppointmentDetailView),
+    MaterialRoute(page: OrderDetailView),
+    MaterialRoute(page: ProfileView),
 // @stacked-route
   ],
   dependencies: [

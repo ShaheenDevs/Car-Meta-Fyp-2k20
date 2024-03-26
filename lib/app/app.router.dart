@@ -5,6 +5,11 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:car_meta/ui/views/appointment_detail/appointment_detail_view.dart'
+    as _i16;
+import 'package:car_meta/ui/views/chat/chat_view.dart' as _i13;
+import 'package:car_meta/ui/views/favourit/favourit_view.dart' as _i12;
+import 'package:car_meta/ui/views/help_support/help_support_view.dart' as _i15;
 import 'package:car_meta/ui/views/home/home_view.dart' as _i2;
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
     as _i4;
@@ -13,12 +18,16 @@ import 'package:car_meta/ui/views/nav_bar_a/nav_bar_a_view.dart' as _i7;
 import 'package:car_meta/ui/views/nav_bar_b/nav_bar_b_view.dart' as _i8;
 import 'package:car_meta/ui/views/nav_bar_c/nav_bar_c_view.dart' as _i9;
 import 'package:car_meta/ui/views/nav_bar_d/nav_bar_d_view.dart' as _i10;
+import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i17;
+import 'package:car_meta/ui/views/profile/profile_view.dart' as _i18;
+import 'package:car_meta/ui/views/setting/setting_view.dart' as _i11;
 import 'package:car_meta/ui/views/sigup_screen/sigup_screen_view.dart' as _i6;
+import 'package:car_meta/ui/views/star/star_view.dart' as _i14;
 import 'package:car_meta/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i11;
+import 'package:flutter/material.dart' as _i19;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i12;
+import 'package:stacked_services/stacked_services.dart' as _i20;
 
 class Routes {
   static const homeView = '/home-view';
@@ -39,6 +48,22 @@ class Routes {
 
   static const navBarDView = '/nav-bar-dView';
 
+  static const settingView = '/setting-view';
+
+  static const favouritView = '/favourit-view';
+
+  static const chatView = '/chat-view';
+
+  static const starView = '/star-view';
+
+  static const helpSupportView = '/help-support-view';
+
+  static const appointmentDetailView = '/appointment-detail-view';
+
+  static const orderDetailView = '/order-detail-view';
+
+  static const profileView = '/profile-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -49,6 +74,14 @@ class Routes {
     navBarBView,
     navBarCView,
     navBarDView,
+    settingView,
+    favouritView,
+    chatView,
+    starView,
+    helpSupportView,
+    appointmentDetailView,
+    orderDetailView,
+    profileView,
   };
 }
 
@@ -90,60 +123,140 @@ class StackedRouter extends _i1.RouterBase {
       Routes.navBarDView,
       page: _i10.NavBarDView,
     ),
+    _i1.RouteDef(
+      Routes.settingView,
+      page: _i11.SettingView,
+    ),
+    _i1.RouteDef(
+      Routes.favouritView,
+      page: _i12.FavouritView,
+    ),
+    _i1.RouteDef(
+      Routes.chatView,
+      page: _i13.ChatView,
+    ),
+    _i1.RouteDef(
+      Routes.starView,
+      page: _i14.StarView,
+    ),
+    _i1.RouteDef(
+      Routes.helpSupportView,
+      page: _i15.HelpSupportView,
+    ),
+    _i1.RouteDef(
+      Routes.appointmentDetailView,
+      page: _i16.AppointmentDetailView,
+    ),
+    _i1.RouteDef(
+      Routes.orderDetailView,
+      page: _i17.OrderDetailView,
+    ),
+    _i1.RouteDef(
+      Routes.profileView,
+      page: _i18.ProfileView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LandingScreenView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LandingScreenView(),
         settings: data,
       );
     },
     _i5.LoginScreenView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.LoginScreenView(),
         settings: data,
       );
     },
     _i6.SigupScreenView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.SigupScreenView(),
         settings: data,
       );
     },
     _i7.NavBarAView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.NavBarAView(),
         settings: data,
       );
     },
     _i8.NavBarBView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.NavBarBView(),
         settings: data,
       );
     },
     _i9.NavBarCView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.NavBarCView(),
         settings: data,
       );
     },
     _i10.NavBarDView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i19.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.NavBarDView(),
+        settings: data,
+      );
+    },
+    _i11.SettingView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i11.SettingView(),
+        settings: data,
+      );
+    },
+    _i12.FavouritView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i12.FavouritView(),
+        settings: data,
+      );
+    },
+    _i13.ChatView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i13.ChatView(),
+        settings: data,
+      );
+    },
+    _i14.StarView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i14.StarView(),
+        settings: data,
+      );
+    },
+    _i15.HelpSupportView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i15.HelpSupportView(),
+        settings: data,
+      );
+    },
+    _i16.AppointmentDetailView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i16.AppointmentDetailView(),
+        settings: data,
+      );
+    },
+    _i17.OrderDetailView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i17.OrderDetailView(),
+        settings: data,
+      );
+    },
+    _i18.ProfileView: (data) {
+      return _i19.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i18.ProfileView(),
         settings: data,
       );
     },
@@ -156,7 +269,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i12.NavigationService {
+extension NavigatorStateExtension on _i20.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -283,6 +396,118 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToSettingView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.settingView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToFavouritView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.favouritView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToChatView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.chatView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToStarView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.starView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToHelpSupportView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.helpSupportView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToAppointmentDetailView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.appointmentDetailView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToOrderDetailView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.orderDetailView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToProfileView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.profileView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -403,6 +628,118 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.navBarDView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithSettingView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.settingView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithFavouritView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.favouritView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithChatView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.chatView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithStarView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.starView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithHelpSupportView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.helpSupportView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithAppointmentDetailView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.appointmentDetailView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithOrderDetailView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.orderDetailView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithProfileView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.profileView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

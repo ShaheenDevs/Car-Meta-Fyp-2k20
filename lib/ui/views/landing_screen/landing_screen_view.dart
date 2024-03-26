@@ -25,59 +25,87 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-               
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal:10.0),
-                child: Text('My Account',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-              ),
-              SizedBox(height: 15,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                CircleAvatar(radius: 28,backgroundColor: Colors.amber,),
-                SizedBox(width: 15,),
-                Column(children: [
-                   Text('Talha Mehm',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-              Text('View And Edit',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400),),
-             
-                ],)
-              ],),
-       
-              
-              ],)
-            ),
-            
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'My Account',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 28,
+                          backgroundColor: Colors.amber,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              'Talha Mehm',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              'View And Edit',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                )),
             ListTile(
               leading: const Icon(Icons.newspaper),
-              title: const Text('Order Details',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              title: const Text(
+                'Order Details',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               onTap: () {
                 // Handle onTap
               },
             ),
             ListTile(
               leading: const Icon(Icons.date_range),
-              title: const Text('Appointment Details',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              title: const Text(
+                'Appointment Details',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               onTap: () {
                 // Handle onTap
               },
             ),
             ListTile(
               leading: const Icon(Icons.help),
-              title: const Text('Help & Support',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              title: const Text(
+                'Help & Support',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               onTap: () {
                 // Handle onTap
               },
             ),
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text('Logout',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold), ),
+              title: const Text(
+                'Logout',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               onTap: () {
                 showDialog(
                   context: context,
