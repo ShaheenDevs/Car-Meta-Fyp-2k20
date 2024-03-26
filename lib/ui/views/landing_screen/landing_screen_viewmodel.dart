@@ -14,6 +14,7 @@ class LandingScreenViewModel extends BaseViewModel {
     const NavBarBView(),
     const NavBarCView(),
     const NavBarDView(),
+    const NavBarDView(),
   ];
   setTab(i) {
     page = i;

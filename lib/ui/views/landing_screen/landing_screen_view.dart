@@ -163,7 +163,8 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 600),
         onTap: (index) {
-          viewModel.page = index;
+          viewModel.setTab(index);
+          // viewModel.page = index;
         },
         letIndexChange: (index) => true,
       ),

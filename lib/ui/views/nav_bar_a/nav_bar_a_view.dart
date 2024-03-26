@@ -16,6 +16,7 @@ class NavBarAView extends StackedView<NavBarAViewModel> {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+        child: Text("data a"),
       ),
     );
   }
