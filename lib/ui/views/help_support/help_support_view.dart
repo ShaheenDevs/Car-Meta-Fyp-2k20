@@ -14,6 +14,7 @@ class HelpSupportView extends StackedView<HelpSupportViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: AppBar(title: Text("Hellp and Support"),),
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
       ),

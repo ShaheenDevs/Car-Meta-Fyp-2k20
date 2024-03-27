@@ -19,19 +19,76 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Car Meta"),
+      //   actions: <Widget>[
+      //   IconButton(
+      //     icon: Icon(
+      //       Icons.settings,
+      //       // color: Colors.white,
+      //     ),
+      //     onPressed: () {
+      //       viewModel.navigateToProfile();
+      //     },
+      //   )
+      // ],
+        actions: [InkWell(
+                    onTap: () {
+                      //show dialog box
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Are you sure?'),
+                              content: const Text(
+                                  'Do you want to logout from the app'),
+                              actions: [
+                                TextButton(
+                                    onPressed: () async {
+                                      // await FirebaseAuth.instance
+                                      //     .signOut()
+                                      //     .then((value) {
+                                      //   Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder: (context) =>
+                                      //               const MyLogin()));
+                                      // });
+                                    },
+                                    child: const Text('Yes')),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('No'))
+                              ],
+                            );
+                          });
+                    },
+                    child: CircleAvatar(
+                      radius: 22,
+                      backgroundColor: Colors.grey[400],
+                      child: const Text(
+                        'P',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 20,
+                            color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )],
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const DrawerHeader(
-                decoration: BoxDecoration(
+            DrawerHeader(
+                decoration: const BoxDecoration(
                   color: Colors.blue,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'My Account',
@@ -39,30 +96,33 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 28,
                           backgroundColor: Colors.amber,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'Talha Mehm',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
-                            Text(
-                              'View And Edit',
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
+                            InkWell(
+                              // onTap: viewModel.navigateToProfile(),
+                              child: const Text(
+                                'View And Edit',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w400),
+                              ),
                             ),
                           ],
                         )
@@ -77,6 +137,7 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onTap: () {
+                viewModel.navigateToOrders();
                 // Handle onTap
               },
             ),
@@ -87,6 +148,7 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onTap: () {
+                viewModel.navigateToAppointment();
                 // Handle onTap
               },
             ),
@@ -97,7 +159,8 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onTap: () {
-                // Handle onTap
+
+                viewModel.navigateToHelpSupport();
               },
             ),
             ListTile(

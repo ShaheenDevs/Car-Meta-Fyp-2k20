@@ -25,78 +25,78 @@ class HomeView extends StackedView<HomeViewModel> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => const MySettings()));
-                      },
-                      icon: const Icon(Icons.menu_outlined)),
-                  const Text(
-                    'Car Meta',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 38,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      //show dialog box
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text('Are you sure?'),
-                              content: const Text(
-                                  'Do you want to logout from the app'),
-                              actions: [
-                                TextButton(
-                                    onPressed: () async {
-                                      // await FirebaseAuth.instance
-                                      //     .signOut()
-                                      //     .then((value) {
-                                      //   Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder: (context) =>
-                                      //               const MyLogin()));
-                                      // });
-                                    },
-                                    child: const Text('Yes')),
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('No'))
-                              ],
-                            );
-                          });
-                    },
-                    child: CircleAvatar(
-                      radius: 22,
-                      backgroundColor: Colors.grey[400],
-                      child: const Text(
-                        'P',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20,
-                            color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              // child: Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     IconButton(
+              //         onPressed: () {
+              //           // Navigator.push(
+              //           //     context,
+              //           //     MaterialPageRoute(
+              //           //         builder: (context) => const MySettings()));
+              //         },
+              //         icon: const Icon(Icons.menu_outlined)),
+              //     const Text(
+              //       'Car Meta',
+              //       style: TextStyle(
+              //           color: Colors.black,
+              //           fontSize: 38,
+              //           fontWeight: FontWeight.bold),
+              //     ),
+              //     InkWell(
+              //       onTap: () {
+              //         //show dialog box
+              //         showDialog(
+              //             context: context,
+              //             builder: (BuildContext context) {
+              //               return AlertDialog(
+              //                 title: const Text('Are you sure?'),
+              //                 content: const Text(
+              //                     'Do you want to logout from the app'),
+              //                 actions: [
+              //                   TextButton(
+              //                       onPressed: () async {
+              //                         // await FirebaseAuth.instance
+              //                         //     .signOut()
+              //                         //     .then((value) {
+              //                         //   Navigator.push(
+              //                         //       context,
+              //                         //       MaterialPageRoute(
+              //                         //           builder: (context) =>
+              //                         //               const MyLogin()));
+              //                         // });
+              //                       },
+              //                       child: const Text('Yes')),
+              //                   TextButton(
+              //                       onPressed: () {
+              //                         Navigator.pop(context);
+              //                       },
+              //                       child: const Text('No'))
+              //                 ],
+              //               );
+              //             });
+              //       },
+              //       child: CircleAvatar(
+              //         radius: 22,
+              //         backgroundColor: Colors.grey[400],
+              //         child: const Text(
+              //           'P',
+              //           style: TextStyle(
+              //               fontWeight: FontWeight.w900,
+              //               fontSize: 20,
+              //               color: Colors.black),
+              //           textAlign: TextAlign.center,
+              //         ),
+              //       ),
+              //     )
+              //   ],
+              // ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
+            // const SizedBox(
+            //   height: 5,
+            // ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.symmetric(horizontal:12.0),
               child: searchTextFeild("Search Products", Icons.search_outlined,
                   viewModel.searchCtrl),
             ),
@@ -142,7 +142,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       // });
                     },
                     child: const CategoriesCards(
-                      imagePath: 'assests/car.png',
+                      imagePath: 'assets/car.png',
                       title: 'Cars',
                       colr: Color.fromARGB(255, 255, 187, 0),
                     ),
@@ -158,7 +158,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       //         builder: (context) => const MySpareParts()));
                     },
                     child: const CategoriesCards(
-                        imagePath: 'assests/spareparts.jpg',
+                        imagePath: 'assets/spareparts.jpg',
                         title: 'Spare Parts',
                         colr: Color.fromARGB(255, 202, 59, 228)),
                   ),
@@ -170,7 +170,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       //         builder: (context) => const MyCars()));
                     },
                     child: const CategoriesCards(
-                      imagePath: 'assests/fuel.jpg',
+                      imagePath: 'assets/fuel.jpg',
                       title: 'Find A Pump',
                       colr: Colors.indigoAccent,
                     ),
@@ -183,7 +183,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       //         builder: (context) => const MyMechanicList()));
                     },
                     child: const CategoriesCards(
-                      imagePath: 'assests/mechanic.png',
+                      imagePath: 'assets/mechanic.png',
                       title: 'Find A Mechanic',
                       colr: Color.fromARGB(255, 66, 221, 73),
                     ),

@@ -1,3 +1,5 @@
+import 'package:car_meta/ui/views/chat/widgets/app_bar.dart';
+import 'package:car_meta/ui/views/chat/widgets/body.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,11 +14,9 @@ class ChatView extends StackedView<ChatViewModel> {
     ChatViewModel viewModel,
     Widget? child,
   ) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-      ),
+    return const Scaffold(
+      appBar: ChatAppBar(),
+      body: ChatBody(),
     );
   }
 
