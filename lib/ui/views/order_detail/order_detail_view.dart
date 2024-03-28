@@ -14,7 +14,9 @@ class OrderDetailView extends StackedView<OrderDetailViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(title: Text("Order Details"),),
+      appBar: AppBar(
+        title: Text("Order Details"),
+      ),
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
       ),

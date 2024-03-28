@@ -45,12 +45,12 @@ class DropdownTextfield extends StackedView<DropdownTextfieldModel> {
                   Text(
                     titleText.toString(),
                     style: TextStyle(
-          // color: color ?? Colors.black,
-        fontSize:  14,
-        // fontWeight: fontWeight ?? FontWeight.w400,
-        // letterSpacing: letterSpacing ?? 0,
-        // wordSpacing: wordspacing ?? 0,
-      ),
+                      // color: color ?? Colors.black,
+                      fontSize: 14,
+                      // fontWeight: fontWeight ?? FontWeight.w400,
+                      // letterSpacing: letterSpacing ?? 0,
+                      // wordSpacing: wordspacing ?? 0,
+                    ),
                     // style: GoogleFonts.poppins(fontSize: 14),
                   ),
                   verticalSpaceTiny,

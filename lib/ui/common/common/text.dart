@@ -37,7 +37,7 @@ class CustomText extends StackedView<IconBoxBtnModel> {
     return Text(
       text,
       style: TextStyle(
-          color: color ?? Colors.black,
+        color: color ?? Colors.black,
         fontSize: fontSize ?? 14,
         fontWeight: fontWeight ?? FontWeight.w400,
         letterSpacing: letterSpacing ?? 0,

@@ -1,5 +1,3 @@
-
-
 import 'package:car_meta/ui/common/common/text.dart';
 import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:car_meta/ui/views/chat/chat_viewmodel.dart';

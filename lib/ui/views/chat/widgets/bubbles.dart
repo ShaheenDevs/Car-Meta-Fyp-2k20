@@ -33,8 +33,9 @@ class ChatBubbles extends ViewModelWidget<ChatViewModel> {
                       topRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(0))),
-              color:
-                  (message.messageType == "recieve" ? Colors.teal : Colors.amber),
+              color: (message.messageType == "recieve"
+                  ? Colors.teal
+                  : Colors.amber),
             ),
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
             child: Column(
@@ -42,8 +43,9 @@ class ChatBubbles extends ViewModelWidget<ChatViewModel> {
               children: [
                 CustomText(
                   text: message.messageContent.toString(),
-                  color:
-                      (message.messageType == "recieve" ? Colors.black : Colors.white),
+                  color: (message.messageType == "recieve"
+                      ? Colors.black
+                      : Colors.white),
                 ),
                 CustomText(
                   text: "08:00AM",

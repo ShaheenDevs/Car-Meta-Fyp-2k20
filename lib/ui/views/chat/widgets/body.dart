@@ -90,7 +90,7 @@ class ChatBody extends ViewModelWidget<ChatViewModel> {
                 child: SizedBox(
                   width: 30,
                   height: 30,
-                  
+
                   // child: Image.asset(
                   //   send,
                   // ),

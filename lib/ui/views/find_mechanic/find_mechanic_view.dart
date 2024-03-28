@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import 'favourit_viewmodel.dart';
+import 'find_mechanic_viewmodel.dart';
 
-class FavouritView extends StackedView<FavouritViewModel> {
-  const FavouritView({Key? key}) : super(key: key);
+class FindMechanicView extends StackedView<FindMechanicViewModel> {
+  const FindMechanicView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
     BuildContext context,
-    FavouritViewModel viewModel,
+    FindMechanicViewModel viewModel,
     Widget? child,
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: Text("Favourites"),
-      ),
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
       ),
@@ -24,8 +21,8 @@ class FavouritView extends StackedView<FavouritViewModel> {
   }
 
   @override
-  FavouritViewModel viewModelBuilder(
+  FindMechanicViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      FavouritViewModel();
+      FindMechanicViewModel();
 }

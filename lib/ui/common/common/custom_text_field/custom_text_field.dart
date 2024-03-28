@@ -138,11 +138,10 @@ class CustomTextField extends StackedView<CustomTextFieldModel> {
             ? Text(
                 titleText.toString(),
                 style: TextStyle(
-          // color: color ?? Colors.black,
-        fontSize:  14,
-        fontWeight: FontWeight.w400,
-       
-      ),
+                  // color: color ?? Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
                 // style: GoogleFonts.poppins(
                 //     fontSize: 14, fontWeight: FontWeight.w500),
               )

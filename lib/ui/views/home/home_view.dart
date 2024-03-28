@@ -96,7 +96,7 @@ class HomeView extends StackedView<HomeViewModel> {
             //   height: 5,
             // ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: searchTextFeild("Search Products", Icons.search_outlined,
                   viewModel.searchCtrl),
             ),

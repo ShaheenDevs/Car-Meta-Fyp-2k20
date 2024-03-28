@@ -40,11 +40,7 @@ class ModelDropdown extends StackedView<DropdownTextfieldModel> {
                 children: [
                   Text(
                     titleText.toString(),
-                    style: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w500
-        
-      ),
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     // style: GoogleFonts.ibmPlexSans(
                     //     fontSize: 14, fontWeight: FontWeight.w500),
                   ),

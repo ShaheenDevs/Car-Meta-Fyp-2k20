@@ -19,63 +19,64 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Car Meta"),
-      //   actions: <Widget>[
-      //   IconButton(
-      //     icon: Icon(
-      //       Icons.settings,
-      //       // color: Colors.white,
-      //     ),
-      //     onPressed: () {
-      //       viewModel.navigateToProfile();
-      //     },
-      //   )
-      // ],
-        actions: [InkWell(
-                    onTap: () {
-                      //show dialog box
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text('Are you sure?'),
-                              content: const Text(
-                                  'Do you want to logout from the app'),
-                              actions: [
-                                TextButton(
-                                    onPressed: () async {
-                                      // await FirebaseAuth.instance
-                                      //     .signOut()
-                                      //     .then((value) {
-                                      //   Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder: (context) =>
-                                      //               const MyLogin()));
-                                      // });
-                                    },
-                                    child: const Text('Yes')),
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text('No'))
-                              ],
-                            );
-                          });
-                    },
-                    child: CircleAvatar(
-                      radius: 22,
-                      backgroundColor: Colors.grey[400],
-                      child: const Text(
-                        'P',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 20,
-                            color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  )],
+        //   actions: <Widget>[
+        //   IconButton(
+        //     icon: Icon(
+        //       Icons.settings,
+        //       // color: Colors.white,
+        //     ),
+        //     onPressed: () {
+        //       viewModel.navigateToProfile();
+        //     },
+        //   )
+        // ],
+        actions: [
+          InkWell(
+            onTap: () {
+              //show dialog box
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Are you sure?'),
+                      content: const Text('Do you want to logout from the app'),
+                      actions: [
+                        TextButton(
+                            onPressed: () async {
+                              // await FirebaseAuth.instance
+                              //     .signOut()
+                              //     .then((value) {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //           builder: (context) =>
+                              //               const MyLogin()));
+                              // });
+                            },
+                            child: const Text('Yes')),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('No'))
+                      ],
+                    );
+                  });
+            },
+            child: CircleAvatar(
+              radius: 22,
+              backgroundColor: Colors.grey[400],
+              child: const Text(
+                'P',
+                style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 20,
+                    color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          )
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -159,7 +160,6 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onTap: () {
-
                 viewModel.navigateToHelpSupport();
               },
             ),
