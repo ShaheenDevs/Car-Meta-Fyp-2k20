@@ -14,6 +14,7 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
+    
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -133,13 +134,8 @@ class HomeView extends StackedView<HomeViewModel> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MyCars()));
-                      // setState(() {
-                      //   showparts = false;
-                      // });
+                      viewModel.navigateToCars();
+                     
                     },
                     child: const CategoriesCards(
                       imagePath: 'assets/car.png',
@@ -149,13 +145,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // setState(() {
-                      //   showparts = true;
-                      // });
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MySpareParts()));
+                      viewModel.navigateToSpareParts();
                     },
                     child: const CategoriesCards(
                         imagePath: 'assets/spareparts.jpg',
@@ -164,10 +154,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MyCars()));
+                   viewModel.navigateToPumps();
                     },
                     child: const CategoriesCards(
                       imagePath: 'assets/fuel.jpg',
@@ -177,10 +164,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const MyMechanicList()));
+                      viewModel.navigateToMechanics();
                     },
                     child: const CategoriesCards(
                       imagePath: 'assets/mechanic.png',

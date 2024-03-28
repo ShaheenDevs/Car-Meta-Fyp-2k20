@@ -7,8 +7,12 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:car_meta/ui/views/appointment_detail/appointment_detail_view.dart'
     as _i16;
+import 'package:car_meta/ui/views/cars/cars_view.dart' as _i19;
 import 'package:car_meta/ui/views/chat/chat_view.dart' as _i13;
 import 'package:car_meta/ui/views/favourit/favourit_view.dart' as _i12;
+import 'package:car_meta/ui/views/find_mechanic/find_mechanic_view.dart'
+    as _i22;
+import 'package:car_meta/ui/views/find_pump/find_pump_view.dart' as _i21;
 import 'package:car_meta/ui/views/help_support/help_support_view.dart' as _i15;
 import 'package:car_meta/ui/views/home/home_view.dart' as _i2;
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
@@ -19,15 +23,17 @@ import 'package:car_meta/ui/views/nav_bar_b/nav_bar_b_view.dart' as _i8;
 import 'package:car_meta/ui/views/nav_bar_c/nav_bar_c_view.dart' as _i9;
 import 'package:car_meta/ui/views/nav_bar_d/nav_bar_d_view.dart' as _i10;
 import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i17;
+import 'package:car_meta/ui/views/post/post_view.dart' as _i23;
 import 'package:car_meta/ui/views/profile/profile_view.dart' as _i18;
 import 'package:car_meta/ui/views/setting/setting_view.dart' as _i11;
 import 'package:car_meta/ui/views/sigup_screen/sigup_screen_view.dart' as _i6;
+import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i20;
 import 'package:car_meta/ui/views/star/star_view.dart' as _i14;
 import 'package:car_meta/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i19;
+import 'package:flutter/material.dart' as _i24;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i20;
+import 'package:stacked_services/stacked_services.dart' as _i25;
 
 class Routes {
   static const homeView = '/home-view';
@@ -64,6 +70,16 @@ class Routes {
 
   static const profileView = '/profile-view';
 
+  static const carsView = '/cars-view';
+
+  static const sparePartsView = '/spare-parts-view';
+
+  static const findPumpView = '/find-pump-view';
+
+  static const findMechanicView = '/find-mechanic-view';
+
+  static const postView = '/post-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -82,6 +98,11 @@ class Routes {
     appointmentDetailView,
     orderDetailView,
     profileView,
+    carsView,
+    sparePartsView,
+    findPumpView,
+    findMechanicView,
+    postView,
   };
 }
 
@@ -155,108 +176,158 @@ class StackedRouter extends _i1.RouterBase {
       Routes.profileView,
       page: _i18.ProfileView,
     ),
+    _i1.RouteDef(
+      Routes.carsView,
+      page: _i19.CarsView,
+    ),
+    _i1.RouteDef(
+      Routes.sparePartsView,
+      page: _i20.SparePartsView,
+    ),
+    _i1.RouteDef(
+      Routes.findPumpView,
+      page: _i21.FindPumpView,
+    ),
+    _i1.RouteDef(
+      Routes.findMechanicView,
+      page: _i22.FindMechanicView,
+    ),
+    _i1.RouteDef(
+      Routes.postView,
+      page: _i23.PostView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LandingScreenView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LandingScreenView(),
         settings: data,
       );
     },
     _i5.LoginScreenView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.LoginScreenView(),
         settings: data,
       );
     },
     _i6.SigupScreenView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.SigupScreenView(),
         settings: data,
       );
     },
     _i7.NavBarAView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.NavBarAView(),
         settings: data,
       );
     },
     _i8.NavBarBView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.NavBarBView(),
         settings: data,
       );
     },
     _i9.NavBarCView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.NavBarCView(),
         settings: data,
       );
     },
     _i10.NavBarDView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.NavBarDView(),
         settings: data,
       );
     },
     _i11.SettingView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.SettingView(),
         settings: data,
       );
     },
     _i12.FavouritView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.FavouritView(),
         settings: data,
       );
     },
     _i13.ChatView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.ChatView(),
         settings: data,
       );
     },
     _i14.StarView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.StarView(),
         settings: data,
       );
     },
     _i15.HelpSupportView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.HelpSupportView(),
         settings: data,
       );
     },
     _i16.AppointmentDetailView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.AppointmentDetailView(),
         settings: data,
       );
     },
     _i17.OrderDetailView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.OrderDetailView(),
         settings: data,
       );
     },
     _i18.ProfileView: (data) {
-      return _i19.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.ProfileView(),
+        settings: data,
+      );
+    },
+    _i19.CarsView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i19.CarsView(),
+        settings: data,
+      );
+    },
+    _i20.SparePartsView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i20.SparePartsView(),
+        settings: data,
+      );
+    },
+    _i21.FindPumpView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i21.FindPumpView(),
+        settings: data,
+      );
+    },
+    _i22.FindMechanicView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i22.FindMechanicView(),
+        settings: data,
+      );
+    },
+    _i23.PostView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i23.PostView(),
         settings: data,
       );
     },
@@ -269,7 +340,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i20.NavigationService {
+extension NavigatorStateExtension on _i25.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -508,6 +579,76 @@ extension NavigatorStateExtension on _i20.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToCarsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.carsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToSparePartsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.sparePartsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToFindPumpView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.findPumpView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToFindMechanicView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.findMechanicView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToPostView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.postView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -740,6 +881,76 @@ extension NavigatorStateExtension on _i20.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.profileView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithCarsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.carsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithSparePartsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.sparePartsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithFindPumpView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.findPumpView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithFindMechanicView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.findMechanicView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithPostView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.postView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

@@ -2,6 +2,7 @@ import 'package:car_meta/app/app.locator.dart';
 import 'package:car_meta/app/app.router.dart';
 import 'package:car_meta/ui/views/chat/chat_view.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
+import 'package:car_meta/ui/views/post/post_view.dart';
 import 'package:car_meta/ui/views/setting/setting_view.dart';
 import 'package:car_meta/ui/views/star/star_view.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
@@ -33,7 +34,7 @@ class LandingScreenViewModel extends BaseViewModel {
   List<Widget> tabsList = <Widget>[
     const HomeView(),
     const ChatView(),
-    const HomeView(),
+    const PostView(),
     const StarView(),
     const SettingView(),
   ];

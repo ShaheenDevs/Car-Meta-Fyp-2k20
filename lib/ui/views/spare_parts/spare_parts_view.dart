@@ -14,6 +14,9 @@ class SparePartsView extends StackedView<SparePartsViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: AppBar(
+        title: Text("Spare Parts"),
+      ),
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
       ),
