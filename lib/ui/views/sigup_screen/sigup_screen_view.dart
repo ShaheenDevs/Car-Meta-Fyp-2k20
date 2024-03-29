@@ -93,6 +93,7 @@ class SigupScreenView extends StackedView<SigupScreenViewModel> {
                           // if (await loginController.creatAndUploadUser()) {
                           //   Get.back();
                           // }
+                          viewModel.creatAndUploadUser();
                         },
                         child: const Text("Sign Up")),
 

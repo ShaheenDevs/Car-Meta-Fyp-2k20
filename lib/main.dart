@@ -1,3 +1,6 @@
+import 'package:car_meta/firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:car_meta/app/app.bottomsheets.dart';
 import 'package:car_meta/app/app.dialogs.dart';
@@ -7,6 +10,10 @@ import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
+final user = FirebaseAuth.instance.currentUser;
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
