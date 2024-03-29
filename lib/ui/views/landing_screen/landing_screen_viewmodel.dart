@@ -4,6 +4,7 @@ import 'package:car_meta/ui/views/chat/chat_view.dart';
 import 'package:car_meta/ui/views/favourit/favourit_view.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
 import 'package:car_meta/ui/views/post/post_view.dart';
+import 'package:car_meta/ui/views/profile/profile_view.dart';
 import 'package:car_meta/ui/views/setting/setting_view.dart';
 import 'package:car_meta/ui/views/star/star_view.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
