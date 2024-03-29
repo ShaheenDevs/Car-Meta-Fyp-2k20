@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-class CarsViewModel extends BaseViewModel {}
+class CarsViewModel extends BaseViewModel {
+  TextEditingController searchCtrl = TextEditingController();
+}

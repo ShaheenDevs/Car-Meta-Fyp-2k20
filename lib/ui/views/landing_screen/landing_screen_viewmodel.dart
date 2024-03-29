@@ -1,6 +1,7 @@
 import 'package:car_meta/app/app.locator.dart';
 import 'package:car_meta/app/app.router.dart';
 import 'package:car_meta/ui/views/chat/chat_view.dart';
+import 'package:car_meta/ui/views/favourit/favourit_view.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
 import 'package:car_meta/ui/views/post/post_view.dart';
 import 'package:car_meta/ui/views/setting/setting_view.dart';
@@ -35,7 +36,7 @@ class LandingScreenViewModel extends BaseViewModel {
     const HomeView(),
     const ChatView(),
     const PostView(),
-    const StarView(),
+    const FavouritView(),
     const SettingView(),
   ];
   setTab(i) {

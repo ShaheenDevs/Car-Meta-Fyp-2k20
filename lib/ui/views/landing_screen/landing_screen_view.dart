@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
@@ -86,10 +86,10 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'My Account',
@@ -97,29 +97,29 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const CircleAvatar(
+                        CircleAvatar(
                           radius: 28,
                           backgroundColor: Colors.amber,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 15,
                         ),
                         Column(
                           children: [
-                            const Text(
+                            Text(
                               'Talha Mehm',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             InkWell(
                               // onTap: viewModel.navigateToProfile(),
-                              child: const Text(
+                              child: Text(
                                 'View And Edit',
                                 style: TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w400),
