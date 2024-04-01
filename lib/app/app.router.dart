@@ -19,13 +19,9 @@ import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
     as _i4;
 import 'package:car_meta/ui/views/login_screen/login_screen_view.dart' as _i5;
 import 'package:car_meta/ui/views/myprofile/myprofile_view.dart' as _i24;
-import 'package:car_meta/ui/views/nav_bar_a/nav_bar_a_view.dart' as _i7;
-import 'package:car_meta/ui/views/nav_bar_b/nav_bar_b_view.dart' as _i8;
-import 'package:car_meta/ui/views/nav_bar_c/nav_bar_c_view.dart' as _i9;
-import 'package:car_meta/ui/views/nav_bar_d/nav_bar_d_view.dart' as _i10;
+
 import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i17;
 import 'package:car_meta/ui/views/post/post_view.dart' as _i23;
-import 'package:car_meta/ui/views/profile/profile_view.dart' as _i18;
 import 'package:car_meta/ui/views/setting/setting_view.dart' as _i11;
 import 'package:car_meta/ui/views/sigup_screen/sigup_screen_view.dart' as _i6;
 import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i20;
@@ -132,22 +128,7 @@ class StackedRouter extends _i1.RouterBase {
       Routes.sigupScreenView,
       page: _i6.SigupScreenView,
     ),
-    _i1.RouteDef(
-      Routes.navBarAView,
-      page: _i7.NavBarAView,
-    ),
-    _i1.RouteDef(
-      Routes.navBarBView,
-      page: _i8.NavBarBView,
-    ),
-    _i1.RouteDef(
-      Routes.navBarCView,
-      page: _i9.NavBarCView,
-    ),
-    _i1.RouteDef(
-      Routes.navBarDView,
-      page: _i10.NavBarDView,
-    ),
+   
     _i1.RouteDef(
       Routes.settingView,
       page: _i11.SettingView,
@@ -176,10 +157,7 @@ class StackedRouter extends _i1.RouterBase {
       Routes.orderDetailView,
       page: _i17.OrderDetailView,
     ),
-    _i1.RouteDef(
-      Routes.profileView,
-      page: _i18.ProfileView,
-    ),
+   
     _i1.RouteDef(
       Routes.carsView,
       page: _i19.CarsView,
@@ -237,30 +215,7 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i7.NavBarAView: (data) {
-      return _i25.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i7.NavBarAView(),
-        settings: data,
-      );
-    },
-    _i8.NavBarBView: (data) {
-      return _i25.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i8.NavBarBView(),
-        settings: data,
-      );
-    },
-    _i9.NavBarCView: (data) {
-      return _i25.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i9.NavBarCView(),
-        settings: data,
-      );
-    },
-    _i10.NavBarDView: (data) {
-      return _i25.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i10.NavBarDView(),
-        settings: data,
-      );
-    },
+ 
     _i11.SettingView: (data) {
       return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.SettingView(),
@@ -303,12 +258,7 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i18.ProfileView: (data) {
-      return _i25.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i18.ProfileView(),
-        settings: data,
-      );
-    },
+  
     _i19.CarsView: (data) {
       return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.CarsView(),
