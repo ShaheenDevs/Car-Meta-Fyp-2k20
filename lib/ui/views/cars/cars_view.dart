@@ -20,103 +20,110 @@ class CarsView extends StackedView<CarsViewModel> {
       appBar: AppBar(
         title: const Text("Cars"),
       ),
-      body: Column(children: [
-        // SizedBox(
-        //   height: 20.0,
-        // ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal:15.0),
-          child: searchTextFeild(
-              'Search Cars', Icons.search_outlined, viewModel.searchCtrl),
-        ),
-        // SizedBox(
-        //   height: 5.0,
-        // ),
-        const Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              Text(
-                'Brands',
-                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
-              )
-            ],
+      body: Column(
+        children: [
+          // SizedBox(
+          //   height: 20.0,
+          // ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: searchTextFeild(
+                'Search Cars', Icons.search_outlined, viewModel.searchCtrl),
           ),
-        ),
-        SizedBox(
-          height: 50.0,
-          width: MediaQuery.of(context).size.width,
-          // color: Colors.grey[200],
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   filterCars = "Honda"; // Set the selected brand
-                  // });
-                },
-                child: const LogoCards(imagePath: 'assets/honda.png', colr: Colors.white),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   filterCars = "Toyota"; // Set the selected brand
-                  // });
-                },
-                child: const LogoCards(imagePath: 'assets/toyota.png', colr: Colors.white),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   filterCars = "MG"; // Set the selected brand
-                  // });
-                },
-                child: const LogoCards(imagePath: 'assets/mg1.png', colr: Colors.white),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   filterCars = "KIA"; // Set the selected brand
-                  // });
-                },
-                child: const LogoCards(imagePath: 'assets/kia1.png', colr: Colors.white),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   filterCars = "Suzuki"; // Set the selected brand
-                  // });
-                },
-                child: const LogoCards(imagePath: 'assets/suzuki.png', colr: Colors.white),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // setState(() {
-                  //   filterCars = "Hondai"; // Set the selected brand
-                  // });
-                },
-                child: const LogoCards(imagePath: 'assets/hondai.png', colr: Colors.white),
-              ),
-              // Add more categories as needed
-            ],
+          // SizedBox(
+          //   height: 5.0,
+          // ),
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                Text(
+                  'Brands',
+                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 20.0,
-        ),
-        const Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              Text(
-                'Available Cars',
-                style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
-              ),
-            ],
+          SizedBox(
+            height: 50.0,
+            width: MediaQuery.of(context).size.width,
+            // color: Colors.grey[200],
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   filterCars = "Honda"; // Set the selected brand
+                    // });
+                  },
+                  child: const LogoCards(
+                      imagePath: 'assets/honda.png', colr: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   filterCars = "Toyota"; // Set the selected brand
+                    // });
+                  },
+                  child: const LogoCards(
+                      imagePath: 'assets/toyota.png', colr: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   filterCars = "MG"; // Set the selected brand
+                    // });
+                  },
+                  child: const LogoCards(
+                      imagePath: 'assets/mg1.png', colr: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   filterCars = "KIA"; // Set the selected brand
+                    // });
+                  },
+                  child: const LogoCards(
+                      imagePath: 'assets/kia1.png', colr: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   filterCars = "Suzuki"; // Set the selected brand
+                    // });
+                  },
+                  child: const LogoCards(
+                      imagePath: 'assets/suzuki.png', colr: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // setState(() {
+                    //   filterCars = "Hondai"; // Set the selected brand
+                    // });
+                  },
+                  child: const LogoCards(
+                      imagePath: 'assets/hondai.png', colr: Colors.white),
+                ),
+                // Add more categories as needed
+              ],
+            ),
           ),
-        ),
-        Expanded(
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                Text(
+                  'Available Cars',
+                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: InkWell(
@@ -127,14 +134,11 @@ class CarsView extends StackedView<CarsViewModel> {
                   //         builder: (context) => const MyCarDetails()));
                 },
                 child: GridView.builder(
-                  
-                  gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10.0,
                     mainAxisSpacing: 15.0,
-      
-                    childAspectRatio: 50/25,
+                    childAspectRatio: 50 / 25,
                   ),
                   //shrinkWrap: true,
                   itemCount: 14,
@@ -142,34 +146,35 @@ class CarsView extends StackedView<CarsViewModel> {
                   //     ? vehController.parts.length
                   //     : vehController.vehicles.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return 
-                    // Container(
-                    //   child: Text("data"),
-                    // );
-                    car_widget(
-                        imagePath: "0.jpeg",
-                        // showparts
-                        //     ? vehController.parts[index].imagePath!
-                        //     : vehController.vehicles[index].imagePath!,
-                        title: "Corolla GLI" ,
-                        // showparts
-                        //     ? vehController.parts[index].title!
-                        //     : vehController.vehicles[index].title!,
-                        brand: "Toyota",
-                        // showparts
-                        //     ? vehController.parts[index].title!
-                        //     : vehController.vehicles[index].title!,
-                        price: "3500000",
-                        // showparts
-                        //     ? vehController.parts[index].price!
-                        //     : vehController.vehicles[index].price!,
-                        index: index);
+                    return
+                        // Container(
+                        //   child: Text("data"),
+                        // );
+                        car_widget(
+                            imagePath: "0.jpeg",
+                            // showparts
+                            //     ? vehController.parts[index].imagePath!
+                            //     : vehController.vehicles[index].imagePath!,
+                            title: "Corolla GLI",
+                            // showparts
+                            //     ? vehController.parts[index].title!
+                            //     : vehController.vehicles[index].title!,
+                            brand: "Toyota",
+                            // showparts
+                            //     ? vehController.parts[index].title!
+                            //     : vehController.vehicles[index].title!,
+                            price: "3500000",
+                            // showparts
+                            //     ? vehController.parts[index].price!
+                            //     : vehController.vehicles[index].price!,
+                            index: index);
                   },
                 ),
               ),
             ),
           ),
-      ],),
+        ],
+      ),
     );
   }
 

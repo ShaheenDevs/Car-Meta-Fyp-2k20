@@ -17,7 +17,6 @@ class SigupScreenViewModel extends BaseViewModel {
     return Color(int.parse(hexColor, radix: 16));
   }
 
-
   creatAndUploadUser() async {
     // if (!validateInputs()) {
     //   return false;

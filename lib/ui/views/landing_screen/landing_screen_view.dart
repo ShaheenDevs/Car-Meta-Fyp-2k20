@@ -86,7 +86,7 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -119,10 +119,16 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                             ),
                             InkWell(
                               // onTap: viewModel.navigateToProfile(),
-                              child: Text(
-                                'View And Edit',
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
+                              child: InkWell(
+                                onTap: () {
+                                  viewModel.navigateToProfile();
+                                },
+                                child: Text(
+                                  'View And Edit',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ),
                             ),
                           ],

@@ -18,6 +18,7 @@ import 'package:car_meta/ui/views/home/home_view.dart' as _i2;
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
     as _i4;
 import 'package:car_meta/ui/views/login_screen/login_screen_view.dart' as _i5;
+import 'package:car_meta/ui/views/myprofile/myprofile_view.dart' as _i24;
 import 'package:car_meta/ui/views/nav_bar_a/nav_bar_a_view.dart' as _i7;
 import 'package:car_meta/ui/views/nav_bar_b/nav_bar_b_view.dart' as _i8;
 import 'package:car_meta/ui/views/nav_bar_c/nav_bar_c_view.dart' as _i9;
@@ -30,10 +31,10 @@ import 'package:car_meta/ui/views/sigup_screen/sigup_screen_view.dart' as _i6;
 import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i20;
 import 'package:car_meta/ui/views/star/star_view.dart' as _i14;
 import 'package:car_meta/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i24;
+import 'package:flutter/material.dart' as _i25;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i25;
+import 'package:stacked_services/stacked_services.dart' as _i26;
 
 class Routes {
   static const homeView = '/home-view';
@@ -80,6 +81,8 @@ class Routes {
 
   static const postView = '/post-view';
 
+  static const myprofileView = '/myprofile-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -103,6 +106,7 @@ class Routes {
     findPumpView,
     findMechanicView,
     postView,
+    myprofileView,
   };
 }
 
@@ -196,138 +200,148 @@ class StackedRouter extends _i1.RouterBase {
       Routes.postView,
       page: _i23.PostView,
     ),
+    _i1.RouteDef(
+      Routes.myprofileView,
+      page: _i24.MyprofileView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LandingScreenView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LandingScreenView(),
         settings: data,
       );
     },
     _i5.LoginScreenView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.LoginScreenView(),
         settings: data,
       );
     },
     _i6.SigupScreenView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.SigupScreenView(),
         settings: data,
       );
     },
     _i7.NavBarAView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.NavBarAView(),
         settings: data,
       );
     },
     _i8.NavBarBView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.NavBarBView(),
         settings: data,
       );
     },
     _i9.NavBarCView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.NavBarCView(),
         settings: data,
       );
     },
     _i10.NavBarDView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.NavBarDView(),
         settings: data,
       );
     },
     _i11.SettingView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.SettingView(),
         settings: data,
       );
     },
     _i12.FavouritView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.FavouritView(),
         settings: data,
       );
     },
     _i13.ChatView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.ChatView(),
         settings: data,
       );
     },
     _i14.StarView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.StarView(),
         settings: data,
       );
     },
     _i15.HelpSupportView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.HelpSupportView(),
         settings: data,
       );
     },
     _i16.AppointmentDetailView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.AppointmentDetailView(),
         settings: data,
       );
     },
     _i17.OrderDetailView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.OrderDetailView(),
         settings: data,
       );
     },
     _i18.ProfileView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.ProfileView(),
         settings: data,
       );
     },
     _i19.CarsView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.CarsView(),
         settings: data,
       );
     },
     _i20.SparePartsView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i20.SparePartsView(),
         settings: data,
       );
     },
     _i21.FindPumpView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i21.FindPumpView(),
         settings: data,
       );
     },
     _i22.FindMechanicView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i22.FindMechanicView(),
         settings: data,
       );
     },
     _i23.PostView: (data) {
-      return _i24.MaterialPageRoute<dynamic>(
+      return _i25.MaterialPageRoute<dynamic>(
         builder: (context) => const _i23.PostView(),
+        settings: data,
+      );
+    },
+    _i24.MyprofileView: (data) {
+      return _i25.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i24.MyprofileView(),
         settings: data,
       );
     },
@@ -340,7 +354,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i25.NavigationService {
+extension NavigatorStateExtension on _i26.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -649,6 +663,20 @@ extension NavigatorStateExtension on _i25.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToMyprofileView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.myprofileView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -951,6 +979,20 @@ extension NavigatorStateExtension on _i25.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.postView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithMyprofileView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.myprofileView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

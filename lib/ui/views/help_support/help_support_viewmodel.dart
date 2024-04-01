@@ -9,6 +9,7 @@ class HelpSupportViewModel extends BaseViewModel {
     }
     return Color(int.parse(hexColor, radix: 16));
   }
+
   TextEditingController nameCtrl = TextEditingController();
 
   TextEditingController emailCtrl = TextEditingController();

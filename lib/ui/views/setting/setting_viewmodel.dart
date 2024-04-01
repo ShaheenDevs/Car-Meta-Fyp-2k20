@@ -4,7 +4,7 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class SettingViewModel extends BaseViewModel {
-    final _navigationService = locator<NavigationService>();
+  final _navigationService = locator<NavigationService>();
 
   navigateToHelpSupport() {
     _navigationService.navigateToHelpSupportView();
@@ -19,6 +19,6 @@ class SettingViewModel extends BaseViewModel {
   }
 
   navigateToProfile() {
-    _navigationService.navigateToProfileView();
+    _navigationService.navigateToMyprofileView();
   }
 }

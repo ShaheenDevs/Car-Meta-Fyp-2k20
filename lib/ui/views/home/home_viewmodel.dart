@@ -28,6 +28,7 @@ class HomeViewModel extends BaseViewModel {
   navigateToMechanics() {
     _navigationService.navigateToFindMechanicView();
   }
+ 
 
   TextEditingController searchCtrl = TextEditingController();
 }

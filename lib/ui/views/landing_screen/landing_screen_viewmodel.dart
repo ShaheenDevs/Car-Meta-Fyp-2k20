@@ -27,8 +27,8 @@ class LandingScreenViewModel extends BaseViewModel {
     _navigationService.navigateToOrderDetailView();
   }
 
-  navigateToProfile() {
-    _navigationService.navigateToProfileView();
+   navigateToProfile() {
+    _navigationService.navigateToMyprofileView();
   }
 
   GlobalKey<CurvedNavigationBarState> bottomNavigationKey = GlobalKey();

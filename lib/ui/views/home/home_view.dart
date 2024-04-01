@@ -15,7 +15,6 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    
     return Scaffold(
       body: Column(
         children: [
@@ -96,8 +95,8 @@ class HomeView extends StackedView<HomeViewModel> {
           // ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: searchTextFeild("Search Products", Icons.search_outlined,
-                viewModel.searchCtrl),
+            child: searchTextFeild(
+                "Search Products", Icons.search_outlined, viewModel.searchCtrl),
           ),
           const SizedBox(
             height: 10,
@@ -133,7 +132,6 @@ class HomeView extends StackedView<HomeViewModel> {
                 GestureDetector(
                   onTap: () {
                     viewModel.navigateToCars();
-                   
                   },
                   child: const CategoriesCards(
                     imagePath: 'assets/car.png',
@@ -152,7 +150,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 ),
                 InkWell(
                   onTap: () {
-                 viewModel.navigateToPumps();
+                    viewModel.navigateToPumps();
                   },
                   child: const CategoriesCards(
                     imagePath: 'assets/fuel.jpg',
@@ -180,7 +178,7 @@ class HomeView extends StackedView<HomeViewModel> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal:8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   "Recent Updates",
                   style: TextStyle(
@@ -208,13 +206,11 @@ class HomeView extends StackedView<HomeViewModel> {
                   //         builder: (context) => const MyCarDetails()));
                 },
                 child: GridView.builder(
-                  gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10.0,
                     mainAxisSpacing: 15.0,
-      
-                    childAspectRatio: 50/25,
+                    childAspectRatio: 50 / 25,
                   ),
                   //shrinkWrap: true,
                   itemCount: 6,
@@ -222,28 +218,28 @@ class HomeView extends StackedView<HomeViewModel> {
                   //     ? vehController.parts.length
                   //     : vehController.vehicles.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return 
-                    // Container(
-                    //   child: Text("data"),
-                    // );
-                    car_widget(
-                        imagePath: "0.jpeg",
-                        // showparts
-                        //     ? vehController.parts[index].imagePath!
-                        //     : vehController.vehicles[index].imagePath!,
-                        title: "Corolla GLI" ,
-                        // showparts
-                        //     ? vehController.parts[index].title!
-                        //     : vehController.vehicles[index].title!,
-                        brand: "Toyota",
-                        // showparts
-                        //     ? vehController.parts[index].title!
-                        //     : vehController.vehicles[index].title!,
-                        price: "3500000",
-                        // showparts
-                        //     ? vehController.parts[index].price!
-                        //     : vehController.vehicles[index].price!,
-                        index: index);
+                    return
+                        // Container(
+                        //   child: Text("data"),
+                        // );
+                        car_widget(
+                            imagePath: "0.jpeg",
+                            // showparts
+                            //     ? vehController.parts[index].imagePath!
+                            //     : vehController.vehicles[index].imagePath!,
+                            title: "Corolla GLI",
+                            // showparts
+                            //     ? vehController.parts[index].title!
+                            //     : vehController.vehicles[index].title!,
+                            brand: "Toyota",
+                            // showparts
+                            //     ? vehController.parts[index].title!
+                            //     : vehController.vehicles[index].title!,
+                            price: "3500000",
+                            // showparts
+                            //     ? vehController.parts[index].price!
+                            //     : vehController.vehicles[index].price!,
+                            index: index);
                   },
                 ),
               ),

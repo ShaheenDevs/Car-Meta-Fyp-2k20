@@ -22,9 +22,9 @@ class OrderDetailView extends StackedView<OrderDetailViewModel> {
         child: ListView.builder(
           itemCount: 14, // Specifies the number of items in the list
           itemBuilder: (context, index) {
-            return Padding( padding: const EdgeInsets.symmetric(vertical: 5),
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Container(
-              
                 decoration: BoxDecoration(
                     color: Colors.blue.withOpacity(0.40),
                     borderRadius: BorderRadius.circular(10)),
@@ -34,7 +34,6 @@ class OrderDetailView extends StackedView<OrderDetailViewModel> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Order details"),
-
                       Text("Time "),
                     ],
                   ), // Subtitle of the ListTile
