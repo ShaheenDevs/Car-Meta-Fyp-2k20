@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:car_meta/ui/common/app_image.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
@@ -19,62 +20,19 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Car Meta"),
-        //   actions: <Widget>[
-        //   IconButton(
-        //     icon: Icon(
-        //       Icons.settings,
-        //       // color: Colors.white,
-        //     ),
-        //     onPressed: () {
-        //       viewModel.navigateToProfile();
-        //     },
-        //   )
-        // ],
         actions: [
-          InkWell(
-            onTap: () {
-              //show dialog box
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('Are you sure?'),
-                      content: const Text('Do you want to logout from the app'),
-                      actions: [
-                        TextButton(
-                            onPressed: () async {
-                              // await FirebaseAuth.instance
-                              //     .signOut()
-                              //     .then((value) {
-                              //   Navigator.push(
-                              //       context,
-                              //       MaterialPageRoute(
-                              //           builder: (context) =>
-                              //               const MyLogin()));
-                              // });
-                            },
-                            child: const Text('Yes')),
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text('No'))
-                      ],
-                    );
-                  });
-            },
-            child: CircleAvatar(
-              radius: 22,
-              backgroundColor: Colors.grey[400],
-              child: const Text(
-                'P',
-                style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 20,
-                    color: Colors.black),
-                textAlign: TextAlign.center,
-              ),
-            ),
+          Padding(
+            padding: EdgeInsets.only(right: 5),
+            child: (viewModel.userData?.profile ?? "").isEmpty
+                ? const CircleAvatar(
+                    radius: 22,
+                    backgroundImage: AssetImage(profile),
+                  )
+                : CircleAvatar(
+                    radius: 22,
+                    backgroundImage:
+                        NetworkImage(viewModel.userData?.profile ?? ""),
+                  ),
           )
         ],
       ),
@@ -103,32 +61,32 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        CircleAvatar(
-                          radius: 28,
-                          backgroundColor: Colors.amber,
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
+                        (viewModel.userData?.profile ?? "").isEmpty
+                            ? const CircleAvatar(
+                                radius: 22,
+                                backgroundImage: AssetImage(profile),
+                              )
+                            : CircleAvatar(
+                                radius: 22,
+                                backgroundImage: NetworkImage(
+                                    viewModel.userData?.profile ?? ""),
+                              ),
+                        SizedBox(width: 15),
                         Column(
                           children: [
                             Text(
-                              'Talha Mehm',
+                              viewModel.userData?.userName ?? "",
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             InkWell(
-                              // onTap: viewModel.navigateToProfile(),
-                              child: InkWell(
-                                onTap: () {
-                                  viewModel.navigateToProfile();
-                                },
-                                child: Text(
-                                  'View And Edit',
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                              onTap: () {
+                                viewModel.navigateToProfile();
+                              },
+                              child: Text(
+                                'View And Edit',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w400),
                               ),
                             ),
                           ],

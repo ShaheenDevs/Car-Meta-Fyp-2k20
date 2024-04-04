@@ -39,8 +39,6 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(height: height * 0.1),
-                      
-                        
                       SizedBox(height: height * 0.03),
                       Padding(
                         padding: const EdgeInsets.all(4.0),

@@ -9,8 +9,8 @@ import 'package:car_meta/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart';
-import 'package:car_meta/ui/views/login_screen/login_screen_view.dart';
-import 'package:car_meta/ui/views/sigup_screen/sigup_screen_view.dart';
+import 'package:car_meta/ui/views/auth/login_screen/login_screen_view.dart';
+import 'package:car_meta/ui/views/auth/sigup_screen/sigup_screen_view.dart';
 
 import 'package:car_meta/ui/views/setting/setting_view.dart';
 import 'package:car_meta/ui/views/favourit/favourit_view.dart';

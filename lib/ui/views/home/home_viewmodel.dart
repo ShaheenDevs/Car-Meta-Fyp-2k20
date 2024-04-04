@@ -16,9 +16,11 @@ class HomeViewModel extends BaseViewModel {
   navigateToCars() {
     _navigationService.navigateToCarsView();
   }
-navigateToProductDetails() {
+
+  navigateToProductDetails() {
     _navigationService.navigateToProductDetailView();
   }
+
   navigateToSpareParts() {
     _navigationService.navigateToSparePartsView();
   }

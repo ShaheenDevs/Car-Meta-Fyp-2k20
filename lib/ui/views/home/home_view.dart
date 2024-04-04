@@ -223,28 +223,28 @@ class HomeView extends StackedView<HomeViewModel> {
                         //   child: Text("data"),
                         // );
                         InkWell(
-                          onTap: (){
-                            viewModel.navigateToProductDetails();
-                          },
-                          child: car_widget(
-                              imagePath: "0.jpeg",
-                              // showparts
-                              //     ? vehController.parts[index].imagePath!
-                              //     : vehController.vehicles[index].imagePath!,
-                              title: "Corolla GLI",
-                              // showparts
-                              //     ? vehController.parts[index].title!
-                              //     : vehController.vehicles[index].title!,
-                              brand: "Toyota",
-                              // showparts
-                              //     ? vehController.parts[index].title!
-                              //     : vehController.vehicles[index].title!,
-                              price: "3500000",
-                              // showparts
-                              //     ? vehController.parts[index].price!
-                              //     : vehController.vehicles[index].price!,
-                              index: index),
-                        );
+                      onTap: () {
+                        viewModel.navigateToProductDetails();
+                      },
+                      child: car_widget(
+                          imagePath: "0.jpeg",
+                          // showparts
+                          //     ? vehController.parts[index].imagePath!
+                          //     : vehController.vehicles[index].imagePath!,
+                          title: "Corolla GLI",
+                          // showparts
+                          //     ? vehController.parts[index].title!
+                          //     : vehController.vehicles[index].title!,
+                          brand: "Toyota",
+                          // showparts
+                          //     ? vehController.parts[index].title!
+                          //     : vehController.vehicles[index].title!,
+                          price: "3500000",
+                          // showparts
+                          //     ? vehController.parts[index].price!
+                          //     : vehController.vehicles[index].price!,
+                          index: index),
+                    );
                   },
                 ),
               ),

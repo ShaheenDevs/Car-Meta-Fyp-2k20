@@ -78,7 +78,7 @@ class AuthService with ListenableServiceMixin {
         userData = AuthModel.fromJson(json);
       }
     } catch (e) {
-      showErrorSnack(e.toString());
+      log(e.toString());
     }
   }
 

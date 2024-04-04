@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_const
 
+import 'package:car_meta/ui/common/app_colors.dart';
+import 'package:car_meta/ui/common/app_image.dart';
 import 'package:car_meta/ui/common/reusable_widgets/citysheet.dart';
 import 'package:car_meta/ui/common/reusable_widgets/inputfield.dart';
 import 'package:flutter/cupertino.dart';
@@ -74,31 +76,36 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
                     ],
                   ),
                 ),
-                SizedBox(height: height * 0.04),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ClipOval(
-                    child: Container(
-                      height: height * 0.15,
-                      width: width * 0.3,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.grey),
-                        image: const DecorationImage(
-                          image: AssetImage("assets/car.png"),
-                          fit: BoxFit.cover,
+                Stack(
+                  children: [
+                    viewModel.profile.isEmpty
+                        ? const CircleAvatar(
+                            radius: 60,
+                            backgroundImage: AssetImage(profile),
+                          )
+                        : CircleAvatar(
+                            radius: 60,
+                            backgroundImage: NetworkImage(viewModel.profile),
+                          ),
+                    Positioned(
+                      right: 3,
+                      bottom: 3,
+                      child: InkWell(
+                        onTap: viewModel.pickImage,
+                        child: const CircleAvatar(
+                          backgroundColor: kcLightGrey,
+                          radius: 17,
+                          child: Icon(Icons.camera),
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-                SizedBox(height: height * 0.01),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Talha Mehm',
+                    Text(
+                      viewModel.userData?.userName ?? "",
                       style: const TextStyle(
                           color: Colors.black,
                           fontSize: 20,
@@ -114,33 +121,33 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
                     children: [
                       Row(
                         children: [
-                          customInputField(
-                            width: width,
-                            height: height,
-                            controller: viewModel.cityController,
-                            prefixIcon: const Icon(Icons.location_on,
-                                color: Colors.black, size: 25),
-                            hintText: 'Location',
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return CitySelectionSheet();
-                                  },
-                                ).then((selectedCity) {
-                                  if (selectedCity != null) {
-                                    viewModel.cityController.text =
-                                        selectedCity;
-                                    NotificationListener;
-                                    // setState(() {
-                                    //   _cityController.text = selectedCity; // Update the text field with the selected city
-                                    // }); // Close the bottom sheet
-                                  }
-                                });
-                              },
-                              child: const Icon(Icons.arrow_drop_down_outlined,
-                                  color: Colors.black),
+                          GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return CitySelectionSheet();
+                                },
+                              ).then((selectedCity) {
+                                if (selectedCity != null) {
+                                  viewModel.cityController.text = selectedCity;
+                                  NotificationListener;
+                                }
+                              });
+                            },
+                            child: customInputField(
+                              width: width,
+                              height: height,
+                              controller: viewModel.cityController,
+                              prefixIcon: const Icon(Icons.location_on,
+                                  color: Colors.black, size: 25),
+                              hintText: 'Location',
+                              suffixIcon: GestureDetector(
+                                onTap: () {},
+                                child: const Icon(
+                                    Icons.arrow_drop_down_outlined,
+                                    color: Colors.black),
+                              ),
                             ),
                           ),
                         ],
@@ -151,9 +158,9 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
                           customInputField(
                             width: width,
                             height: height,
-                            prefixIcon: const Icon(Icons.email,
+                            prefixIcon: const Icon(Icons.phone,
                                 color: Colors.black, size: 25),
-                            hintText: 'Email Address',
+                            hintText: 'Phone Number',
                           ),
                         ],
                       ),
@@ -166,12 +173,6 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
                             prefixIcon: const Icon(Icons.calendar_today,
                                 color: Colors.black, size: 25),
                             hintText: 'Date of Birth',
-                            // suffixIcon: GestureDetector(
-                            //   onTap: () {
-                            //     // Code to execute when the suffix icon is tapped
-                            //   },
-                            //   child: Icon(Icons.arrow_drop_down_outlined, size: 35, color: Colors.white),
-                            // ),
                           ),
                         ],
                       ),

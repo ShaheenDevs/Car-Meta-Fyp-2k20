@@ -17,14 +17,16 @@ import 'package:car_meta/ui/views/help_support/help_support_view.dart' as _i11;
 import 'package:car_meta/ui/views/home/home_view.dart' as _i2;
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
     as _i4;
-import 'package:car_meta/ui/views/login_screen/login_screen_view.dart' as _i5;
+import 'package:car_meta/ui/views/auth/login_screen/login_screen_view.dart'
+    as _i5;
 import 'package:car_meta/ui/views/myprofile/myprofile_view.dart' as _i19;
 import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i13;
 import 'package:car_meta/ui/views/post/post_view.dart' as _i18;
 import 'package:car_meta/ui/views/product_detail/product_detail_view.dart'
     as _i20;
 import 'package:car_meta/ui/views/setting/setting_view.dart' as _i7;
-import 'package:car_meta/ui/views/sigup_screen/sigup_screen_view.dart' as _i6;
+import 'package:car_meta/ui/views/auth/sigup_screen/sigup_screen_view.dart'
+    as _i6;
 import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i15;
 import 'package:car_meta/ui/views/star/star_view.dart' as _i10;
 import 'package:car_meta/ui/views/startup/startup_view.dart' as _i3;

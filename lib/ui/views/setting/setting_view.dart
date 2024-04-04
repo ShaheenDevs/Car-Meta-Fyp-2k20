@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:car_meta/ui/common/app_colors.dart';
+import 'package:car_meta/ui/common/app_image.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -36,9 +38,30 @@ class SettingView extends StackedView<SettingViewModel> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    radius: 28,
-                    backgroundColor: Colors.amber,
+                  Stack(
+                    children: [
+                      viewModel.profile.isEmpty
+                          ? const CircleAvatar(
+                              radius: 60,
+                              backgroundImage: AssetImage(profile),
+                            )
+                          : CircleAvatar(
+                              radius: 60,
+                              backgroundImage: NetworkImage(viewModel.profile),
+                            ),
+                      Positioned(
+                        right: 3,
+                        bottom: 3,
+                        child: InkWell(
+                          onTap: viewModel.pickImage,
+                          child: CircleAvatar(
+                            backgroundColor: kcPrimaryColor,
+                            radius: 17,
+                            child: Icon(Icons.camera),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     width: 15,
@@ -46,7 +69,7 @@ class SettingView extends StackedView<SettingViewModel> {
                   Column(
                     children: [
                       Text(
-                        'Talha Mehm',
+                        viewModel.userData?.userName ?? "",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
@@ -140,6 +163,12 @@ class SettingView extends StackedView<SettingViewModel> {
         ),
       ),
     );
+  }
+
+  @override
+  void onViewModelReady(SettingViewModel viewModel) {
+    viewModel.onViewModelReady();
+    super.onViewModelReady(viewModel);
   }
 
   @override

@@ -31,10 +31,10 @@ class PostView extends StackedView<PostViewModel> {
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: 
-                  // viewModel.image != null
-                  //     ? Image.file(viewModel.image?? , fit: BoxFit.cover)
-                  //     : 
+                  child:
+                      // viewModel.image != null
+                      //     ? Image.file(viewModel.image?? , fit: BoxFit.cover)
+                      //     :
                       Icon(Icons.add_a_photo, size: 50, color: Colors.grey),
                 ),
               ),
@@ -47,7 +47,6 @@ class PostView extends StackedView<PostViewModel> {
                 ),
                 maxLines: null,
               ),
-              
               SizedBox(height: 20),
               TextField(
                 controller: viewModel.companyCtrl,
@@ -57,7 +56,6 @@ class PostView extends StackedView<PostViewModel> {
                 ),
                 maxLines: null,
               ),
-              
               SizedBox(height: 20),
               TextField(
                 controller: viewModel.modelCtrl,
@@ -67,7 +65,6 @@ class PostView extends StackedView<PostViewModel> {
                 ),
                 maxLines: null,
               ),
-              
               SizedBox(height: 20),
               TextField(
                 controller: viewModel.milageCtrl,
@@ -77,7 +74,6 @@ class PostView extends StackedView<PostViewModel> {
                 ),
                 maxLines: null,
               ),
-              
               SizedBox(height: 20),
               TextField(
                 controller: viewModel.priceCtrl,

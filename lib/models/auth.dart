@@ -1,10 +1,10 @@
 class AuthModel {
   bool? isStudent;
   String? uID;
-  String? firstName;
+  String? userName;
   String? email;
   String? phoneNo;
-  String? lastName;
+  String? gender;
   String? profile;
   String? password;
   String? cardNumber;
@@ -17,10 +17,10 @@ class AuthModel {
   AuthModel({
     this.isStudent,
     this.uID,
-    this.firstName,
+    this.userName,
     this.email,
     this.phoneNo,
-    this.lastName,
+    this.gender,
     this.profile,
     this.password,
     this.cardNumber,
@@ -34,10 +34,10 @@ class AuthModel {
   AuthModel.fromJson(Map<String, dynamic> json) {
     isStudent = json['isStudent'];
     uID = json['uID'];
-    firstName = json['firstName'];
+    userName = json['userName'];
     email = json['email'];
     phoneNo = json['phoneNo'];
-    lastName = json['lastName'];
+    gender = json['gender'];
     profile = json['profile'];
     password = json['password'];
     cardNumber = json['cardNumber'];
@@ -54,10 +54,10 @@ class AuthModel {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['uID'] = uID;
     data['isStudent'] = isStudent;
-    data['firstName'] = firstName;
+    data['userName'] = userName;
     data['email'] = email;
     data['phoneNo'] = phoneNo;
-    data['lastName'] = lastName;
+    data['gender'] = gender;
     data['profile'] = profile;
     data['password'] = password;
     data['cardNumber'] = cardNumber;
