@@ -144,7 +144,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     viewModel.navigateToSpareParts();
                   },
                   child: const CategoriesCards(
-                      imagePath: 'assets/spareparts.jpg',
+                      imagePath: 'assets/spareparts.png',
                       title: 'Spare Parts',
                       colr: Color.fromARGB(255, 202, 59, 228)),
                 ),
@@ -153,7 +153,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     viewModel.navigateToPumps();
                   },
                   child: const CategoriesCards(
-                    imagePath: 'assets/fuel.jpg',
+                    imagePath: 'assets/fuel.png',
                     title: 'Find A Pump',
                     colr: Colors.indigoAccent,
                   ),
