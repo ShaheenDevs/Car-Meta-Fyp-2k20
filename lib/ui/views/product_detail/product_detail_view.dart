@@ -17,14 +17,9 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
   ) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-     List<String> ads = [
-      'assess/corola1.jpeg',
-      'assess/corola2.jpeg',
-      'assess/corola3.jpeg',
-    ];
     return Scaffold(
         resizeToAvoidBottomInset: true,
-        appBar: AppBar(title: Text('Product Details')),
+        appBar: AppBar(title: const Text('Product Details')),
         body: SafeArea(
           child: Container(
             height: height,
@@ -67,7 +62,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
@@ -88,7 +83,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                   ],
                                 ),
                                 SizedBox(height: height * 0.01),
-                                Text(
+                                const Text(
                                   'Split rim wheels are hot right now\n on the car circuit and they are easy\n to spot',
                                   style: TextStyle(
                                       color: Colors.black54, fontSize: 10),
@@ -103,7 +98,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                   padding: const EdgeInsets.all(8),
                                   child: Row(
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Company',
                                         style: TextStyle(
                                             color: Colors.black,
@@ -111,7 +106,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       SizedBox(width: width * 0.29),
-                                      Text(
+                                      const Text(
                                         'Suzuki',
                                         style: TextStyle(
                                             color: Colors.black54,
@@ -130,19 +125,19 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                   padding: const EdgeInsets.all(7),
                                   child: Row(
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Delivery',
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontSize: 10,
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         CupertinoIcons.bus,
                                         color: Colors.black,
                                       ),
                                       SizedBox(width: width * 0.25),
-                                      Text(
+                                      const Text(
                                         '2-3 days',
                                         style: TextStyle(
                                             color: Colors.black54,
@@ -162,7 +157,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                       top: 6, bottom: 6, left: 6),
                                   child: Row(
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Warrenty',
                                         style: TextStyle(
                                             color: Colors.black,
@@ -170,7 +165,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       SizedBox(width: width * 0.30),
-                                      Text(
+                                      const Text(
                                         '3+ Years',
                                         style: TextStyle(
                                             color: Colors.black54,
@@ -190,7 +185,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                       top: 6, bottom: 6, left: 6),
                                   child: Row(
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Ratings',
                                         style: TextStyle(
                                             color: Colors.black,
@@ -228,8 +223,8 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 8.0),
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
                                       child: Text(
                                         'Reviews',
                                         style: TextStyle(
@@ -242,7 +237,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                       padding: const EdgeInsets.only(right: 15),
                                       child: TextButton(
                                           onPressed: () {},
-                                          child: Text(
+                                          child: const Text(
                                             'View All',
                                             style: TextStyle(
                                                 color: Colors.black,
@@ -253,8 +248,8 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                   ],
                                 ),
                                 SizedBox(width: width * 0.01),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Align(
                                       alignment:
                                           AlignmentDirectional.centerStart,
@@ -266,8 +261,8 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                             fontWeight: FontWeight.bold),
                                       )),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Align(
                                     alignment: AlignmentDirectional.centerStart,
                                     child: Text(
@@ -282,8 +277,8 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                     color: Colors.black,
                                     indent: 20,
                                     endIndent: 40),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
                                   child: Align(
                                       alignment:
                                           AlignmentDirectional.centerStart,
@@ -295,8 +290,8 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                             fontWeight: FontWeight.bold),
                                       )),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
                                   child: Align(
                                     alignment: AlignmentDirectional.centerStart,
                                     child: Text(
@@ -313,7 +308,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                     endIndent: 40),
                                 TextButton(
                                     onPressed: () {},
-                                    child: Text(
+                                    child: const Text(
                                       'Add Review',
                                       style: TextStyle(
                                         color: Colors.black,
@@ -328,7 +323,7 @@ class ProductDetailView extends StackedView<ProductDetailViewModel> {
                                     children: [
                                       TextButton(
                                           onPressed: () {},
-                                          child: Text("Next")),
+                                          child: const Text("Next")),
                                     ],
                                   ),
                                 ),

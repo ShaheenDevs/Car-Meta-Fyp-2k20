@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import '../../../common/app_colors.dart';
 import '../../../common/ui_helpers.dart';
 import 'dropdown_textfield_model.dart';
 
@@ -44,7 +43,7 @@ class DropdownTextfield extends StackedView<DropdownTextfieldModel> {
                 children: [
                   Text(
                     titleText.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       // color: color ?? Colors.black,
                       fontSize: 14,
                       // fontWeight: fontWeight ?? FontWeight.w400,
@@ -75,7 +74,7 @@ class DropdownTextfield extends StackedView<DropdownTextfieldModel> {
                     enabledBorder: _setBorderStyle(),
                     focusedBorder: _setBorderStyle(),
                     disabledBorder: _setBorderStyle(),
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontSize: 16,
                       color: Colors.blueGrey,
                       fontFamily: 'poppins',

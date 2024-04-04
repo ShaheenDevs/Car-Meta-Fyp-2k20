@@ -3,7 +3,6 @@
 import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import '../../../common/app_colors.dart';
 import 'icon_box_btn_model.dart';
 
 class SubmitButton extends StackedView<IconBoxBtnModel> {

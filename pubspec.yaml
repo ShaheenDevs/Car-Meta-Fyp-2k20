@@ -9,13 +9,17 @@ environment:
 dependencies:
   cloud_firestore: ^4.15.8
   curved_labeled_navigation_bar: ^2.0.2
+  file_picker: ^8.0.0+1
   firebase_auth: ^4.17.8
   firebase_core: ^2.27.0
   firebase_storage: ^11.6.9
   flutter:
     sdk: flutter
   # google_fonts: ^6.2.0
+  fluttertoast: ^8.2.4
+  geolocator: ^11.0.0
   image_picker: ^1.0.7
+  shared_preferences: ^2.2.2
   stacked: ^3.4.0
   stacked_services: ^1.1.0
 

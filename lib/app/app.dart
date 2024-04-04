@@ -1,3 +1,7 @@
+import 'package:car_meta/services/auth_service.dart';
+import 'package:car_meta/services/location_service.dart';
+import 'package:car_meta/services/picker_service.dart';
+import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:car_meta/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
@@ -54,6 +58,10 @@ import 'package:car_meta/ui/views/product_detail/product_detail_view.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
+    LazySingleton(classType: PickerService),
+    LazySingleton(classType: AuthService),
+    LazySingleton(classType: ProductService),
+    LazySingleton(classType: LocationService),
     // @stacked-service
   ],
   bottomsheets: [

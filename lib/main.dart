@@ -1,5 +1,4 @@
 import 'package:car_meta/firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:car_meta/app/app.bottomsheets.dart';
@@ -13,7 +12,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  final user = FirebaseAuth.instance.currentUser;
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
