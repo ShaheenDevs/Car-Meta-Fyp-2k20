@@ -25,12 +25,6 @@ class AuthService with ListenableServiceMixin {
           email: userData.email ?? "", password: userData.password ?? "");
       userData.uID = user.user!.uid;
       this.userData = userData;
-      // _activityService.addActicity(ActivityModel(
-      //     action: "${userData.isStudent! ? "Studeint" : "Teacher"} Registered",
-      //     createOn: DateTime.now(),
-      //     name: userData.userName,
-      //     uID: userData.uID));
-
       await firestore
           .collection("users")
           .doc(user.user!.uid)
