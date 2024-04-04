@@ -16,7 +16,9 @@ class HomeViewModel extends BaseViewModel {
   navigateToCars() {
     _navigationService.navigateToCarsView();
   }
-
+navigateToProductDetails() {
+    _navigationService.navigateToProductDetailView();
+  }
   navigateToSpareParts() {
     _navigationService.navigateToSparePartsView();
   }
@@ -28,7 +30,6 @@ class HomeViewModel extends BaseViewModel {
   navigateToMechanics() {
     _navigationService.navigateToFindMechanicView();
   }
- 
 
   TextEditingController searchCtrl = TextEditingController();
 }

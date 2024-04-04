@@ -51,7 +51,7 @@ class SettingView extends StackedView<SettingViewModel> {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       InkWell(
-                        onTap: (){
+                        onTap: () {
                           viewModel.navigateToProfile();
                         },
                         child: Text(

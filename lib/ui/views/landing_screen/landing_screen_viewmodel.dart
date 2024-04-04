@@ -26,7 +26,7 @@ class LandingScreenViewModel extends BaseViewModel {
     _navigationService.navigateToOrderDetailView();
   }
 
-   navigateToProfile() {
+  navigateToProfile() {
     _navigationService.navigateToMyprofileView();
   }
 

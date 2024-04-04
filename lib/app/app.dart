@@ -22,6 +22,7 @@ import 'package:car_meta/ui/views/find_pump/find_pump_view.dart';
 import 'package:car_meta/ui/views/find_mechanic/find_mechanic_view.dart';
 import 'package:car_meta/ui/views/post/post_view.dart';
 import 'package:car_meta/ui/views/myprofile/myprofile_view.dart';
+import 'package:car_meta/ui/views/product_detail/product_detail_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -31,7 +32,7 @@ import 'package:car_meta/ui/views/myprofile/myprofile_view.dart';
     MaterialRoute(page: LandingScreenView),
     MaterialRoute(page: LoginScreenView),
     MaterialRoute(page: SigupScreenView),
-  
+
     MaterialRoute(page: SettingView),
     MaterialRoute(page: FavouritView),
     MaterialRoute(page: ChatView),
@@ -39,13 +40,14 @@ import 'package:car_meta/ui/views/myprofile/myprofile_view.dart';
     MaterialRoute(page: HelpSupportView),
     MaterialRoute(page: AppointmentDetailView),
     MaterialRoute(page: OrderDetailView),
-   
+
     MaterialRoute(page: CarsView),
     MaterialRoute(page: SparePartsView),
     MaterialRoute(page: FindPumpView),
     MaterialRoute(page: FindMechanicView),
     MaterialRoute(page: PostView),
     MaterialRoute(page: MyprofileView),
+    MaterialRoute(page: ProductDetailView),
 // @stacked-route
   ],
   dependencies: [
