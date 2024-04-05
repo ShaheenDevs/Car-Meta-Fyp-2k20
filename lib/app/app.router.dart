@@ -29,7 +29,7 @@ import 'package:car_meta/ui/views/auth/sigup_screen/sigup_screen_view.dart'
     as _i6;
 import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i15;
 import 'package:car_meta/ui/views/star/star_view.dart' as _i10;
-import 'package:car_meta/ui/views/startup/startup_view.dart' as _i3;
+import 'package:car_meta/ui/views/auth/startup/startup_view.dart' as _i3;
 import 'package:flutter/material.dart' as _i21;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;

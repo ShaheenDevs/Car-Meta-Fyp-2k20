@@ -5,7 +5,7 @@ class ProductModel {
   String? otherType;
   String? model;
   String? year;
-  String? kilometer;
+  String? milage;
   int? price;
   bool? swipeOrSell;
   bool? onlySell;
@@ -28,7 +28,7 @@ class ProductModel {
       this.otherType,
       this.model,
       this.year,
-      this.kilometer,
+      this.milage,
       this.price,
       this.swipeOrSell,
       this.onlySell,
@@ -51,7 +51,7 @@ class ProductModel {
     otherType = json['otherType'];
     model = json['model'];
     year = json['year'];
-    kilometer = json['kilometer'];
+    milage = json['milage'];
     price = json['price'];
     swipeOrSell = json['swipeOrSell'];
     onlySell = json['onlySell'];
@@ -80,7 +80,7 @@ class ProductModel {
     data['otherType'] = otherType;
     data['model'] = model;
     data['year'] = year;
-    data['kilometer'] = kilometer;
+    data['milage'] = milage;
     data['price'] = price;
     data['swipeOrSell'] = swipeOrSell;
     data['onlySell'] = onlySell;

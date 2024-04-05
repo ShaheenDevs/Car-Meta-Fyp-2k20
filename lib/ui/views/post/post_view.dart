@@ -1,3 +1,6 @@
+import 'package:car_meta/ui/common/const_variable.dart';
+import 'package:car_meta/ui/widgets/textform_field/dropdown_field.dart';
+import 'package:car_meta/ui/widgets/textform_field/textform_field.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -17,84 +20,73 @@ class PostView extends StackedView<PostViewModel> {
       // appBar: AppBar(
       //   title: Text("Add Post"),
       // ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              GestureDetector(
-                onTap: viewModel.pickImage,
-                child: Container(
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(10),
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  GestureDetector(
+                    onTap: viewModel.pickImage,
+                    child: Container(
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.blueAccent),
+                        image: DecorationImage(
+                          image: NetworkImage(viewModel.product.url ?? ""),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: const Icon(Icons.add_a_photo,
+                          size: 50, color: Colors.grey),
+                    ),
                   ),
-                  child:
-                      // viewModel.image != null
-                      //     ? Image.file(viewModel.image?? , fit: BoxFit.cover)
-                      //     :
-                      Icon(Icons.add_a_photo, size: 50, color: Colors.grey),
-                ),
+                  const SizedBox(height: 20),
+                  TextformField(
+                    title: 'Enter your Title...',
+                    ctrl: viewModel.titleCtrl,
+                  ),
+                  const SizedBox(height: 20),
+                  DropdownableTextField(
+                      title: 'Enter Type...',
+                      items: productTypeList,
+                      selectedValue: viewModel.selectedProductType,
+                      onChanged: viewModel.onChangedProductType),
+                  const SizedBox(height: 20),
+                  DropdownableTextField(
+                      title: 'Enter Menufecturer...',
+                      items: brandList,
+                      selectedValue: viewModel.selectedBrand,
+                      onChanged: viewModel.onChangedBrand),
+                  const SizedBox(height: 20),
+                  TextformField(
+                    title: 'Enter Model...',
+                    ctrl: viewModel.modelCtrl,
+                  ),
+                  const SizedBox(height: 20),
+                  TextformField(
+                    title: 'Enter milage...',
+                    ctrl: viewModel.milageCtrl,
+                  ),
+                  const SizedBox(height: 20),
+                  TextformField(
+                    title: 'Enter Price...',
+                    ctrl: viewModel.priceCtrl,
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: viewModel.postAd,
+                    child: const Text('Submit'),
+                  ),
+                ],
               ),
-              SizedBox(height: 20),
-              TextField(
-                controller: viewModel.postCtrl,
-                decoration: InputDecoration(
-                  hintText: 'Enter your post...',
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: null,
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: viewModel.companyCtrl,
-                decoration: InputDecoration(
-                  hintText: 'Enter Menufecturer...',
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: null,
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: viewModel.modelCtrl,
-                decoration: InputDecoration(
-                  hintText: 'Enter Model...',
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: null,
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: viewModel.milageCtrl,
-                decoration: InputDecoration(
-                  hintText: 'Enter milage...',
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: null,
-              ),
-              SizedBox(height: 20),
-              TextField(
-                controller: viewModel.priceCtrl,
-                decoration: InputDecoration(
-                  hintText: 'Enter Price...',
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: null,
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Here you can implement your logic to submit the post
-                  // You can use _textEditingController.text to get the text
-                  // And _image to get the selected image file
-                },
-                child: Text('Submit'),
-              ),
-            ],
+            ),
           ),
-        ),
+       if(viewModel.isBusy) const Center(child: CircularProgressIndicator())],
       ),
     );
   }

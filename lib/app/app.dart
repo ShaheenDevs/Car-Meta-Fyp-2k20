@@ -5,7 +5,7 @@ import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:car_meta/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
-import 'package:car_meta/ui/views/startup/startup_view.dart';
+import 'package:car_meta/ui/views/auth/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart';
