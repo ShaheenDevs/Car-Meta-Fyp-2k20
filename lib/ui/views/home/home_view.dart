@@ -147,7 +147,8 @@ class HomeView extends StackedView<HomeViewModel> {
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
-                        viewModel.navigateToProductDetails();
+                        viewModel.navigateToPostDetailsView(
+                            viewModel.allProducts[index]);
                       },
                       child: vehiclesImageCard(
                           210,

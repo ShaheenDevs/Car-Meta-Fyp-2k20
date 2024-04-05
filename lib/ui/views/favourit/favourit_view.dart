@@ -1,3 +1,4 @@
+import 'package:car_meta/ui/views/favourit/item_card.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -14,32 +15,12 @@ class FavouritView extends StackedView<FavouritViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      // appBar: AppBar(
-      //   title: Text("Favourites"),
-      // ),
       body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+        padding: const EdgeInsets.only(left: 5.0, right: 5.0),
         child: ListView.builder(
-          itemCount: 14, // Specifies the number of items in the list
+          itemCount: viewModel.savedPostes.length,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.40),
-                    borderRadius: BorderRadius.circular(10)),
-                child: const ListTile(
-                  title: Text("Item"), // Title of the ListTile
-                  subtitle: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Item Detail"),
-                      Text("Price"),
-                    ],
-                  ), // Subtitle of the ListTile
-                ),
-              ),
-            );
+            return MySavedListItemCard(product: viewModel.savedPostes[index]);
           },
         ),
       ),

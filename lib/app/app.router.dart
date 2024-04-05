@@ -5,6 +5,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:car_meta/models/product.dart' as _i22;
 import 'package:car_meta/ui/views/appointment_detail/appointment_detail_view.dart'
     as _i12;
 import 'package:car_meta/ui/views/auth/login_screen/login_screen_view.dart'
@@ -25,15 +26,14 @@ import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
 import 'package:car_meta/ui/views/myprofile/myprofile_view.dart' as _i19;
 import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i13;
 import 'package:car_meta/ui/views/post/post_view.dart' as _i18;
-import 'package:car_meta/ui/views/product_detail/product_detail_view.dart'
-    as _i20;
+import 'package:car_meta/ui/views/post_details/post_details_view.dart' as _i20;
 import 'package:car_meta/ui/views/setting/setting_view.dart' as _i7;
 import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i15;
 import 'package:car_meta/ui/views/star/star_view.dart' as _i10;
 import 'package:flutter/material.dart' as _i21;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i22;
+import 'package:stacked_services/stacked_services.dart' as _i23;
 
 class Routes {
   static const homeView = '/home-view';
@@ -72,7 +72,7 @@ class Routes {
 
   static const myprofileView = '/myprofile-view';
 
-  static const productDetailView = '/product-detail-view';
+  static const postDetailsView = '/post-details-view';
 
   static const all = <String>{
     homeView,
@@ -93,7 +93,7 @@ class Routes {
     findMechanicView,
     postView,
     myprofileView,
-    productDetailView,
+    postDetailsView,
   };
 }
 
@@ -172,8 +172,8 @@ class StackedRouter extends _i1.RouterBase {
       page: _i19.MyprofileView,
     ),
     _i1.RouteDef(
-      Routes.productDetailView,
-      page: _i20.ProductDetailView,
+      Routes.postDetailsView,
+      page: _i20.PostDetailsView,
     ),
   ];
 
@@ -286,9 +286,11 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i20.ProductDetailView: (data) {
+    _i20.PostDetailsView: (data) {
+      final args = data.getArgs<PostDetailsViewArguments>(nullOk: false);
       return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i20.ProductDetailView(),
+        builder: (context) =>
+            _i20.PostDetailsView(key: args.key, product: args.product),
         settings: data,
       );
     },
@@ -301,7 +303,34 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i22.NavigationService {
+class PostDetailsViewArguments {
+  const PostDetailsViewArguments({
+    this.key,
+    required this.product,
+  });
+
+  final _i21.Key? key;
+
+  final _i22.ProductModel product;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "product": "$product"}';
+  }
+
+  @override
+  bool operator ==(covariant PostDetailsViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.product == product;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ product.hashCode;
+  }
+}
+
+extension NavigatorStateExtension on _i23.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -554,14 +583,17 @@ extension NavigatorStateExtension on _i22.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToProductDetailView([
+  Future<dynamic> navigateToPostDetailsView({
+    _i21.Key? key,
+    required _i22.ProductModel product,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.productDetailView,
+  }) async {
+    return navigateTo<dynamic>(Routes.postDetailsView,
+        arguments: PostDetailsViewArguments(key: key, product: product),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -820,14 +852,17 @@ extension NavigatorStateExtension on _i22.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithProductDetailView([
+  Future<dynamic> replaceWithPostDetailsView({
+    _i21.Key? key,
+    required _i22.ProductModel product,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.productDetailView,
+  }) async {
+    return replaceWith<dynamic>(Routes.postDetailsView,
+        arguments: PostDetailsViewArguments(key: key, product: product),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
