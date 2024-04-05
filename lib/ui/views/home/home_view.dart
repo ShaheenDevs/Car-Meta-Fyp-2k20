@@ -21,78 +21,7 @@ class HomeView extends StackedView<HomeViewModel> {
           const SizedBox(
             height: 5,
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            // child: Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     IconButton(
-            //         onPressed: () {
-            //           // Navigator.push(
-            //           //     context,
-            //           //     MaterialPageRoute(
-            //           //         builder: (context) => const MySettings()));
-            //         },
-            //         icon: const Icon(Icons.menu_outlined)),
-            //     const Text(
-            //       'Car Meta',
-            //       style: TextStyle(
-            //           color: Colors.black,
-            //           fontSize: 38,
-            //           fontWeight: FontWeight.bold),
-            //     ),
-            //     InkWell(
-            //       onTap: () {
-            //         //show dialog box
-            //         showDialog(
-            //             context: context,
-            //             builder: (BuildContext context) {
-            //               return AlertDialog(
-            //                 title: const Text('Are you sure?'),
-            //                 content: const Text(
-            //                     'Do you want to logout from the app'),
-            //                 actions: [
-            //                   TextButton(
-            //                       onPressed: () async {
-            //                         // await FirebaseAuth.instance
-            //                         //     .signOut()
-            //                         //     .then((value) {
-            //                         //   Navigator.push(
-            //                         //       context,
-            //                         //       MaterialPageRoute(
-            //                         //           builder: (context) =>
-            //                         //               const MyLogin()));
-            //                         // });
-            //                       },
-            //                       child: const Text('Yes')),
-            //                   TextButton(
-            //                       onPressed: () {
-            //                         Navigator.pop(context);
-            //                       },
-            //                       child: const Text('No'))
-            //                 ],
-            //               );
-            //             });
-            //       },
-            //       child: CircleAvatar(
-            //         radius: 22,
-            //         backgroundColor: Colors.grey[400],
-            //         child: const Text(
-            //           'P',
-            //           style: TextStyle(
-            //               fontWeight: FontWeight.w900,
-            //               fontSize: 20,
-            //               color: Colors.black),
-            //           textAlign: TextAlign.center,
-            //         ),
-            //       ),
-            //     )
-            //   ],
-            // ),
-          ),
-          // const SizedBox(
-          //   height: 5,
-          // ),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: searchTextFeild(
@@ -210,40 +139,22 @@ class HomeView extends StackedView<HomeViewModel> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 10.0,
                     mainAxisSpacing: 15.0,
-                    childAspectRatio: 50 / 25,
+                    childAspectRatio: 33 / 35,
                   ),
-                  //shrinkWrap: true,
-                  itemCount: 6,
-                  // showparts
-                  //     ? vehController.parts.length
-                  //     : vehController.vehicles.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: viewModel.allProducts.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return
-                        // Container(
-                        //   child: Text("data"),
-                        // );
-                        InkWell(
+                    return InkWell(
                       onTap: () {
                         viewModel.navigateToProductDetails();
                       },
-                      child: car_widget(
-                          imagePath: "0.jpeg",
-                          // showparts
-                          //     ? vehController.parts[index].imagePath!
-                          //     : vehController.vehicles[index].imagePath!,
-                          title: "Corolla GLI",
-                          // showparts
-                          //     ? vehController.parts[index].title!
-                          //     : vehController.vehicles[index].title!,
-                          brand: "Toyota",
-                          // showparts
-                          //     ? vehController.parts[index].title!
-                          //     : vehController.vehicles[index].title!,
-                          price: "3500000",
-                          // showparts
-                          //     ? vehController.parts[index].price!
-                          //     : vehController.vehicles[index].price!,
-                          index: index),
+                      child: vehiclesImageCard(
+                          210,
+                          index,
+                          viewModel.allProducts[index],
+                          viewModel.savedAndUnsavedProduct,
+                          viewModel.userData),
                     );
                   },
                 ),

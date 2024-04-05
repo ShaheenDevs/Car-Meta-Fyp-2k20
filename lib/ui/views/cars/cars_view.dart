@@ -1,6 +1,5 @@
 import 'package:car_meta/ui/common/reusable_widgets/logocard.dart';
 import 'package:car_meta/ui/common/reusable_widgets/resuable_widgets.dart';
-import 'package:car_meta/ui/views/home/widgets/car_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -123,56 +122,56 @@ class CarsView extends StackedView<CarsViewModel> {
               ],
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: InkWell(
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const MyCarDetails()));
-                },
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 15.0,
-                    childAspectRatio: 50 / 25,
-                  ),
-                  //shrinkWrap: true,
-                  itemCount: 14,
-                  // showparts
-                  //     ? vehController.parts.length
-                  //     : vehController.vehicles.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return
-                        // Container(
-                        //   child: Text("data"),
-                        // );
-                        car_widget(
-                            imagePath: "0.jpeg",
-                            // showparts
-                            //     ? vehController.parts[index].imagePath!
-                            //     : vehController.vehicles[index].imagePath!,
-                            title: "Corolla GLI",
-                            // showparts
-                            //     ? vehController.parts[index].title!
-                            //     : vehController.vehicles[index].title!,
-                            brand: "Toyota",
-                            // showparts
-                            //     ? vehController.parts[index].title!
-                            //     : vehController.vehicles[index].title!,
-                            price: "3500000",
-                            // showparts
-                            //     ? vehController.parts[index].price!
-                            //     : vehController.vehicles[index].price!,
-                            index: index);
-                  },
-                ),
-              ),
-            ),
-          ),
+          // Expanded(
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(10.0),
+          //     child: InkWell(
+          //       onTap: () {
+          //         // Navigator.push(
+          //         //     context,
+          //         //     MaterialPageRoute(
+          //         //         builder: (context) => const MyCarDetails()));
+          //       },
+          //       child: GridView.builder(
+          //         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //           crossAxisCount: 2,
+          //           crossAxisSpacing: 10.0,
+          //           mainAxisSpacing: 15.0,
+          //           childAspectRatio: 50 / 25,
+          //         ),
+          //         //shrinkWrap: true,
+          //         itemCount: 14,
+          //         // showparts
+          //         //     ? vehController.parts.length
+          //         //     : vehController.vehicles.length,
+          //         itemBuilder: (BuildContext context, int index) {
+          //           return
+          //               // Container(
+          //               //   child: Text("data"),
+          //               // );
+          //               car_widget(
+          //                   imagePath: "0.jpeg",
+          //                   // showparts
+          //                   //     ? vehController.parts[index].imagePath!
+          //                   //     : vehController.vehicles[index].imagePath!,
+          //                   title: "Corolla GLI",
+          //                   // showparts
+          //                   //     ? vehController.parts[index].title!
+          //                   //     : vehController.vehicles[index].title!,
+          //                   brand: "Toyota",
+          //                   // showparts
+          //                   //     ? vehController.parts[index].title!
+          //                   //     : vehController.vehicles[index].title!,
+          //                   price: "3500000",
+          //                   // showparts
+          //                   //     ? vehController.parts[index].price!
+          //                   //     : vehController.vehicles[index].price!,
+          //                   index: index);
+          //         },
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

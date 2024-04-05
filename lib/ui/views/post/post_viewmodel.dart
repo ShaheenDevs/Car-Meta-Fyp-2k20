@@ -8,7 +8,6 @@ import 'package:car_meta/services/snak_bar.dart';
 import 'package:car_meta/ui/common/const_variable.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 class PostViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
@@ -63,6 +62,7 @@ class PostViewModel extends BaseViewModel {
       product.price = int.parse(price);
       product.type = selectedProductType;
       product.subType = selectedBrand;
+      product.createOn = DateTime.now();
       await _productService.postAd(product);
       product = ProductModel();
       titleCtrl.clear();

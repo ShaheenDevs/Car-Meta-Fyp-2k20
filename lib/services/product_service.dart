@@ -5,12 +5,28 @@ import 'package:car_meta/models/response.dart';
 import 'package:car_meta/services/auth_service.dart';
 import 'package:car_meta/services/snak_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:stacked/stacked.dart';
 
-class ProductService {
+class ProductService with ListenableServiceMixin {
   final _authService = locator<AuthService>();
   AuthModel? get userData => _authService.userData;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  initialize() {}
+  
+  initialize() {
+    listenToAllPosts().data?.listen((event) {
+      allProducts = event;
+      notifyListeners();
+    });
+
+    listenToMyPosts().data?.listen((event) {
+      myProducts = event;
+      notifyListeners();
+    });
+  }
+
+  List<ProductModel> myProducts = [];
+  List<ProductModel> allProducts = [];
+  List<ProductModel> limtedProducts = [];
 
   postAd(ProductModel product) async {
     try {
@@ -36,7 +52,7 @@ class ProductService {
     try {
       final stream = firestore
           .collection('products')
-          .orderBy("createOn", descending: true)
+          // .orderBy("createOn", descending: true)
           .snapshots()
           .map((event) {
         List<ProductModel> products = [];
@@ -61,12 +77,10 @@ class ProductService {
           .limit(limit)
           .snapshots()
           .map((event) {
-        List<ProductModel> products = [];
-
         for (var item in event.docs) {
-          products.add(ProductModel.fromJson(item.data(), item.id));
+          limtedProducts.add(ProductModel.fromJson(item.data(), item.id));
         }
-        return products;
+        return limtedProducts;
       });
       return ResponseModel.completed(stream);
     } catch (e) {
@@ -104,7 +118,6 @@ class ProductService {
           .snapshots()
           .map((event) {
         List<ProductModel> products = [];
-
         for (var item in event.docs) {
           products.add(ProductModel.fromJson(item.data(), item.id));
         }
