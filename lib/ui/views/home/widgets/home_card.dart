@@ -6,7 +6,7 @@ import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:car_meta/ui/widgets/button/icon_button.dart';
 import 'package:flutter/material.dart';
 
-Widget vehiclesImageCard(double height, int index, ProductModel productData,
+Widget homeCard(double height, int index, ProductModel productData,
     onPresses, AuthModel? userData) {
   bool isSaved = productData.saved?.contains(userData?.uID) ?? false;
   return SizedBox(

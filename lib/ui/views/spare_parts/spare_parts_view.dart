@@ -27,7 +27,7 @@ class SparePartsView extends StackedView<SparePartsViewModel> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: searchTextFeild(
-                'Search Cars', Icons.search_outlined, viewModel.searchCtrl),
+                'Search Cars', Icons.search_outlined, viewModel.onChangeSearch),
           ),
           // SizedBox(
           //   height: 5.0,

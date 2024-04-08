@@ -48,9 +48,9 @@ Widget signInSignUpButton(BuildContext context, bool isLogin) {
 }
 
 TextField searchTextFeild(
-    String text, IconData icon, TextEditingController controller) {
+    String text, IconData icon, Function(String) onChanged) {
   return TextField(
-    controller: controller,
+    onChanged: onChanged,
     enableSuggestions: true,
     cursorColor: Colors.black,
     style: TextStyle(color: Colors.black.withOpacity(0.9)),

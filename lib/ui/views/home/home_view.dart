@@ -1,6 +1,6 @@
 import 'package:car_meta/ui/common/reusable_widgets/categoriescard.dart';
 import 'package:car_meta/ui/common/reusable_widgets/resuable_widgets.dart';
-import 'package:car_meta/ui/views/home/widgets/car_widget.dart';
+import 'package:car_meta/ui/views/home/widgets/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,118 +16,109 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 5,
-          ),
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: searchTextFeild(
-                "Search Products", Icons.search_outlined, viewModel.searchCtrl),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Text(
-                  "Categories",
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22),
-                ),
-              ),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios_outlined))
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Container(
-            height: 130,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: searchTextFeild("Search Products", Icons.search_outlined,
+                  viewModel.onChangeSearch),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    viewModel.navigateToCars();
-                  },
-                  child: const CategoriesCards(
-                    imagePath: 'assets/car.png',
-                    title: 'Cars',
-                    colr: Color.fromARGB(255, 255, 187, 0),
+                const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text(
+                    "Categories",
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    viewModel.navigateToSpareParts();
-                  },
-                  child: const CategoriesCards(
-                      imagePath: 'assets/spareparts.png',
-                      title: 'Spare Parts',
-                      colr: Color.fromARGB(255, 202, 59, 228)),
-                ),
-                InkWell(
-                  onTap: () {
-                    viewModel.navigateToPumps();
-                  },
-                  child: const CategoriesCards(
-                    imagePath: 'assets/fuel.png',
-                    title: 'Find A Pump',
-                    colr: Colors.indigoAccent,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    viewModel.navigateToMechanics();
-                  },
-                  child: const CategoriesCards(
-                    imagePath: 'assets/mechanic.png',
-                    title: 'Find A Mechanic',
-                    colr: Color.fromARGB(255, 66, 221, 73),
-                  ),
-                )
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.arrow_forward_ios_outlined))
               ],
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
-                  "Recent Updates",
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22),
-                ),
+            const SizedBox(height: 5),
+            Container(
+              height: 130,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.white,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      viewModel.navigateToCars();
+                    },
+                    child: const CategoriesCards(
+                      imagePath: 'assets/car.png',
+                      title: 'Cars',
+                      colr: Color.fromARGB(255, 255, 187, 0),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      viewModel.navigateToSpareParts();
+                    },
+                    child: const CategoriesCards(
+                        imagePath: 'assets/spareparts.png',
+                        title: 'Spare Parts',
+                        colr: Color.fromARGB(255, 202, 59, 228)),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      viewModel.navigateToPumps();
+                    },
+                    child: const CategoriesCards(
+                      imagePath: 'assets/fuel.png',
+                      title: 'Find A Pump',
+                      colr: Colors.indigoAccent,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      viewModel.navigateToMechanics();
+                    },
+                    child: const CategoriesCards(
+                      imagePath: 'assets/mechanic.png',
+                      title: 'Find A Mechanic',
+                      colr: Color.fromARGB(255, 66, 221, 73),
+                    ),
+                  )
+                ],
               ),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios_outlined))
-            ],
-          ),
-          // const SizedBox(
-          //   height: 5,
-          // ),
-          Expanded(
-            child: Padding(
+            ),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(
+                    "Recent Updates",
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22),
+                  ),
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.arrow_forward_ios_outlined))
+              ],
+            ),
+            // const SizedBox(
+            //   height: 5,
+            // ),
+            Padding(
               padding: const EdgeInsets.all(10.0),
-              child: InkWell(
+              child: GestureDetector(
                 onTap: () {
                   // Navigator.push(
                   //     context,
@@ -150,19 +141,15 @@ class HomeView extends StackedView<HomeViewModel> {
                         viewModel.navigateToPostDetailsView(
                             viewModel.allProducts[index]);
                       },
-                      child: vehiclesImageCard(
-                          210,
-                          index,
-                          viewModel.allProducts[index],
-                          viewModel.savedAndUnsavedProduct,
-                          viewModel.userData),
+                      child: homeCard(210, index, viewModel.allProducts[index],
+                          viewModel.savedAndUnsavedProduct, viewModel.userData),
                     );
                   },
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
