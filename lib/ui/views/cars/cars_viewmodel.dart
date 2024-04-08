@@ -24,7 +24,11 @@ class CarsViewModel extends BaseViewModel {
   }
 
   onChangeType(e) {
-    selectedType = e;
+    if (selectedType != e) {
+      selectedType = e;
+    } else {
+      selectedType = "";
+    }
     onChangeShowAbleList();
   }
 
