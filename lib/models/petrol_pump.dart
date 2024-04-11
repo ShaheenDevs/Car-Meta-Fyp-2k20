@@ -1,0 +1,23 @@
+import 'package:geolocator/geolocator.dart';
+
+class PetrolPump {
+  String? name;
+  String? phone;
+  Position? position;
+
+  PetrolPump({this.name, this.phone, this.position});
+
+  PetrolPump.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    phone = json['phone'];
+    position = json['position'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['phone'] = phone;
+    data['position'] = position?.toJson();
+    return data;
+  }
+}

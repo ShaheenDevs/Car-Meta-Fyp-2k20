@@ -1,5 +1,6 @@
 import 'package:car_meta/app/app.locator.dart';
 import 'package:car_meta/models/auth.dart';
+import 'package:car_meta/models/petrol_pump.dart';
 import 'package:car_meta/models/product.dart';
 import 'package:car_meta/models/response.dart';
 import 'package:car_meta/services/auth_service.dart';
@@ -11,7 +12,7 @@ class ProductService with ListenableServiceMixin {
   final _authService = locator<AuthService>();
   AuthModel? get userData => _authService.userData;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  
+
   initialize() {
     listenToAllPosts().data?.listen((event) {
       allProducts = event;
@@ -128,5 +129,13 @@ class ProductService with ListenableServiceMixin {
       return ResponseModel.error(
           'Error listening from listenToLimtedPosts: $e');
     }
+  }
+
+  addPetroPump(PetrolPump petrolPump) {
+    firestore.collection("pump").doc(userData?.uID).set(petrolPump.toJson());
+  }
+
+  removePetroPump() {
+    firestore.collection("pump").doc(userData?.uID).delete();
   }
 }
