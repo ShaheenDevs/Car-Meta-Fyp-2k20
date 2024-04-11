@@ -1,10 +1,20 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+import 'package:car_meta/app/app.locator.dart';
+import 'package:car_meta/models/petrol_pump.dart';
+import 'package:car_meta/services/image_service.dart';
+import 'package:car_meta/services/product_service.dart';
+import 'package:car_meta/ui/common/app_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
 class FindPumpViewModel extends BaseViewModel {
+  final _productService = locator<ProductService>();
+  final _imageServices = locator<ImageServices>();
+
+  List<PetrolPump> get petrolPumps => _productService.allPetrolPump;
+
   late final Completer<GoogleMapController> controller =
       Completer<GoogleMapController>();
   CameraPosition kGooglePlex = const CameraPosition(
@@ -13,7 +23,7 @@ class FindPumpViewModel extends BaseViewModel {
   );
   Position? currentPosition;
   List<Marker> markers = <Marker>[];
-  List<Circle> circles = <Circle>[];
+  // List<Circle> circles = <Circle>[];
 
   onViewModelReady() async {
     await getCurrentLocation();
@@ -60,21 +70,36 @@ class FindPumpViewModel extends BaseViewModel {
         CameraUpdate.newLatLng(LatLng(position.latitude, position.longitude)),
       );
     });
-    markers.add(Marker(
-      markerId: const MarkerId("Current location"),
-      position: LatLng(position.latitude, position.longitude),
-      infoWindow: const InfoWindow(title: "Current location"),
-    ));
-    circles.add(
-      Circle(
-        circleId: const CircleId("My Location"),
-        center: LatLng(position.latitude, position.longitude),
-        radius: 90,
-        fillColor: Colors.blue,
-        strokeWidth: 5,
-        strokeColor: Colors.blue.shade200,
-      ),
-    );
+    final Uint8List petrolPumpUint8List = await _imageServices
+        .getBytesFromAsset(path: petrolPumpIcon, width: 150);
+    BitmapDescriptor petrolPumpBitmap =
+        BitmapDescriptor.fromBytes(petrolPumpUint8List);
+    // BitmapDescriptor carMechanicBitmap = await BitmapDescriptor.fromAssetImage(
+    //     const ImageConfiguration(), carMechanicIcon,
+    //     mipmaps: false);
+    for (var e in petrolPumps) {
+      markers.add(
+        Marker(
+          icon: petrolPumpBitmap,
+          markerId: MarkerId(e.name ?? ""),
+          position:
+              LatLng(e.position?.latitude ?? 0, e.position?.longitude ?? 0),
+          infoWindow: InfoWindow(
+            title: e.phone ?? "",
+          ),
+        ),
+      );
+    }
+    // circles.add(
+    //   Circle(
+    //     circleId: const CircleId("My Location"),
+    //     center: LatLng(position.latitude, position.longitude),
+    //     radius: 90,
+    //     fillColor: Colors.blue,
+    //     strokeWidth: 5,
+    //     strokeColor: Colors.blue.shade200,
+    //   ),
+    // );
     notifyListeners();
   }
 }

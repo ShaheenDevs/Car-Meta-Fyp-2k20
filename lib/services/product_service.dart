@@ -23,11 +23,30 @@ class ProductService with ListenableServiceMixin {
       myProducts = event;
       notifyListeners();
     });
+    listenPetroPump().listen((event) {
+      allPetrolPump = event;
+      notifyListeners();
+    });
   }
 
   List<ProductModel> myProducts = [];
   List<ProductModel> allProducts = [];
   List<ProductModel> limtedProducts = [];
+  List<PetrolPump> allPetrolPump = [];
+
+  Stream<List<PetrolPump>> listenPetroPump() {
+    try {
+      final stream = firestore.collection('pump').snapshots().map((event) {
+        for (var item in event.docs) {
+          allPetrolPump.add(PetrolPump.fromJson(item.data(), item.id));
+        }
+        return allPetrolPump;
+      });
+      return stream;
+    } catch (e) {
+      throw ('Error listening from listenToLimtedPosts: $e');
+    }
+  }
 
   postAd(ProductModel product) async {
     try {

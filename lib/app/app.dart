@@ -1,4 +1,5 @@
 import 'package:car_meta/services/auth_service.dart';
+import 'package:car_meta/services/image_service.dart';
 import 'package:car_meta/services/location_service.dart';
 import 'package:car_meta/services/picker_service.dart';
 import 'package:car_meta/services/product_service.dart';
@@ -62,6 +63,7 @@ import 'package:car_meta/ui/views/myprofile/myprofile_view.dart';
     LazySingleton(classType: AuthService),
     LazySingleton(classType: ProductService),
     LazySingleton(classType: LocationService),
+    LazySingleton(classType: ImageServices),
     // @stacked-service
   ],
   bottomsheets: [

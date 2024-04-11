@@ -23,8 +23,9 @@ class FindPumpView extends StackedView<FindPumpViewModel> {
           : GoogleMap(
               zoomControlsEnabled: true,
               mapType: MapType.normal,
+              myLocationEnabled: true,
               markers: viewModel.markers.toSet(),
-              circles: viewModel.circles.toSet(),
+              // circles: viewModel.circles.toSet(),
               onCameraMove: (position) {},
               initialCameraPosition: viewModel.kGooglePlex,
               onMapCreated: (GoogleMapController controller) {

@@ -12,6 +12,7 @@ import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../services/auth_service.dart';
+import '../services/image_service.dart';
 import '../services/location_service.dart';
 import '../services/picker_service.dart';
 import '../services/product_service.dart';
@@ -34,4 +35,5 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => AuthService());
   locator.registerLazySingleton(() => ProductService());
   locator.registerLazySingleton(() => LocationService());
+  locator.registerLazySingleton(() => ImageServices());
 }
