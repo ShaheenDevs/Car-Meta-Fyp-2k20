@@ -17,7 +17,6 @@ class SettingViewModel extends BaseViewModel {
 
   AuthModel? get userData => _authService.userData;
   String profile = "";
-  bool isPump = false;
   onViewModelReady() {
     profile = userData?.profile ?? '';
     notifyListeners();
@@ -27,9 +26,10 @@ class SettingViewModel extends BaseViewModel {
     await Geolocator.requestPermission();
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
-    isPump = e;
+    _authService.updateUserByMap({"isPetrolPump": e});
+    userData?.isPetrolPump = e;
     notifyListeners();
-    if (isPump) {
+    if (userData?.isPetrolPump ?? false) {
       _productService.addPetroPump(
         PetrolPump(
           name: userData?.userName,
@@ -39,6 +39,26 @@ class SettingViewModel extends BaseViewModel {
       );
     } else {
       _productService.removePetroPump();
+    }
+  }
+
+  onChangeMechanic(e) async {
+    await Geolocator.requestPermission();
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    _authService.updateUserByMap({"isMechanic": e});
+    userData?.isMechanic = e;
+    notifyListeners();
+    if (userData?.isMechanic ?? false) {
+      _productService.addMechanic(
+        PetrolPump(
+          name: userData?.userName,
+          phone: userData?.phoneNo,
+          position: position,
+        ),
+      );
+    } else {
+      _productService.removeMechanic();
     }
   }
 

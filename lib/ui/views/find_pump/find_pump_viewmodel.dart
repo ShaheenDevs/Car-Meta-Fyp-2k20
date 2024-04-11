@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:car_meta/app/app.locator.dart';
+import 'package:car_meta/models/auth.dart';
 import 'package:car_meta/models/petrol_pump.dart';
+import 'package:car_meta/services/auth_service.dart';
 import 'package:car_meta/services/image_service.dart';
 import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/ui/common/app_image.dart';
@@ -12,7 +14,9 @@ import 'package:geolocator/geolocator.dart';
 class FindPumpViewModel extends BaseViewModel {
   final _productService = locator<ProductService>();
   final _imageServices = locator<ImageServices>();
+  final _authService = locator<AuthService>();
 
+  AuthModel? get userData => _authService.userData;
   List<PetrolPump> get petrolPumps => _productService.allPetrolPump;
 
   late final Completer<GoogleMapController> controller =

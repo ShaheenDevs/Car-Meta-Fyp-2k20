@@ -157,4 +157,15 @@ class ProductService with ListenableServiceMixin {
   removePetroPump() {
     firestore.collection("pump").doc(userData?.uID).delete();
   }
+
+  addMechanic(PetrolPump petrolPump) {
+    firestore
+        .collection("mechanic")
+        .doc(userData?.uID)
+        .set(petrolPump.toJson());
+  }
+
+  removeMechanic() {
+    firestore.collection("mechanic").doc(userData?.uID).delete();
+  }
 }

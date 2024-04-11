@@ -1,5 +1,6 @@
 class AuthModel {
-  bool? isStudent;
+  bool? isPetrolPump;
+  bool? isMechanic;
   String? uID;
   String? userName;
   String? email;
@@ -15,7 +16,8 @@ class AuthModel {
   DateTime? joinDate;
 
   AuthModel({
-    this.isStudent,
+    this.isPetrolPump,
+    this.isMechanic,
     this.uID,
     this.userName,
     this.email,
@@ -32,7 +34,8 @@ class AuthModel {
   });
 
   AuthModel.fromJson(Map<String, dynamic> json) {
-    isStudent = json['isStudent'];
+    isPetrolPump = json['isPetrolPump'];
+    isMechanic = json['isMechanic'];
     uID = json['uID'];
     userName = json['userName'];
     email = json['email'];
@@ -53,7 +56,8 @@ class AuthModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['uID'] = uID;
-    data['isStudent'] = isStudent;
+    data['isPetrolPump'] = isPetrolPump;
+    data['isMechanic'] = isMechanic;
     data['userName'] = userName;
     data['email'] = email;
     data['phoneNo'] = phoneNo;

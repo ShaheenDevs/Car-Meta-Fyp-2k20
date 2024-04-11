@@ -89,14 +89,31 @@ class SettingView extends StackedView<SettingViewModel> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.filter),
+              leading: Image.asset(
+                petrolPumpIcon,
+                height: 40,
+              ),
               title: const Text(
                 'Petrol Pump',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               trailing: Switch(
-                value: viewModel.isPump,
+                value: viewModel.userData?.isPetrolPump ?? false,
                 onChanged: viewModel.onChangePump,
+              ),
+            ),
+            ListTile(
+              leading: Image.asset(
+                carMechanicIcon,
+                height: 35,
+              ),
+              title: const Text(
+                'Mechanic',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              trailing: Switch(
+                value: viewModel.userData?.isMechanic ?? false,
+                onChanged: viewModel.onChangeMechanic,
               ),
             ),
             ListTile(

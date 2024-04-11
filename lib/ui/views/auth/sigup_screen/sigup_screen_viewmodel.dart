@@ -38,6 +38,8 @@ class SigupScreenViewModel extends BaseViewModel {
           password: password,
           userName: name,
           phoneNo: phoneNo,
+          isPetrolPump: false,
+          isMechanic: false,
           joinDate: DateTime.now()));
       if (res == "SignUp Successfully") {
         replaceWithLandingScreenView();
