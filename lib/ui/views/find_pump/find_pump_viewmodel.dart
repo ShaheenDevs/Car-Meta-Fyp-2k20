@@ -23,7 +23,7 @@ class FindPumpViewModel extends BaseViewModel {
       Completer<GoogleMapController>();
   CameraPosition kGooglePlex = const CameraPosition(
     target: LatLng(31.2851861, 71.2492882),
-    zoom: 13.4746,
+    zoom: 9.4746,
   );
   Position? currentPosition;
   List<Marker> markers = <Marker>[];

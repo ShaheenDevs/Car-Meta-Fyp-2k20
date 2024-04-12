@@ -2,6 +2,7 @@ import 'package:car_meta/app/app.locator.dart';
 import 'package:car_meta/app/app.router.dart';
 import 'package:car_meta/models/auth.dart';
 import 'package:car_meta/services/auth_service.dart';
+import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/services/snak_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -10,6 +11,7 @@ import 'package:stacked_services/stacked_services.dart';
 class LoginScreenViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _authService = locator<AuthService>();
+  final _productService = locator<ProductService>();
 
   AuthModel? get userData => _authService.userData;
 
@@ -23,6 +25,7 @@ class LoginScreenViewModel extends BaseViewModel {
     if (email.isNotEmpty && password.isNotEmpty) {
       var res = await _authService.loginNow(email, password);
       if (res == "login successfully") {
+        await _productService.initialize();
         // if (userData?.userName != null && userData?.gender != null) {
         replaceWithLandingScreenView();
         // } else {

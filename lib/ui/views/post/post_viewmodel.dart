@@ -69,9 +69,9 @@ class PostViewModel extends BaseViewModel {
       modelCtrl.clear();
       milageCtrl.clear();
       priceCtrl.clear();
-      setBusy(false);
     } else {
       showSuccessSnack("fill all textField");
     }
+    setBusy(false);
   }
 }
