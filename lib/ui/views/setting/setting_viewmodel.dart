@@ -32,10 +32,10 @@ class SettingViewModel extends BaseViewModel {
     if (userData?.isPetrolPump ?? false) {
       _productService.addPetroPump(
         PetrolPump(
-          name: userData?.userName,
-          phone: userData?.phoneNo,
-          position: position,
-        ),
+            name: userData?.userName,
+            phone: userData?.phoneNo,
+            position: position,
+            profile: userData?.profile),
       );
     } else {
       _productService.removePetroPump();
@@ -52,10 +52,10 @@ class SettingViewModel extends BaseViewModel {
     if (userData?.isMechanic ?? false) {
       _productService.addMechanic(
         PetrolPump(
-          name: userData?.userName,
-          phone: userData?.phoneNo,
-          position: position,
-        ),
+            name: userData?.userName,
+            phone: userData?.phoneNo,
+            position: position,
+            profile: userData?.profile),
       );
     } else {
       _productService.removeMechanic();

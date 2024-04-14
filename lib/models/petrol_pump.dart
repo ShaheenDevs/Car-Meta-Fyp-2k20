@@ -4,14 +4,16 @@ class PetrolPump {
   String? id;
   String? name;
   String? phone;
+  String? profile;
   Position? position;
 
-  PetrolPump({this.name, this.phone, this.position});
+  PetrolPump({this.name, this.phone, this.profile, this.position});
 
   PetrolPump.fromJson(Map<String, dynamic> json, String id) {
     id = id;
     name = json['name'];
     phone = json['phone'];
+    profile = json['profile'];
     position = Position.fromMap(json['position']);
   }
 
@@ -19,6 +21,7 @@ class PetrolPump {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['phone'] = phone;
+    data['profile'] = profile;
     data['position'] = position?.toJson();
     return data;
   }

@@ -5,6 +5,7 @@ import 'package:car_meta/services/picker_service.dart';
 import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:car_meta/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:car_meta/ui/views/chat/chatroom_view.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
 import 'package:car_meta/ui/views/auth/startup/startup_view.dart';
 import 'package:car_meta/ui/views/post_details/post_details_view.dart';
@@ -41,6 +42,7 @@ import 'package:car_meta/ui/views/myprofile/myprofile_view.dart';
     MaterialRoute(page: SettingView),
     MaterialRoute(page: FavouritView),
     MaterialRoute(page: ChatView),
+    MaterialRoute(page: ChatRoomView),
     MaterialRoute(page: StarView),
     MaterialRoute(page: HelpSupportView),
     MaterialRoute(page: AppointmentDetailView),

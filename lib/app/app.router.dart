@@ -5,35 +5,37 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:car_meta/models/product.dart' as _i22;
+import 'package:car_meta/models/chat_member.dart' as _i23;
+import 'package:car_meta/models/product.dart' as _i24;
 import 'package:car_meta/ui/views/appointment_detail/appointment_detail_view.dart'
-    as _i12;
+    as _i13;
 import 'package:car_meta/ui/views/auth/login_screen/login_screen_view.dart'
     as _i5;
 import 'package:car_meta/ui/views/auth/sigup_screen/sigup_screen_view.dart'
     as _i6;
 import 'package:car_meta/ui/views/auth/startup/startup_view.dart' as _i3;
-import 'package:car_meta/ui/views/cars/cars_view.dart' as _i14;
+import 'package:car_meta/ui/views/cars/cars_view.dart' as _i15;
 import 'package:car_meta/ui/views/chat/chat_view.dart' as _i9;
+import 'package:car_meta/ui/views/chat/chatroom_view.dart' as _i10;
 import 'package:car_meta/ui/views/favourit/favourit_view.dart' as _i8;
 import 'package:car_meta/ui/views/find_mechanic/find_mechanic_view.dart'
-    as _i17;
-import 'package:car_meta/ui/views/find_pump/find_pump_view.dart' as _i16;
-import 'package:car_meta/ui/views/help_support/help_support_view.dart' as _i11;
+    as _i18;
+import 'package:car_meta/ui/views/find_pump/find_pump_view.dart' as _i17;
+import 'package:car_meta/ui/views/help_support/help_support_view.dart' as _i12;
 import 'package:car_meta/ui/views/home/home_view.dart' as _i2;
 import 'package:car_meta/ui/views/landing_screen/landing_screen_view.dart'
     as _i4;
-import 'package:car_meta/ui/views/myprofile/myprofile_view.dart' as _i19;
-import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i13;
-import 'package:car_meta/ui/views/post/post_view.dart' as _i18;
-import 'package:car_meta/ui/views/post_details/post_details_view.dart' as _i20;
+import 'package:car_meta/ui/views/myprofile/myprofile_view.dart' as _i20;
+import 'package:car_meta/ui/views/order_detail/order_detail_view.dart' as _i14;
+import 'package:car_meta/ui/views/post/post_view.dart' as _i19;
+import 'package:car_meta/ui/views/post_details/post_details_view.dart' as _i21;
 import 'package:car_meta/ui/views/setting/setting_view.dart' as _i7;
-import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i15;
-import 'package:car_meta/ui/views/star/star_view.dart' as _i10;
-import 'package:flutter/material.dart' as _i21;
+import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart' as _i16;
+import 'package:car_meta/ui/views/star/star_view.dart' as _i11;
+import 'package:flutter/material.dart' as _i22;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i23;
+import 'package:stacked_services/stacked_services.dart' as _i25;
 
 class Routes {
   static const homeView = '/home-view';
@@ -51,6 +53,8 @@ class Routes {
   static const favouritView = '/favourit-view';
 
   static const chatView = '/chat-view';
+
+  static const chatRoomView = '/chat-room-view';
 
   static const starView = '/star-view';
 
@@ -83,6 +87,7 @@ class Routes {
     settingView,
     favouritView,
     chatView,
+    chatRoomView,
     starView,
     helpSupportView,
     appointmentDetailView,
@@ -132,165 +137,179 @@ class StackedRouter extends _i1.RouterBase {
       page: _i9.ChatView,
     ),
     _i1.RouteDef(
+      Routes.chatRoomView,
+      page: _i10.ChatRoomView,
+    ),
+    _i1.RouteDef(
       Routes.starView,
-      page: _i10.StarView,
+      page: _i11.StarView,
     ),
     _i1.RouteDef(
       Routes.helpSupportView,
-      page: _i11.HelpSupportView,
+      page: _i12.HelpSupportView,
     ),
     _i1.RouteDef(
       Routes.appointmentDetailView,
-      page: _i12.AppointmentDetailView,
+      page: _i13.AppointmentDetailView,
     ),
     _i1.RouteDef(
       Routes.orderDetailView,
-      page: _i13.OrderDetailView,
+      page: _i14.OrderDetailView,
     ),
     _i1.RouteDef(
       Routes.carsView,
-      page: _i14.CarsView,
+      page: _i15.CarsView,
     ),
     _i1.RouteDef(
       Routes.sparePartsView,
-      page: _i15.SparePartsView,
+      page: _i16.SparePartsView,
     ),
     _i1.RouteDef(
       Routes.findPumpView,
-      page: _i16.FindPumpView,
+      page: _i17.FindPumpView,
     ),
     _i1.RouteDef(
       Routes.findMechanicView,
-      page: _i17.FindMechanicView,
+      page: _i18.FindMechanicView,
     ),
     _i1.RouteDef(
       Routes.postView,
-      page: _i18.PostView,
+      page: _i19.PostView,
     ),
     _i1.RouteDef(
       Routes.myprofileView,
-      page: _i19.MyprofileView,
+      page: _i20.MyprofileView,
     ),
     _i1.RouteDef(
       Routes.postDetailsView,
-      page: _i20.PostDetailsView,
+      page: _i21.PostDetailsView,
     ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LandingScreenView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LandingScreenView(),
         settings: data,
       );
     },
     _i5.LoginScreenView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.LoginScreenView(),
         settings: data,
       );
     },
     _i6.SigupScreenView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.SigupScreenView(),
         settings: data,
       );
     },
     _i7.SettingView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.SettingView(),
         settings: data,
       );
     },
     _i8.FavouritView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.FavouritView(),
         settings: data,
       );
     },
     _i9.ChatView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.ChatView(),
         settings: data,
       );
     },
-    _i10.StarView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i10.StarView(),
+    _i10.ChatRoomView: (data) {
+      final args = data.getArgs<ChatRoomViewArguments>(nullOk: false);
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => _i10.ChatRoomView(
+            key: args.key,
+            senderMember: args.senderMember,
+            receiverMember: args.receiverMember),
         settings: data,
       );
     },
-    _i11.HelpSupportView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i11.HelpSupportView(),
+    _i11.StarView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i11.StarView(),
         settings: data,
       );
     },
-    _i12.AppointmentDetailView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i12.AppointmentDetailView(),
+    _i12.HelpSupportView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i12.HelpSupportView(),
         settings: data,
       );
     },
-    _i13.OrderDetailView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i13.OrderDetailView(),
+    _i13.AppointmentDetailView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i13.AppointmentDetailView(),
         settings: data,
       );
     },
-    _i14.CarsView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i14.CarsView(),
+    _i14.OrderDetailView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i14.OrderDetailView(),
         settings: data,
       );
     },
-    _i15.SparePartsView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i15.SparePartsView(),
+    _i15.CarsView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i15.CarsView(),
         settings: data,
       );
     },
-    _i16.FindPumpView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i16.FindPumpView(),
+    _i16.SparePartsView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i16.SparePartsView(),
         settings: data,
       );
     },
-    _i17.FindMechanicView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i17.FindMechanicView(),
+    _i17.FindPumpView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i17.FindPumpView(),
         settings: data,
       );
     },
-    _i18.PostView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i18.PostView(),
+    _i18.FindMechanicView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i18.FindMechanicView(),
         settings: data,
       );
     },
-    _i19.MyprofileView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i19.MyprofileView(),
+    _i19.PostView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i19.PostView(),
         settings: data,
       );
     },
-    _i20.PostDetailsView: (data) {
+    _i20.MyprofileView: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i20.MyprofileView(),
+        settings: data,
+      );
+    },
+    _i21.PostDetailsView: (data) {
       final args = data.getArgs<PostDetailsViewArguments>(nullOk: false);
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) =>
-            _i20.PostDetailsView(key: args.key, product: args.product),
+            _i21.PostDetailsView(key: args.key, product: args.product),
         settings: data,
       );
     },
@@ -303,15 +322,47 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
+class ChatRoomViewArguments {
+  const ChatRoomViewArguments({
+    this.key,
+    required this.senderMember,
+    required this.receiverMember,
+  });
+
+  final _i22.Key? key;
+
+  final _i23.ChatMember senderMember;
+
+  final _i23.ChatMember receiverMember;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "senderMember": "$senderMember", "receiverMember": "$receiverMember"}';
+  }
+
+  @override
+  bool operator ==(covariant ChatRoomViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key &&
+        other.senderMember == senderMember &&
+        other.receiverMember == receiverMember;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ senderMember.hashCode ^ receiverMember.hashCode;
+  }
+}
+
 class PostDetailsViewArguments {
   const PostDetailsViewArguments({
     this.key,
     required this.product,
   });
 
-  final _i21.Key? key;
+  final _i22.Key? key;
 
-  final _i22.ProductModel product;
+  final _i24.ProductModel product;
 
   @override
   String toString() {
@@ -330,7 +381,7 @@ class PostDetailsViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i23.NavigationService {
+extension NavigatorStateExtension on _i25.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -437,6 +488,27 @@ extension NavigatorStateExtension on _i23.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.chatView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToChatRoomView({
+    _i22.Key? key,
+    required _i23.ChatMember senderMember,
+    required _i23.ChatMember receiverMember,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo<dynamic>(Routes.chatRoomView,
+        arguments: ChatRoomViewArguments(
+            key: key,
+            senderMember: senderMember,
+            receiverMember: receiverMember),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -584,8 +656,8 @@ extension NavigatorStateExtension on _i23.NavigationService {
   }
 
   Future<dynamic> navigateToPostDetailsView({
-    _i21.Key? key,
-    required _i22.ProductModel product,
+    _i22.Key? key,
+    required _i24.ProductModel product,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -706,6 +778,27 @@ extension NavigatorStateExtension on _i23.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.chatView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithChatRoomView({
+    _i22.Key? key,
+    required _i23.ChatMember senderMember,
+    required _i23.ChatMember receiverMember,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return replaceWith<dynamic>(Routes.chatRoomView,
+        arguments: ChatRoomViewArguments(
+            key: key,
+            senderMember: senderMember,
+            receiverMember: receiverMember),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -853,8 +946,8 @@ extension NavigatorStateExtension on _i23.NavigationService {
   }
 
   Future<dynamic> replaceWithPostDetailsView({
-    _i21.Key? key,
-    required _i22.ProductModel product,
+    _i22.Key? key,
+    required _i24.ProductModel product,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,

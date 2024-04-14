@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:car_meta/app/app.locator.dart';
+import 'package:car_meta/app/app.router.dart';
 import 'package:car_meta/models/auth.dart';
+import 'package:car_meta/models/chat_member.dart';
 import 'package:car_meta/models/petrol_pump.dart';
 import 'package:car_meta/services/auth_service.dart';
 import 'package:car_meta/services/image_service.dart';
@@ -10,11 +12,13 @@ import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class FindPumpViewModel extends BaseViewModel {
   final _productService = locator<ProductService>();
   final _imageServices = locator<ImageServices>();
   final _authService = locator<AuthService>();
+  final _navigationService = locator<NavigationService>();
 
   AuthModel? get userData => _authService.userData;
   List<PetrolPump> get petrolPumps => _productService.allPetrolPump;
@@ -88,6 +92,9 @@ class FindPumpViewModel extends BaseViewModel {
           markerId: MarkerId(e.name ?? ""),
           position:
               LatLng(e.position?.latitude ?? 0, e.position?.longitude ?? 0),
+          onTap: () {
+            navigateToChatRoomView(e);
+          },
           infoWindow: InfoWindow(
             title: e.phone ?? "",
           ),
@@ -105,5 +112,20 @@ class FindPumpViewModel extends BaseViewModel {
     //   ),
     // );
     notifyListeners();
+  }
+
+  navigateToChatRoomView(PetrolPump e) {
+    _navigationService.navigateToChatRoomView(
+        senderMember: ChatMember(
+            userId: userData?.uID,
+            read: true,
+            displayName: userData?.userName,
+            profile: userData?.profile),
+        receiverMember: ChatMember(
+          userId: e.id,
+          read: true,
+          displayName: e.name,
+          profile: e.profile,
+        ));
   }
 }
