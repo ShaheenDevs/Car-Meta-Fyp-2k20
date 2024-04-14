@@ -95,28 +95,28 @@ class LandingScreenView extends StackedView<LandingScreenViewModel> {
                     ),
                   ],
                 )),
-            ListTile(
-              leading: const Icon(Icons.newspaper),
-              title: const Text(
-                'Order Details',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              onTap: () {
-                viewModel.navigateToOrders();
-                // Handle onTap
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.date_range),
-              title: const Text(
-                'Appointment Details',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              onTap: () {
-                viewModel.navigateToAppointment();
-                // Handle onTap
-              },
-            ),
+            // ListTile(
+            //   leading: const Icon(Icons.newspaper),
+            //   title: const Text(
+            //     'Order Details',
+            //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            //   ),
+            //   onTap: () {
+            //     viewModel.navigateToOrders();
+            //     // Handle onTap
+            //   },
+            // ),
+            // ListTile(
+            //   leading: const Icon(Icons.date_range),
+            //   title: const Text(
+            //     'Appointment Details',
+            //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            //   ),
+            //   onTap: () {
+            //     viewModel.navigateToAppointment();
+            //     // Handle onTap
+            //   },
+            // ),
             ListTile(
               leading: const Icon(Icons.help),
               title: const Text(

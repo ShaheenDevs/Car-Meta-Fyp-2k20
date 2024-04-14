@@ -45,29 +45,34 @@ class ChatView extends StackedView<ChatViewModel> {
                             profile: otherUser?.profile,
                           ));
                     },
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage((viewModel
-                                        .userData?.uID !=
-                                    chatRoom.members["senderId"]?.userId
-                                ? chatRoom.members["senderId"]?.profile
-                                : chatRoom.members["receiverId"]?.profile) ??
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUUfNCnMwMeh_5WuKXe55VTTVQcF1CN7Yb6Jw5TWYcngvaPF_z7yapb8o0PCoQMVv3UTs&usqp=CAU"),
-                      ),
-                      title: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "${viewModel.userData?.uID != chatRoom.members["senderId"]?.userId ? chatRoom.members["senderId"]?.displayName : chatRoom.members["receiverId"]?.displayName}",
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            chatRoom.lastMessage?.text ?? "",
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(color: Colors.grey),
-                          ),
-                        ],
+                    child: Card(
+                      margin: const EdgeInsets.all(2),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundImage: NetworkImage((viewModel
+                                          .userData?.uID !=
+                                      chatRoom.members["senderId"]?.userId
+                                  ? chatRoom.members["senderId"]?.profile
+                                  : chatRoom.members["receiverId"]?.profile) ??
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUUfNCnMwMeh_5WuKXe55VTTVQcF1CN7Yb6Jw5TWYcngvaPF_z7yapb8o0PCoQMVv3UTs&usqp=CAU"),
+                        ),
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "${viewModel.userData?.uID != chatRoom.members["senderId"]?.userId ? chatRoom.members["senderId"]?.displayName : chatRoom.members["receiverId"]?.displayName}",
+                              style: const TextStyle(
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              maxLines: 1,
+                              chatRoom.lastMessage?.text ?? "",
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );

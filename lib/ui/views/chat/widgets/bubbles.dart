@@ -24,7 +24,6 @@ class ChatRoomBubbles extends ViewModelWidget<ChatRoomViewModel> {
             : Alignment.bottomRight),
         child: Container(
             decoration: BoxDecoration(
-              // borderRadius: BorderRadius.circular(20),
               borderRadius: (message.authorId == uID
                   ? const BorderRadius.only(
                       topLeft: Radius.circular(20),
@@ -36,22 +35,24 @@ class ChatRoomBubbles extends ViewModelWidget<ChatRoomViewModel> {
                       topRight: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(0))),
-              color: (message.authorId == uID ? Colors.teal : Colors.amber),
+              color: (message.authorId == uID
+                  ? Colors.teal.shade100
+                  : Colors.amber.shade100),
             ),
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: message.authorId == uID
+                  ? CrossAxisAlignment.start
+                  : CrossAxisAlignment.end,
               children: [
                 CustomText(
                   text: message.text.toString(),
-                  color:
-                      (message.authorId == uID ? Colors.black : Colors.white),
+                  color: Colors.black,
                 ),
                 CustomText(
                   text: timeAgo(message.createdOn),
                   fontSize: 10,
-                  color:
-                      (message.authorId == uID ? Colors.amber : Colors.white),
+                  color: Colors.black,
                 )
               ],
             )),

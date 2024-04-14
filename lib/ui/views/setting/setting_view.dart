@@ -67,6 +67,7 @@ class SettingView extends StackedView<SettingViewModel> {
                     width: 15,
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         viewModel.userData?.userName ?? "",

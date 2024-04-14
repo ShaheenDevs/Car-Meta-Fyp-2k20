@@ -42,7 +42,6 @@ class ChatRoomView extends StackedView<ChatRoomViewModel> {
                   .doc(mergeStrings(
                       senderMember.userId ?? "", receiverMember.userId ?? ""))
                   .collection('Messages')
-                  // .where('userId', isEqualTo: uid ?? 'Unknown')
                   .orderBy('createdOn', descending: true)
                   .snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -55,6 +54,7 @@ class ChatRoomView extends StackedView<ChatRoomViewModel> {
                   return const Text('Something went wrong');
                 }
                 return ListView(
+                  reverse: true,
                   children:
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     ChatMessage data = ChatMessage.fromJson(
@@ -74,6 +74,9 @@ class ChatRoomView extends StackedView<ChatRoomViewModel> {
               radius: 10,
               hintText: "Type a message...",
               controller: viewModel.messageController,
+              onFieldSubmitted: (e) {
+                viewModel.sendDummyMessage();
+              },
               hintStyle: const TextStyle(color: Colors.blueGrey),
               suffix: IconButton(
                 icon: const Icon(Icons.send),

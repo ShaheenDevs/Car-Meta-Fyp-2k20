@@ -69,7 +69,7 @@ class CustomTextField extends StackedView<CustomTextFieldModel> {
   //this.enabledBorder,
 
   GestureTapCallback? onTap;
-
+  Function(String)? onFieldSubmitted;
   TextStyle? hintStyle;
   CustomTextField({
     super.key,
@@ -100,6 +100,7 @@ class CustomTextField extends StackedView<CustomTextFieldModel> {
     this.enabledBorder,
     this.focusedBorder,
     this.disabledBorder,
+    this.onFieldSubmitted,
     this.hintStyle,
     this.inputFormaters,
     this.initialValue,
@@ -137,7 +138,7 @@ class CustomTextField extends StackedView<CustomTextFieldModel> {
         titleText != null
             ? Text(
                 titleText.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   // color: color ?? Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -163,16 +164,19 @@ class CustomTextField extends StackedView<CustomTextFieldModel> {
             obscureText: isObscureText!,
             textAlign: textAlign ?? TextAlign.start,
             textInputAction: textInputAction,
+            onFieldSubmitted: (value) {
+              onFieldSubmitted!(value);
+            },
             // keyboardType: number ? TextInputType.number : TextInputType.text,
             maxLines: maxLines ?? 1,
             decoration: _buildDecoration(),
             initialValue: initialValue,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return validationText ?? 'validation';
-              }
-              return null;
-            },
+            // validator: (value) {
+            //   if (value == null || value.isEmpty) {
+            //     return validationText ?? 'validation';
+            //   }
+            //   return null;
+            // },
           ),
         ),
       ],
