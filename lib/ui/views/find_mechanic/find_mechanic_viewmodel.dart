@@ -91,7 +91,7 @@ class FindMechanicViewModel extends BaseViewModel {
           icon: mechanicBitmap,
           markerId: MarkerId(e.name ?? ""),
           onTap: () {
-            navigateToChatRoomView(e);
+            navigateToOtherProfileView(e);
           },
           position:
               LatLng(e.position?.latitude ?? 0, e.position?.longitude ?? 0),
@@ -112,6 +112,10 @@ class FindMechanicViewModel extends BaseViewModel {
     //   ),
     // );
     notifyListeners();
+  }
+
+  navigateToOtherProfileView(PetrolPump e) {
+    _navigationService.navigateToOtherProfileView(uID: e.id ?? "");
   }
 
   navigateToChatRoomView(PetrolPump e) {

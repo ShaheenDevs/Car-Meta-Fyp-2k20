@@ -8,6 +8,7 @@ import 'package:car_meta/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:car_meta/ui/views/chat/chatroom_view.dart';
 import 'package:car_meta/ui/views/home/home_view.dart';
 import 'package:car_meta/ui/views/auth/startup/startup_view.dart';
+import 'package:car_meta/ui/views/other_profile/other_profile_view.dart';
 import 'package:car_meta/ui/views/post_details/post_details_view.dart';
 import 'package:car_meta/ui/views/spare_parts/spare_parts_view.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -55,6 +56,7 @@ import 'package:car_meta/ui/views/myprofile/myprofile_view.dart';
     MaterialRoute(page: PostView),
     MaterialRoute(page: MyprofileView),
     MaterialRoute(page: PostDetailsView),
+    MaterialRoute(page: OtherProfileView),
 // @stacked-route
   ],
   dependencies: [

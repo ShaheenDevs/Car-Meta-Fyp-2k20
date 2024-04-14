@@ -76,6 +76,21 @@ class AuthService with ListenableServiceMixin {
     }
   }
 
+  Future<AuthModel?> getOtherUserData(uID) async {
+    try {
+      if (uID != null) {
+        final DocumentSnapshot snapshot =
+            await firestore.collection("users").doc(uID).get();
+        Map<String, dynamic> json = snapshot.data() as Map<String, dynamic>;
+        return AuthModel.fromJson(json);
+      }
+    } catch (e) {
+      log(e.toString());
+      rethrow;
+    }
+    return null;
+  }
+
   updateUserByMap(Map<String, dynamic> data) async {
     try {
       await firestore.collection("users").doc(userData?.uID).update(data);

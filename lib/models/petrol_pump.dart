@@ -9,8 +9,8 @@ class PetrolPump {
 
   PetrolPump({this.name, this.phone, this.profile, this.position});
 
-  PetrolPump.fromJson(Map<String, dynamic> json, String id) {
-    id = id;
+  PetrolPump.fromJson(Map<String, dynamic> json, String docId) {
+    id = docId;
     name = json['name'];
     phone = json['phone'];
     profile = json['profile'];
