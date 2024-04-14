@@ -78,18 +78,10 @@ Widget carCard(double height, int index, ProductModel productData, onPresses,
             fontSize: 12,
           ),
         ),
-        Row(
-          children: [
-            Text(
-              "\$${productData.price}",
-              style: const TextStyle(
-                  color: kcPrimaryColorDark, fontWeight: FontWeight.w700),
-            ),
-            const Text(
-              ".00",
-              style: TextStyle(color: kcPrimaryColorDark),
-            ),
-          ],
+        Text(
+          "${productData.price} PKR",
+          style: const TextStyle(
+              color: kcPrimaryColorDark, fontWeight: FontWeight.w700),
         ),
       ],
     ),

@@ -1,6 +1,10 @@
 import 'dart:async';
 import 'package:car_meta/app/app.locator.dart';
+import 'package:car_meta/app/app.router.dart';
+import 'package:car_meta/models/auth.dart';
+import 'package:car_meta/models/chat_member.dart';
 import 'package:car_meta/models/petrol_pump.dart';
+import 'package:car_meta/services/auth_service.dart';
 import 'package:car_meta/services/image_service.dart';
 import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/ui/common/app_image.dart';
@@ -8,11 +12,15 @@ import 'package:flutter/foundation.dart';
 import 'package:stacked/stacked.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class FindMechanicViewModel extends BaseViewModel {
   final _productService = locator<ProductService>();
   final _imageServices = locator<ImageServices>();
+  final _authService = locator<AuthService>();
+  final _navigationService = locator<NavigationService>();
 
+  AuthModel? get userData => _authService.userData;
   List<PetrolPump> get mechanics => _productService.allPetrolPump;
 
   late final Completer<GoogleMapController> controller =
@@ -82,6 +90,9 @@ class FindMechanicViewModel extends BaseViewModel {
         Marker(
           icon: mechanicBitmap,
           markerId: MarkerId(e.name ?? ""),
+          onTap: () {
+            navigateToChatRoomView(e);
+          },
           position:
               LatLng(e.position?.latitude ?? 0, e.position?.longitude ?? 0),
           infoWindow: InfoWindow(
@@ -101,5 +112,22 @@ class FindMechanicViewModel extends BaseViewModel {
     //   ),
     // );
     notifyListeners();
+  }
+
+  navigateToChatRoomView(PetrolPump e) {
+    _navigationService.navigateToChatRoomView(
+        smsText:
+            "Hey ${e.name ?? ""}, hope you're doing well. My car is acting up again and I think it needs some professional attention. Are you available for a service appointment sometime? Let me know your availability. Thanks!",
+        senderMember: ChatMember(
+            userId: userData?.uID,
+            read: true,
+            displayName: userData?.userName,
+            profile: userData?.profile),
+        receiverMember: ChatMember(
+          userId: e.id,
+          read: true,
+          displayName: e.name,
+          profile: e.profile,
+        ));
   }
 }

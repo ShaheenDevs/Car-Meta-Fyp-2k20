@@ -241,7 +241,8 @@ class StackedRouter extends _i1.RouterBase {
         builder: (context) => _i10.ChatRoomView(
             key: args.key,
             senderMember: args.senderMember,
-            receiverMember: args.receiverMember),
+            receiverMember: args.receiverMember,
+            smsText: args.smsText),
         settings: data,
       );
     },
@@ -327,6 +328,7 @@ class ChatRoomViewArguments {
     this.key,
     required this.senderMember,
     required this.receiverMember,
+    this.smsText,
   });
 
   final _i22.Key? key;
@@ -335,9 +337,11 @@ class ChatRoomViewArguments {
 
   final _i23.ChatMember receiverMember;
 
+  final String? smsText;
+
   @override
   String toString() {
-    return '{"key": "$key", "senderMember": "$senderMember", "receiverMember": "$receiverMember"}';
+    return '{"key": "$key", "senderMember": "$senderMember", "receiverMember": "$receiverMember", "smsText": "$smsText"}';
   }
 
   @override
@@ -345,12 +349,16 @@ class ChatRoomViewArguments {
     if (identical(this, other)) return true;
     return other.key == key &&
         other.senderMember == senderMember &&
-        other.receiverMember == receiverMember;
+        other.receiverMember == receiverMember &&
+        other.smsText == smsText;
   }
 
   @override
   int get hashCode {
-    return key.hashCode ^ senderMember.hashCode ^ receiverMember.hashCode;
+    return key.hashCode ^
+        senderMember.hashCode ^
+        receiverMember.hashCode ^
+        smsText.hashCode;
   }
 }
 
@@ -498,6 +506,7 @@ extension NavigatorStateExtension on _i25.NavigationService {
     _i22.Key? key,
     required _i23.ChatMember senderMember,
     required _i23.ChatMember receiverMember,
+    String? smsText,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -508,7 +517,8 @@ extension NavigatorStateExtension on _i25.NavigationService {
         arguments: ChatRoomViewArguments(
             key: key,
             senderMember: senderMember,
-            receiverMember: receiverMember),
+            receiverMember: receiverMember,
+            smsText: smsText),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -788,6 +798,7 @@ extension NavigatorStateExtension on _i25.NavigationService {
     _i22.Key? key,
     required _i23.ChatMember senderMember,
     required _i23.ChatMember receiverMember,
+    String? smsText,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -798,7 +809,8 @@ extension NavigatorStateExtension on _i25.NavigationService {
         arguments: ChatRoomViewArguments(
             key: key,
             senderMember: senderMember,
-            receiverMember: receiverMember),
+            receiverMember: receiverMember,
+            smsText: smsText),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

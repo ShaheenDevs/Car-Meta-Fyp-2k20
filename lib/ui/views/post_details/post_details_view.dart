@@ -35,10 +35,12 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
                 ),
                 Positioned(
                     top: 30,
-                    left: 30,
-                    child: GestureDetector(
-                      onTap: viewModel.back,
-                      child: const Icon(Icons.arrow_back),
+                    left: 20,
+                    child: IconButton(
+                      onPressed: viewModel.back,
+                      icon: const CircleAvatar(
+                        child: Icon(Icons.arrow_back),
+                      ),
                     )),
               ],
             ),
@@ -48,23 +50,6 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star,
-                            color: Colors.yellow,
-                          ),
-                          Text(
-                            "4.5 (2 reviews)",
-                            style: TextStyle(fontSize: 13),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
                   Text(
                     product.title ?? "",
                     style: const TextStyle(
@@ -79,18 +64,15 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
                   verticalSpaceTiny,
                   textRow("Category:", product.type ?? ""),
                   textRow("Type:", product.subType ?? ""),
-                  textRow("Car Type:", product.otherType ?? ""),
-                  textRow("Car Model:", product.model ?? ""),
+                  textRow("Type:", product.otherType ?? ""),
+                  textRow("Model:", product.model ?? ""),
                   textRow("Year:", product.year ?? ""),
-                  textRow("Runing:", product.milage ?? ""),
-                  textRow("Swipe or Sell:",
-                      product.swipeOrSell == false ? "" : "true"),
-                  textRow(
-                      "Only Sell:", product.onlySell == false ? "" : "true"),
+                  textRow("Mileage:", product.milage ?? ""),
                   textRow("Phone Number:", product.phoneNo ?? ""),
                   verticalSpaceMedium,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,24 +84,17 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
                                 fontWeight: FontWeight.w500,
                                 color: Colors.grey),
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                "\$ ${product.price}",
-                                style: const TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ),
-                              const Text(
-                                "/month",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w500),
-                              ),
-                            ],
+                          Text(
+                            "${product.price} PKR",
+                            style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
                       Button(
-                        onTap: () {},
+                        onTap: () {
+                          viewModel.navigateToChatRoomView(product);
+                        },
                         width: 160,
                         height: 30,
                         padding: 0,

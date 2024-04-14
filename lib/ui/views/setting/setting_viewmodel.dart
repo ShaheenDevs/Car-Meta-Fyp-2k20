@@ -5,6 +5,9 @@ import 'package:car_meta/models/petrol_pump.dart';
 import 'package:car_meta/services/auth_service.dart';
 import 'package:car_meta/services/picker_service.dart';
 import 'package:car_meta/services/product_service.dart';
+import 'package:car_meta/services/share_preferances.dart';
+import 'package:car_meta/ui/views/auth/login_screen/login_screen_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -85,5 +88,12 @@ class SettingViewModel extends BaseViewModel {
 
   navigateToProfile() {
     _navigationService.navigateToMyprofileView();
+  }
+
+  logout() async {
+    await FirebaseAuth.instance.signOut().then((value) async {
+      await sharedPrefClear();
+      _navigationService.clearStackAndShowView(const LoginScreenView());
+    });
   }
 }

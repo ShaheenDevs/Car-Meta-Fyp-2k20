@@ -116,6 +116,8 @@ class FindPumpViewModel extends BaseViewModel {
 
   navigateToChatRoomView(PetrolPump e) {
     _navigationService.navigateToChatRoomView(
+        smsText:
+            "Hey ${e.name ?? ""}, I hope you're having a good day. My car's running low on fuel and I could use a top-up. Are you guys open for refueling services today? Let me know. Thanks!",
         senderMember: ChatMember(
             userId: userData?.uID,
             read: true,

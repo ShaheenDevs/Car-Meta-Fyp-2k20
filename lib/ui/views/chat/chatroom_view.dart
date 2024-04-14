@@ -1,6 +1,7 @@
 import 'package:car_meta/models/chat_member.dart';
 import 'package:car_meta/models/chat_message.dart';
 import 'package:car_meta/services/extention.dart';
+import 'package:car_meta/ui/common/common/custom_text_field/custom_text_field.dart';
 import 'package:car_meta/ui/views/chat/chatroom_viewmodel.dart';
 import 'package:car_meta/ui/views/chat/widgets/bubbles.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stacked/stacked.dart';
 
 class ChatRoomView extends StackedView<ChatRoomViewModel> {
+  final String? smsText;
   final ChatMember senderMember;
   final ChatMember receiverMember;
   const ChatRoomView({
     Key? key,
     required this.senderMember,
     required this.receiverMember,
+    this.smsText,
   }) : super(key: key);
 
   @override
@@ -51,13 +54,11 @@ class ChatRoomView extends StackedView<ChatRoomViewModel> {
                 if (snapshot.hasError) {
                   return const Text('Something went wrong');
                 }
-
                 return ListView(
                   children:
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     ChatMessage data = ChatMessage.fromJson(
                         document.data()! as Map<String, dynamic>);
-                    // document.data()! as Map<String, dynamic>;
                     return ChatRoomBubbles(
                       uID: senderMember.userId ?? "",
                       message: data,
@@ -68,25 +69,16 @@ class ChatRoomView extends StackedView<ChatRoomViewModel> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: viewModel.messageController,
-                    style: const TextStyle(color: Colors.black),
-                    decoration: const InputDecoration(
-                      hintText: 'Type a message...',
-                    ),
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () {
-                    viewModel.sendDummyMessage();
-                  },
-                ),
-              ],
+            padding: const EdgeInsets.all(3.0),
+            child: CustomTextField(
+              radius: 10,
+              hintText: "Type a message...",
+              controller: viewModel.messageController,
+              hintStyle: const TextStyle(color: Colors.blueGrey),
+              suffix: IconButton(
+                icon: const Icon(Icons.send),
+                onPressed: viewModel.sendDummyMessage,
+              ),
             ),
           ),
         ],
@@ -96,7 +88,7 @@ class ChatRoomView extends StackedView<ChatRoomViewModel> {
 
   @override
   void onViewModelReady(ChatRoomViewModel viewModel) {
-    viewModel.onViewModelReady(senderMember, receiverMember);
+    viewModel.onViewModelReady(senderMember, receiverMember, smsText);
     super.onViewModelReady(viewModel);
   }
 

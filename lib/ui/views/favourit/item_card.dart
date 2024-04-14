@@ -58,19 +58,11 @@ class MySavedListItemCard extends ViewModelWidget<FavouritViewModel> {
                             style: const TextStyle(fontWeight: FontWeight.w500),
                           ),
                           verticalSpaceTiny,
-                          Row(
-                            children: [
-                              Text(
-                                "\$${product.price}",
-                                style: const TextStyle(
-                                    color: kcPrimaryColorDark,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                              const Text(
-                                ".00/day",
-                                style: TextStyle(color: kcPrimaryColorDark),
-                              ),
-                            ],
+                          Text(
+                            "${product.price} PKR",
+                            style: const TextStyle(
+                                color: kcPrimaryColorDark,
+                                fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),

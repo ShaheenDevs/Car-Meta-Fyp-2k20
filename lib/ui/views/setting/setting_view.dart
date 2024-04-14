@@ -163,16 +163,7 @@ class SettingView extends StackedView<SettingViewModel> {
                       content: const Text('Do you want to logout from the app'),
                       actions: [
                         TextButton(
-                          onPressed: () async {
-                            // await FirebaseAuth.instance.signOut().then((value) {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => const MyLogin(),
-                            //     ),
-                            //   );
-                            // });
-                          },
+                          onPressed: viewModel.logout,
                           child: const Text('Yes'),
                         ),
                         TextButton(

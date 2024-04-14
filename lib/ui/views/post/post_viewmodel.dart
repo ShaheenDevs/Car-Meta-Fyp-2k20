@@ -63,6 +63,10 @@ class PostViewModel extends BaseViewModel {
       product.type = selectedProductType;
       product.subType = selectedBrand;
       product.createOn = DateTime.now();
+      product.saller = SallerModel(
+          uId: userData?.uID,
+          name: userData?.userName,
+          profile: userData?.profile);
       await _productService.postAd(product);
       product = ProductModel();
       titleCtrl.clear();

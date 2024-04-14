@@ -7,8 +7,6 @@ class ProductModel {
   String? year;
   String? milage;
   int? price;
-  bool? swipeOrSell;
-  bool? onlySell;
   String? phoneNo;
   String? title;
   String? description;
@@ -30,8 +28,6 @@ class ProductModel {
       this.year,
       this.milage,
       this.price,
-      this.swipeOrSell,
-      this.onlySell,
       this.phoneNo,
       this.title,
       this.description,
@@ -53,8 +49,6 @@ class ProductModel {
     year = json['year'];
     milage = json['milage'];
     price = json['price'];
-    swipeOrSell = json['swipeOrSell'];
-    onlySell = json['onlySell'];
     phoneNo = json['phoneNo'];
     title = json['title'];
     description = json['description'];
@@ -82,8 +76,6 @@ class ProductModel {
     data['year'] = year;
     data['milage'] = milage;
     data['price'] = price;
-    data['swipeOrSell'] = swipeOrSell;
-    data['onlySell'] = onlySell;
     data['phoneNo'] = phoneNo;
     data['title'] = title;
     data['description'] = description;

@@ -15,7 +15,9 @@ class ChatRoomViewModel extends BaseViewModel {
   ChatMember? senderMember;
   ChatMember? receiverMember;
   TextEditingController messageController = TextEditingController();
-  onViewModelReady(ChatMember senderMember, ChatMember receiverMember) {
+  onViewModelReady(
+      ChatMember senderMember, ChatMember receiverMember, String? smsText) {
+    messageController.text = smsText ?? "";
     this.senderMember = senderMember;
     this.receiverMember = receiverMember;
   }

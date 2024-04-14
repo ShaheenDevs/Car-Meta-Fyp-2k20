@@ -9,3 +9,8 @@ sharedPrefRead(key) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   return prefs.getString(key);
 }
+
+sharedPrefClear() async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.clear();
+}

@@ -6,8 +6,8 @@ import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:car_meta/ui/widgets/button/icon_button.dart';
 import 'package:flutter/material.dart';
 
-Widget sparePartsCard(double height, int index, ProductModel productData, onPresses,
-    AuthModel? userData) {
+Widget sparePartsCard(double height, int index, ProductModel productData,
+    onPresses, AuthModel? userData) {
   bool isSaved = productData.saved?.contains(userData?.uID) ?? false;
   return SizedBox(
     height: height,
@@ -78,18 +78,10 @@ Widget sparePartsCard(double height, int index, ProductModel productData, onPres
             fontSize: 12,
           ),
         ),
-        Row(
-          children: [
-            Text(
-              "\$${productData.price}",
-              style: const TextStyle(
-                  color: kcPrimaryColorDark, fontWeight: FontWeight.w700),
-            ),
-            const Text(
-              ".00",
-              style: TextStyle(color: kcPrimaryColorDark),
-            ),
-          ],
+        Text(
+          "${productData.price} PKR",
+          style: const TextStyle(
+              color: kcPrimaryColorDark, fontWeight: FontWeight.w700),
         ),
       ],
     ),
