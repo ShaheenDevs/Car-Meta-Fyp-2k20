@@ -153,13 +153,13 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
                           color: Colors.black, size: 25),
                       hintText: 'Add Skill',
                       suffixIcon: GestureDetector(
-                        onTap: viewModel.updateSkill,
+                        onTap: viewModel.addSkill,
                         child: const Icon(Icons.add, color: Colors.black),
                       ),
                     ),
                     verticalSpaceSmall,
                     SizedBox(
-                      height: 30,
+                      height: 40,
                       child: Row(
                         children: [
                           ListView.builder(
@@ -169,7 +169,22 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
                               itemCount:
                                   (viewModel.userData?.skills ?? []).length,
                               itemBuilder: ((context, index) {
-                                return Text(viewModel.userData?.skills![index]);
+                                return Card(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(viewModel.userData?.skills![index]),
+                                      InkWell(
+                                          onTap: () {
+                                            viewModel.removeSkill(viewModel
+                                                .userData?.skills![index]);
+                                          },
+                                          child: const Icon(Icons.close))
+                                    ],
+                                  ),
+                                ));
                               })),
                         ],
                       ),
