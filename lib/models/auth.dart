@@ -9,9 +9,9 @@ class AuthModel {
   String? profile;
   String? password;
   String? cardNumber;
-  List? clas;
+  List? skills;
   String? address;
-  DateTime? dob;
+  String? dob;
   int? balance;
   DateTime? joinDate;
 
@@ -26,7 +26,7 @@ class AuthModel {
     this.profile,
     this.password,
     this.cardNumber,
-    this.clas,
+    this.skills,
     this.dob,
     this.address,
     this.balance,
@@ -44,8 +44,8 @@ class AuthModel {
     profile = json['profile'];
     password = json['password'];
     cardNumber = json['cardNumber'];
-    clas = json['clas'].runtimeType == String ? [json['clas']] : json['clas'];
-    joinDate = json['dob'] != null ? DateTime.parse(json['dob']) : null;
+    skills = json['skills'] ?? [];
+    dob = json['dob'].toString();
     address = json['address'];
     balance = json['balance'];
     // Parse 'joinDate' string into DateTime
@@ -65,7 +65,7 @@ class AuthModel {
     data['profile'] = profile;
     data['password'] = password;
     data['cardNumber'] = cardNumber;
-    data['clas'] = clas;
+    data['skills'] = skills;
     data['dob'] = joinDate?.toIso8601String();
     data['address'] = address;
     data['balance'] = balance;

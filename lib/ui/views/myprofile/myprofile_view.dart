@@ -4,10 +4,9 @@ import 'package:car_meta/ui/common/app_colors.dart';
 import 'package:car_meta/ui/common/app_image.dart';
 import 'package:car_meta/ui/common/reusable_widgets/citysheet.dart';
 import 'package:car_meta/ui/common/reusable_widgets/inputfield.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-
 import 'myprofile_viewmodel.dart';
 
 class MyprofileView extends StackedView<MyprofileViewModel> {
@@ -22,185 +21,171 @@ class MyprofileView extends StackedView<MyprofileViewModel> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-        resizeToAvoidBottomInset: true,
-        body: Container(
-          height: height,
-          width: width,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.white, Colors.white54],
-            ),
-          ),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Padding(
-              padding: const EdgeInsets.all(22),
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                SizedBox(height: height * 0.04),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.black,
-                            size: 25,
-                          )),
-                      SizedBox(width: width * 0.03),
-                      const Text(
-                        'My Profile',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: const Text("Update Profile"),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  viewModel.update();
+                },
+                child: const Text("Save"))
+          ],
+        ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.all(22),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+              SizedBox(height: height * 0.04),
+              Stack(
+                children: [
+                  viewModel.profile.isEmpty
+                      ? const CircleAvatar(
+                          radius: 60,
+                          backgroundImage: AssetImage(profile),
+                        )
+                      : CircleAvatar(
+                          radius: 60,
+                          backgroundImage: NetworkImage(viewModel.profile),
+                        ),
+                  Positioned(
+                    right: 3,
+                    bottom: 3,
+                    child: InkWell(
+                      onTap: viewModel.pickImage,
+                      child: const CircleAvatar(
+                        backgroundColor: kcLightGrey,
+                        radius: 17,
+                        child: Icon(Icons.camera),
                       ),
-                      SizedBox(width: width * 0.25),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text(
-                            'Done',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ],
+                    ),
                   ),
-                ),
-                Stack(
+                ],
+              ),
+              verticalSpaceMedium,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
                   children: [
-                    viewModel.profile.isEmpty
-                        ? const CircleAvatar(
-                            radius: 60,
-                            backgroundImage: AssetImage(profile),
-                          )
-                        : CircleAvatar(
-                            radius: 60,
-                            backgroundImage: NetworkImage(viewModel.profile),
-                          ),
-                    Positioned(
-                      right: 3,
-                      bottom: 3,
-                      child: InkWell(
-                        onTap: viewModel.pickImage,
-                        child: const CircleAvatar(
-                          backgroundColor: kcLightGrey,
-                          radius: 17,
-                          child: Icon(Icons.camera),
+                    customInputField(
+                      width: width,
+                      height: height,
+                      controller: viewModel.userNameController,
+                      prefixIcon: const Icon(Icons.person,
+                          color: Colors.black, size: 25),
+                      hintText: 'User Name',
+                    ),
+                    verticalSpaceSmall,
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return CitySelectionSheet();
+                          },
+                        ).then((selectedCity) {
+                          if (selectedCity != null) {
+                            viewModel.cityController.text = selectedCity;
+                            NotificationListener;
+                          }
+                        });
+                      },
+                      child: customInputField(
+                        width: width,
+                        height: height,
+                        controller: viewModel.cityController,
+                        prefixIcon: const Icon(Icons.location_on,
+                            color: Colors.black, size: 25),
+                        hintText: 'Location',
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CitySelectionSheet();
+                              },
+                            ).then((selectedCity) {
+                              if (selectedCity != null) {
+                                viewModel.cityController.text = selectedCity;
+                                NotificationListener;
+                              }
+                            });
+                          },
+                          child: const Icon(Icons.arrow_drop_down_outlined,
+                              color: Colors.black),
                         ),
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      viewModel.userData?.userName ?? "",
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                    verticalSpaceSmall,
+                    customInputField(
+                      width: width,
+                      height: height,
+                      controller: viewModel.phoneController,
+                      prefixIcon: const Icon(Icons.phone,
+                          color: Colors.black, size: 25),
+                      hintText: 'Phone Number',
                     ),
-                    SizedBox(height: height * 0.01),
+                    verticalSpaceSmall,
+                    customInputField(
+                      width: width,
+                      height: height,
+                      controller: viewModel.dobController,
+                      prefixIcon: const Icon(Icons.calendar_today,
+                          color: Colors.black, size: 25),
+                      hintText: 'Date of Birth',
+                    ),
+                    verticalSpaceSmall,
+                    customInputField(
+                      width: width,
+                      height: height,
+                      controller: viewModel.genderController,
+                      prefixIcon:
+                          const Icon(Icons.male, color: Colors.black, size: 25),
+                      hintText: 'Gender',
+                    ),
+                    verticalSpaceSmall,
+                    customInputField(
+                      width: width,
+                      height: height,
+                      controller: viewModel.skillController,
+                      prefixIcon: const Icon(Icons.work_history,
+                          color: Colors.black, size: 25),
+                      hintText: 'Add Skill',
+                      suffixIcon: GestureDetector(
+                        onTap: viewModel.updateSkill,
+                        child: const Icon(Icons.add, color: Colors.black),
+                      ),
+                    ),
+                    verticalSpaceSmall,
+                    SizedBox(
+                      height: 30,
+                      child: Row(
+                        children: [
+                          ListView.builder(
+                              shrinkWrap: true,
+                              padding: const EdgeInsets.only(left: 30),
+                              scrollDirection: Axis.horizontal,
+                              itemCount:
+                                  (viewModel.userData?.skills ?? []).length,
+                              itemBuilder: ((context, index) {
+                                return Text(viewModel.userData?.skills![index]);
+                              })),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-                SizedBox(height: height * 0.05),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              showModalBottomSheet(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return CitySelectionSheet();
-                                },
-                              ).then((selectedCity) {
-                                if (selectedCity != null) {
-                                  viewModel.cityController.text = selectedCity;
-                                  NotificationListener;
-                                }
-                              });
-                            },
-                            child: customInputField(
-                              width: width,
-                              height: height,
-                              controller: viewModel.cityController,
-                              prefixIcon: const Icon(Icons.location_on,
-                                  color: Colors.black, size: 25),
-                              hintText: 'Location',
-                              suffixIcon: GestureDetector(
-                                onTap: () {},
-                                child: const Icon(
-                                    Icons.arrow_drop_down_outlined,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: height * 0.03),
-                      Row(
-                        children: [
-                          customInputField(
-                            width: width,
-                            height: height,
-                            prefixIcon: const Icon(Icons.phone,
-                                color: Colors.black, size: 25),
-                            hintText: 'Phone Number',
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: height * 0.03),
-                      Row(
-                        children: [
-                          customInputField(
-                            width: width,
-                            height: height,
-                            prefixIcon: const Icon(Icons.calendar_today,
-                                color: Colors.black, size: 25),
-                            hintText: 'Date of Birth',
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: height * 0.03),
-                      Row(
-                        children: [
-                          customInputField(
-                            width: width,
-                            height: height,
-                            prefixIcon: const Icon(Icons.male,
-                                color: Colors.black, size: 25),
-                            hintText: 'Gender',
-                            // suffixIcon: GestureDetector(
-                            //   onTap: () {
-                            //     // Code to execute when the suffix icon is tapped
-                            //   },
-                            //   child: Icon(Icons.arrow_drop_down_outlined, size: 35, color: Colors.white),
-                            // ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ]),
-            ),
+              )
+            ]),
           ),
         ));
+  }
+
+  @override
+  void onViewModelReady(MyprofileViewModel viewModel) {
+    viewModel.onViewModelReady();
+    super.onViewModelReady(viewModel);
   }
 
   @override
