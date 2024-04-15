@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:car_meta/ui/common/app_image.dart';
+import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -32,7 +33,9 @@ class OtherProfileView extends StackedView<OtherProfileViewModel> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(width: MediaQuery.of(context).size.width,),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                  ),
                   (viewModel.otherUserData?.profile ?? "").isEmpty
                       ? const CircleAvatar(
                           radius: 50,
@@ -47,23 +50,29 @@ class OtherProfileView extends StackedView<OtherProfileViewModel> {
                   Row(
                     children: [
                       Icon(Icons.person),
-                      SizedBox(width: 20,),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Text('Username: ${viewModel.otherUserData?.userName}'),
                     ],
                   ),
                   SizedBox(height: 10),
                   Row(
                     children: [
-                       Icon(Icons.email),
-                      SizedBox(width: 20,),
+                      Icon(Icons.email),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Text('Email: ${viewModel.otherUserData?.email}'),
                     ],
                   ),
                   SizedBox(height: 10),
                   Row(
                     children: [
-                       Icon(Icons.phone),
-                      SizedBox(width: 20,),
+                      Icon(Icons.phone),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Text('Phone: ${viewModel.otherUserData?.phoneNo}'),
                     ],
                   ),
@@ -75,24 +84,54 @@ class OtherProfileView extends StackedView<OtherProfileViewModel> {
                   SizedBox(height: 10),
                   Row(
                     children: [
-                      Container(height: 30,width: 25,
-                      child: Image.asset("assets/mechanic.png"),
+                      SizedBox(
+                        height: 30,
+                        width: 25,
+                        child: Image.asset("assets/mechanic.png"),
                       ),
                       //  Icon(Icons.person),
-                      SizedBox(width: 20,),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Text('Mechanic: ${viewModel.otherUserData?.isMechanic}'),
                     ],
                   ),
                   SizedBox(height: 10),
                   Row(
                     children: [
-                      Container(height: 30,width: 25,
-                      child: Image.asset("assets/petrol_pump_icon.png"),
+                      SizedBox(
+                        height: 30,
+                        width: 25,
+                        child: Image.asset("assets/petrol_pump_icon.png"),
                       ),
-                      SizedBox(width: 20,),
-                      Text('Petrol Pump: ${viewModel.otherUserData?.isPetrolPump}'),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                          'Petrol Pump: ${viewModel.otherUserData?.isPetrolPump}'),
                     ],
                   ),
+                  verticalSpaceSmall,
+                  SizedBox(
+                    height: 40,
+                    child: Row(
+                      children: [
+                        Text(" Skill:"),
+                        ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount:
+                                (viewModel.userData?.skills ?? []).length,
+                            itemBuilder: ((context, index) {
+                              return Card(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(viewModel.userData?.skills![index]),
+                              ));
+                            })),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
