@@ -79,7 +79,7 @@ class SparePartsView extends StackedView<SparePartsViewModel> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        viewModel.onChangeType("Hondai");
+                        viewModel.onChangeType("Hyundai");
                       },
                       child: const LogoCards(
                           imagePath: 'assets/hondai.png', colr: Colors.white),
