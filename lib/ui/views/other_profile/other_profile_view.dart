@@ -30,8 +30,9 @@ class OtherProfileView extends StackedView<OtherProfileViewModel> {
           : Padding(
               padding: EdgeInsets.all(16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Container(width: MediaQuery.of(context).size.width,),
                   (viewModel.otherUserData?.profile ?? "").isEmpty
                       ? const CircleAvatar(
                           radius: 50,
@@ -43,20 +44,55 @@ class OtherProfileView extends StackedView<OtherProfileViewModel> {
                               viewModel.otherUserData?.profile ?? ""),
                         ),
                   SizedBox(height: 20),
-                  Text('Username: ${viewModel.otherUserData?.userName}'),
+                  Row(
+                    children: [
+                      Icon(Icons.person),
+                      SizedBox(width: 20,),
+                      Text('Username: ${viewModel.otherUserData?.userName}'),
+                    ],
+                  ),
                   SizedBox(height: 10),
-                  Text('Email: ${viewModel.otherUserData?.email}'),
+                  Row(
+                    children: [
+                       Icon(Icons.email),
+                      SizedBox(width: 20,),
+                      Text('Email: ${viewModel.otherUserData?.email}'),
+                    ],
+                  ),
                   SizedBox(height: 10),
-                  Text('Phone: ${viewModel.otherUserData?.phoneNo}'),
+                  Row(
+                    children: [
+                       Icon(Icons.phone),
+                      SizedBox(width: 20,),
+                      Text('Phone: ${viewModel.otherUserData?.phoneNo}'),
+                    ],
+                  ),
                   // SizedBox(height: 10),
                   // Text('Date of Birth: ${DateTime.parse('dob').toLocal()}'),
                   // SizedBox(height: 10),
                   // Text(
                   //     'Join Date: ${DateTime.parse('joinDate').toLocal()}'),
                   SizedBox(height: 10),
-                  Text('Mechanic: ${viewModel.otherUserData?.isMechanic}'),
+                  Row(
+                    children: [
+                      Container(height: 30,width: 25,
+                      child: Image.asset("assets/mechanic.png"),
+                      ),
+                      //  Icon(Icons.person),
+                      SizedBox(width: 20,),
+                      Text('Mechanic: ${viewModel.otherUserData?.isMechanic}'),
+                    ],
+                  ),
                   SizedBox(height: 10),
-                  Text('Petrol Pump: ${viewModel.otherUserData?.isPetrolPump}'),
+                  Row(
+                    children: [
+                      Container(height: 30,width: 25,
+                      child: Image.asset("assets/petrol_pump_icon.png"),
+                      ),
+                      SizedBox(width: 20,),
+                      Text('Petrol Pump: ${viewModel.otherUserData?.isPetrolPump}'),
+                    ],
+                  ),
                 ],
               ),
             ),
