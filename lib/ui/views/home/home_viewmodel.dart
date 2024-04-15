@@ -16,6 +16,16 @@ class HomeViewModel extends ReactiveViewModel {
   AuthModel? get userData => _authService.userData;
 
   List<ProductModel> get allProducts => _productService.allProducts;
+  onViewModelReady() async {
+    delayed();
+    notifyListeners();
+  }
+
+  delayed() async {
+    await Future.delayed(const Duration(seconds: 3));
+    onViewModelReady();
+  }
+
   onChangeSearch(e) {}
 
   savedAndUnsavedProduct(index, isSaved) async {

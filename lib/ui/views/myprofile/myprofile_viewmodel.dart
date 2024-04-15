@@ -42,7 +42,7 @@ class MyprofileViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  updateSkill() {
+  addSkill() async {
     String e = skillController.text.trim();
     skillController.clear();
     if (userData!.skills!.contains(e)) {
@@ -52,6 +52,21 @@ class MyprofileViewModel extends BaseViewModel {
       userData!.skills!.add(e);
       log("$e added to the array.");
     }
+    notifyListeners();
+    await _authService.updateUserByMap({"skills": userData?.skills ?? []});
+  }
+
+  removeSkill(e) async {
+    skillController.clear();
+    if (userData!.skills!.contains(e)) {
+      userData!.skills!.remove(e);
+      log("$e removed from the array.");
+    } else {
+      userData!.skills!.add(e);
+      log("$e added to the array.");
+    }
+    notifyListeners();
+    await _authService.updateUserByMap({"skills": userData?.skills ?? []});
   }
 
   update() async {
