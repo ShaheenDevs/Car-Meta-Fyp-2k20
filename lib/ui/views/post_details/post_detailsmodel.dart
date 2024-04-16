@@ -4,6 +4,7 @@ import 'package:car_meta/models/auth.dart';
 import 'package:car_meta/models/chat_member.dart';
 import 'package:car_meta/models/product.dart';
 import 'package:car_meta/services/auth_service.dart';
+import 'package:car_meta/services/product_service.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stacked/stacked.dart';
 
@@ -11,7 +12,7 @@ class PostDetailsViewModel extends ReactiveViewModel {
   final _navigationService = locator<NavigationService>();
   // final _bottomSheetService = locator<BottomSheetService>();
   final _authService = locator<AuthService>();
-  // final _productService = locator<ProductService>();
+  final _productService = locator<ProductService>();
   AuthModel? get userData => _authService.userData;
 
   onViewModelReady() async {}
@@ -33,6 +34,11 @@ class PostDetailsViewModel extends ReactiveViewModel {
   // }
   back() {
     _navigationService.back();
+  }
+
+  deletePost(id) async {
+    await _productService.deletePost(id);
+    back();
   }
 
   navigateToChatRoomView(ProductModel e) {

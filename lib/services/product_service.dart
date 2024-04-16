@@ -168,4 +168,8 @@ class ProductService with ListenableServiceMixin {
   removeMechanic() {
     firestore.collection("mechanic").doc(userData?.uID).delete();
   }
+
+  deletePost(id) async {
+    await firestore.collection('products').doc(id).delete();
+  }
 }

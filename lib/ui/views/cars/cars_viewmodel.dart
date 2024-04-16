@@ -70,7 +70,8 @@ class CarsViewModel extends BaseViewModel {
     onChangeShowAbleList();
   }
 
-  navigateToPostDetailsView(product) {
-    _navigationService.navigateToPostDetailsView(product: product);
+  navigateToPostDetailsView(product) async {
+    await _navigationService.navigateToPostDetailsView(product: product);
+    onViewModelReady();
   }
 }

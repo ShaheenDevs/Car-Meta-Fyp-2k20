@@ -2,6 +2,7 @@ import 'package:car_meta/app/app.locator.dart';
 import 'package:car_meta/models/auth.dart';
 import 'package:car_meta/models/product.dart';
 import 'package:car_meta/services/auth_service.dart';
+import 'package:car_meta/services/extention.dart';
 import 'package:car_meta/services/picker_service.dart';
 import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/services/snak_bar.dart';
@@ -63,6 +64,7 @@ class PostViewModel extends BaseViewModel {
       product.type = selectedProductType;
       product.subType = selectedBrand;
       product.createOn = DateTime.now();
+      product.rating = getRandenNumber();
       product.saller = SallerModel(
           uId: userData?.uID,
           name: userData?.userName,

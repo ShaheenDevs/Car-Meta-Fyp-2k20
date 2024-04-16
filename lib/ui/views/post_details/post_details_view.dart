@@ -34,14 +34,30 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
                   ),
                 ),
                 Positioned(
-                    top: 30,
-                    left: 20,
-                    child: IconButton(
-                      onPressed: viewModel.back,
-                      icon: const CircleAvatar(
-                        child: Icon(Icons.arrow_back),
-                      ),
-                    )),
+                  top: 30,
+                  left: 20,
+                  child: IconButton(
+                    onPressed: viewModel.back,
+                    icon: const CircleAvatar(
+                      child: Icon(Icons.arrow_back),
+                    ),
+                  ),
+                ),
+                if (viewModel.userData?.uID == product.saller?.uId)
+                  Positioned(
+                      top: 30,
+                      right: 20,
+                      child: IconButton(
+                        onPressed: () {
+                          viewModel.deletePost(product.id);
+                        },
+                        icon: const CircleAvatar(
+                          child: Icon(
+                            Icons.delete,
+                            color: Colors.red,
+                          ),
+                        ),
+                      )),
               ],
             ),
             verticalSpaceSmall,

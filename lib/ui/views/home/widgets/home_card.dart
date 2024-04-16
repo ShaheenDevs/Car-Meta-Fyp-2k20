@@ -56,7 +56,7 @@ Widget homeCard(double height, int index, ProductModel productData, onPresses,
               Row(
                 children: [
                   MyIconButton(
-                    title: "4.5",
+                    title: productData.rating ?? "",
                     icon: star,
                     onTap: () {},
                     iconHeight: 12,

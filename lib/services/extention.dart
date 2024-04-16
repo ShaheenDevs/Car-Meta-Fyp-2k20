@@ -1,3 +1,5 @@
+import 'dart:math';
+
 String timeAgo(DateTime d) {
   Duration diff = DateTime.now().difference(d);
   if (diff.inSeconds < 0) {
@@ -30,4 +32,9 @@ String mergeStrings(String str1, String str2) {
   } else {
     return str2 + str1;
   }
+}
+
+getRandenNumber() {
+  Random random = Random();
+  return "4.${random.nextInt(5)}";
 }

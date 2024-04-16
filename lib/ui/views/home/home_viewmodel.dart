@@ -44,8 +44,9 @@ class HomeViewModel extends ReactiveViewModel {
     _navigationService.navigateToCarsView();
   }
 
-  navigateToPostDetailsView(product) {
-    _navigationService.navigateToPostDetailsView(product: product);
+  navigateToPostDetailsView(product) async {
+    await _navigationService.navigateToPostDetailsView(product: product);
+    onViewModelReady();
   }
 
   navigateToSpareParts() {

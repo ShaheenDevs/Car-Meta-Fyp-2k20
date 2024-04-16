@@ -16,7 +16,7 @@ class HelpSupportView extends StackedView<HelpSupportViewModel> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text("Hellp and Support"),
+        title: const Text("Hellp and Support"),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -29,9 +29,7 @@ class HelpSupportView extends StackedView<HelpSupportViewModel> {
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
         child: Column(
           children: [
-            SizedBox(
-              height: 30,
-            ),
+            const SizedBox(height: 30),
             const Text(
               'HAVE ANY QUERY?',
               style: TextStyle(
@@ -53,7 +51,7 @@ class HelpSupportView extends StackedView<HelpSupportViewModel> {
                   fontSize: 33,
                   fontWeight: FontWeight.w600),
             ),
-            SizedBox(
+            const SizedBox(
               height: 18,
             ),
             reusableTextFeild(
@@ -67,11 +65,11 @@ class HelpSupportView extends StackedView<HelpSupportViewModel> {
               height: 22,
             ),
             reusableTextFeild(
-                "Message", Icons.message, true, viewModel.messageCtrl),
+                "Message", Icons.message, false, viewModel.messageCtrl),
             const SizedBox(
               height: 22,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Send"))
+            ElevatedButton(onPressed: viewModel.sent, child: const Text("Send"))
           ],
         ),
       ),
