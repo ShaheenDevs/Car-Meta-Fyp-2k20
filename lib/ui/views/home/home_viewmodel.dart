@@ -15,9 +15,11 @@ class HomeViewModel extends ReactiveViewModel {
   final _authService = locator<AuthService>();
   AuthModel? get userData => _authService.userData;
 
+  List<ProductModel> allSearchProducts = [];
   List<ProductModel> get allProducts => _productService.allProducts;
   onViewModelReady() async {
     delayed();
+    allSearchProducts = allProducts;
     notifyListeners();
   }
 
@@ -26,7 +28,16 @@ class HomeViewModel extends ReactiveViewModel {
     onViewModelReady();
   }
 
-  onChangeSearch(e) {}
+  onChangeSearch(i) {
+    if (i.isNotEmpty) {
+      allSearchProducts = allProducts.where((e) {
+        return (e.title ?? "").toLowerCase().contains(i.toLowerCase());
+      }).toList();
+    } else {
+      allSearchProducts = allProducts;
+    }
+    notifyListeners();
+  }
 
   savedAndUnsavedProduct(index, isSaved) async {
     ProductModel product = allProducts[index];

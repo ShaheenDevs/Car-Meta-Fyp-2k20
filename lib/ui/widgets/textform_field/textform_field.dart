@@ -43,7 +43,9 @@ class TextformField extends StackedView<TextformFieldModel> {
               fontSize: 14, color: Colors.black54, fontWeight: FontWeight.w600),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
-          border: InputBorder.none,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(9.0),
+              borderSide: const BorderSide(width: 1)),
           alignLabelWithHint: true,
           suffixIcon: Padding(
             padding: const EdgeInsets.only(top: 10),

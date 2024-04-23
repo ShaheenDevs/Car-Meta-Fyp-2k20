@@ -5,6 +5,7 @@ import 'package:car_meta/models/product.dart';
 import 'package:car_meta/services/auth_service.dart';
 import 'package:car_meta/services/product_service.dart';
 import 'package:car_meta/services/snak_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -13,6 +14,10 @@ class SparePartsViewModel extends BaseViewModel {
   final _productService = locator<ProductService>();
   final _authService = locator<AuthService>();
   AuthModel? get userData => _authService.userData;
+
+  TextEditingController startPrice = TextEditingController();
+  TextEditingController endPrice = TextEditingController();
+  bool showFilterField = false;
 
   List<ProductModel> get allCarProducts => _productService.allProducts
       .where((e) => e.type == "Spare Parts")
@@ -56,6 +61,19 @@ class SparePartsViewModel extends BaseViewModel {
     } else {
       showAbleList = allCarProducts;
     }
+    if (endPrice.text.isNotEmpty) {
+      showAbleList
+          .removeWhere((e) => e.price! < int.parse(endPrice.text.trim()));
+    }
+    if (startPrice.text.isNotEmpty) {
+      showAbleList
+          .removeWhere((e) => e.price! < int.parse(startPrice.text.trim()));
+    }
+    notifyListeners();
+  }
+
+  onChangeFilterField() {
+    showFilterField = !showFilterField;
     notifyListeners();
   }
 

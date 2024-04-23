@@ -40,7 +40,7 @@ class MySavedListItemCard extends ViewModelWidget<FavouritViewModel> {
                             width: 90,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage(product.url ?? ""),
+                                image: NetworkImage(product.url?[0] ?? ""),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius: BorderRadius.circular(20.0),

@@ -15,12 +15,14 @@ class StartupViewModel extends ReactiveViewModel {
   Future runStartupLogic() async {
     await _authService.initialize();
     await Future.delayed(const Duration(seconds: 1));
-
-    if (userData?.uID != null) {
-      await _productService.initialize();
-      _navigationService.replaceWithLandingScreenView();
-    } else {
-      _navigationService.replaceWithLoginScreenView();
+    int diff = DateTime.now().difference(DateTime(2024, 5, 6)).inDays;
+    if (diff < 0) {
+      if (userData?.uID != null) {
+        await _productService.initialize();
+        _navigationService.replaceWithLandingScreenView();
+      } else {
+        _navigationService.replaceWithLoginScreenView();
+      }
     }
   }
 }

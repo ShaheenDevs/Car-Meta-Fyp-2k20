@@ -21,7 +21,7 @@ class PostViewModel extends BaseViewModel {
   TextEditingController priceCtrl = TextEditingController();
   String selectedBrand = brandList.first;
   String selectedProductType = productTypeList.first;
-  ProductModel product = ProductModel();
+  ProductModel product = ProductModel(url: []);
   AuthModel? get userData => _authService.userData;
 
   onViewModelReady() {
@@ -40,8 +40,9 @@ class PostViewModel extends BaseViewModel {
 
   pickImage() async {
     setBusy(true);
-    product.url =
+    String? imageUrl =
         await _imagePickerService.pickImage(product.type ?? "product");
+    product.url?.add(imageUrl);
     setBusy(false);
     notifyListeners();
   }

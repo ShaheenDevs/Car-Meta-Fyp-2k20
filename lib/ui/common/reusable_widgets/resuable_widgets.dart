@@ -48,17 +48,14 @@ Widget signInSignUpButton(BuildContext context, bool isLogin) {
 }
 
 TextField searchTextFeild(
-    String text, IconData icon, Function(String) onChanged) {
+    String text, Widget icon, Function(String) onChanged) {
   return TextField(
     onChanged: onChanged,
     enableSuggestions: true,
     cursorColor: Colors.black,
     style: TextStyle(color: Colors.black.withOpacity(0.9)),
     decoration: InputDecoration(
-      suffixIcon: Icon(
-        icon,
-        color: Colors.black87,
-      ),
+      suffixIcon: icon,
       labelText: text,
       labelStyle: TextStyle(color: Colors.black.withOpacity(0.9)),
       filled: true,

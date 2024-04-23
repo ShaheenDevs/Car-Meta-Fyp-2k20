@@ -10,7 +10,7 @@ class ProductModel {
   String? phoneNo;
   String? title;
   String? description;
-  String? url;
+  List? url;
   String? rating;
   List? saved;
   DateTime? createOn;
@@ -52,7 +52,7 @@ class ProductModel {
     phoneNo = json['phoneNo'];
     title = json['title'];
     description = json['description'];
-    url = json['url'];
+    url = json['url'].runtimeType == List ? json['url'] : [json['url']];
     rating = json['rating'];
     saved = json['saved'] ?? [];
     createOn =

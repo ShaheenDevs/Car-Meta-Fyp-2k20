@@ -2,6 +2,7 @@ import 'package:car_meta/ui/common/reusable_widgets/logocard.dart';
 import 'package:car_meta/ui/common/reusable_widgets/resuable_widgets.dart';
 import 'package:car_meta/ui/common/ui_helpers.dart';
 import 'package:car_meta/ui/views/spare_parts/widgets/spare_parts_card.dart';
+import 'package:car_meta/ui/widgets/textform_field/textform_field.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -24,8 +25,38 @@ class SparePartsView extends StackedView<SparePartsViewModel> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              searchTextFeild('Search Spare Parts', Icons.search_outlined,
+              searchTextFeild(
+                  'Search Spare Parts',
+                  GestureDetector(
+                    onTap: viewModel.onChangeFilterField,
+                    child: const Icon(
+                      Icons.line_style,
+                      color: Colors.black87,
+                    ),
+                  ),
                   viewModel.onChangeSearch),
+              if (viewModel.showFilterField)
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: TextformField(
+                    title: "Start Price",
+                    ctrl: viewModel.startPrice,
+                    onChanged: (e) {
+                      viewModel.onChangeShowAbleList();
+                    },
+                  ),
+                ),
+              if (viewModel.showFilterField)
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: TextformField(
+                    title: "End Price",
+                    ctrl: viewModel.endPrice,
+                    onChanged: (e) {
+                      viewModel.onChangeShowAbleList();
+                    },
+                  ),
+                ),
               verticalSpaceSmall,
               const Row(
                 children: [

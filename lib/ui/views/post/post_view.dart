@@ -28,22 +28,44 @@ class PostView extends StackedView<PostViewModel> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  GestureDetector(
-                    onTap: viewModel.pickImage,
-                    child: Container(
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.blueAccent),
-                        image: DecorationImage(
-                          image: NetworkImage(viewModel.product.url ?? ""),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      child: const Icon(Icons.add_a_photo,
-                          size: 50, color: Colors.grey),
-                    ),
+                  SizedBox(
+                    height: 90,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: (viewModel.product.url ?? []).length + 1,
+                        itemBuilder: (context, index) {
+                          if (index == 0) {
+                            return GestureDetector(
+                              onTap: viewModel.pickImage,
+                              child: Container(
+                                width: 90,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.blueAccent),
+                                ),
+                                child: const Icon(Icons.add_a_photo,
+                                    size: 50, color: Colors.grey),
+                              ),
+                            );
+                          } else {
+                            return Container(
+                              width: 90,
+                              margin: const EdgeInsets.only(left: 8),
+                              decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.blueAccent),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      viewModel.product.url?[index - 1] ?? ""),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            );
+                          }
+                        }),
                   ),
                   const SizedBox(height: 20),
                   TextformField(
@@ -86,7 +108,8 @@ class PostView extends StackedView<PostViewModel> {
               ),
             ),
           ),
-       if(viewModel.isBusy) const Center(child: CircularProgressIndicator())],
+          if (viewModel.isBusy) const Center(child: CircularProgressIndicator())
+        ],
       ),
     );
   }

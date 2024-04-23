@@ -22,7 +22,12 @@ class HomeView extends StackedView<HomeViewModel> {
             const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: searchTextFeild("Search Products", Icons.search_outlined,
+              child: searchTextFeild(
+                  "Search Products",
+                  const Icon(
+                    Icons.search_outlined,
+                    color: Colors.black87,
+                  ),
                   viewModel.onChangeSearch),
             ),
             const SizedBox(height: 10),
@@ -134,14 +139,14 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: viewModel.allProducts.length,
+                  itemCount: viewModel.allSearchProducts.length,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
                         viewModel.navigateToPostDetailsView(
-                            viewModel.allProducts[index]);
+                            viewModel.allSearchProducts[index]);
                       },
-                      child: homeCard(210, index, viewModel.allProducts[index],
+                      child: homeCard(210, index, viewModel.allSearchProducts[index],
                           viewModel.savedAndUnsavedProduct, viewModel.userData),
                     );
                   },

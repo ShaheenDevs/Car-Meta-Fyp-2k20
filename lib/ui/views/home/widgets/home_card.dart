@@ -21,7 +21,7 @@ Widget homeCard(double height, int index, ProductModel productData, onPresses,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(productData.url ?? ""),
+              image: NetworkImage(productData.url?[0] ?? ""),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(20.0),
