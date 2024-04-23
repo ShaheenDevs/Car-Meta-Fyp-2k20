@@ -28,22 +28,32 @@ class PostView extends StackedView<PostViewModel> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  GestureDetector(
-                    onTap: viewModel.pickImage,
-                    child: Container(
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.blueAccent),
-                        image: DecorationImage(
-                          image: NetworkImage(viewModel.product.url ?? ""),
-                          fit: BoxFit.cover,
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.width*0.50* viewModel.itemCount,
+                    child: ListView.builder(
+                      itemCount: viewModel.itemCount,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                    
+                      return GestureDetector(
+                        onTap: viewModel.pickImage,
+                        child: Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.blueAccent),
+                            image: DecorationImage(
+                              image: NetworkImage(viewModel.product.url ?? ""),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: const Icon(Icons.add_a_photo,
+                              size: 50, color: Colors.grey),
                         ),
-                      ),
-                      child: const Icon(Icons.add_a_photo,
-                          size: 50, color: Colors.grey),
-                    ),
+                      );
+                    }),
                   ),
                   const SizedBox(height: 20),
                   TextformField(
@@ -86,7 +96,8 @@ class PostView extends StackedView<PostViewModel> {
               ),
             ),
           ),
-       if(viewModel.isBusy) const Center(child: CircularProgressIndicator())],
+          if (viewModel.isBusy) const Center(child: CircularProgressIndicator())
+        ],
       ),
     );
   }

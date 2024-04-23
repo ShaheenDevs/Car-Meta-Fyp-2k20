@@ -23,6 +23,7 @@ class PostViewModel extends BaseViewModel {
   String selectedProductType = productTypeList.first;
   ProductModel product = ProductModel();
   AuthModel? get userData => _authService.userData;
+   int itemCount = 1;
 
   onViewModelReady() {
     notifyListeners();

@@ -25,12 +25,23 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
             Stack(
               children: [
                 Container(
-                  height: 320,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(product.url ?? ""),
-                      fit: BoxFit.cover,
-                    ),
+                  height: 270,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    itemCount: 10,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 320, // Adjust this as needed
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(product.url ?? ""),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
                 Positioned(
@@ -45,19 +56,20 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
                 ),
                 if (viewModel.userData?.uID == product.saller?.uId)
                   Positioned(
-                      top: 30,
-                      right: 20,
-                      child: IconButton(
-                        onPressed: () {
-                          viewModel.deletePost(product.id);
-                        },
-                        icon: const CircleAvatar(
-                          child: Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                          ),
+                    top: 30,
+                    right: 20,
+                    child: IconButton(
+                      onPressed: () {
+                        viewModel.deletePost(product.id);
+                      },
+                      icon: const CircleAvatar(
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.red,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
               ],
             ),
             verticalSpaceSmall,
