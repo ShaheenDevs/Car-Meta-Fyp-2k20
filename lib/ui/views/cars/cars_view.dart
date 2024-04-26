@@ -134,7 +134,7 @@ class CarsView extends StackedView<CarsViewModel> {
                         viewModel.onChangeType("Nissan");
                       },
                       child: const LogoCards(
-                          imagePath: 'assets/Nisan.jpeg', colr: Colors.white),
+                          imagePath: 'assets/nisan.jpeg', colr: Colors.white),
                     ),
                      GestureDetector(
                       onTap: () {
