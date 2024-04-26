@@ -115,6 +115,34 @@ class CarsView extends StackedView<CarsViewModel> {
                       child: const LogoCards(
                           imagePath: 'assets/hondai.png', colr: Colors.white),
                     ),
+                     GestureDetector(
+                      onTap: () {
+                        viewModel.onChangeType("Mercedes");
+                      },
+                      child: const LogoCards(
+                          imagePath: 'assets/mercedes.jpeg', colr: Colors.white),
+                    ),
+                     GestureDetector(
+                      onTap: () {
+                        viewModel.onChangeType("Audi");
+                      },
+                      child: const LogoCards(
+                          imagePath: 'assets/audi.jpeg', colr: Colors.white),
+                    ),
+                     GestureDetector(
+                      onTap: () {
+                        viewModel.onChangeType("Nissan");
+                      },
+                      child: const LogoCards(
+                          imagePath: 'assets/Nisan.jpeg', colr: Colors.white),
+                    ),
+                     GestureDetector(
+                      onTap: () {
+                        viewModel.onChangeType("BMW");
+                      },
+                      child: const LogoCards(
+                          imagePath: 'assets/bmw.jpeg', colr: Colors.white),
+                    ),
                   ],
                 ),
               ),
